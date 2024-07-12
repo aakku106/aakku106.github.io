@@ -1,0 +1,65 @@
+.desktop {
+  background-color: #060310;
+  color: #f1bf85;
+  padding: 0vw;
+  border-radius: 0vw;
+  cursor: default;
+}
+.desktop ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2vw 5vw;
+  margin-top: 0vw !important;
+}
+.desktop ul li {
+  list-style: none;
+}
+.desktop ul li a {
+  text-decoration: none;
+  color: #f1bf85;
+}
+.desktop ul li a:hover {
+  background-color: #eca757;
+}
+.desktop ul .content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1.2vw;
+}
+.desktop ul .content li {
+  background-color: #060310;
+  color: #f1bf85;
+  padding: 0.5vw 1vw;
+  border-radius: 0.5vw;
+  cursor: pointer;
+}
+.desktop ul .content li:hover {
+  background-color: #eca757;
+  color: #060310;
+}
+.desktop .social {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 19vw;
+}
+
+.mobile {
+  display: none;
+}
+@media (max-width: 768px) {
+  .mobile {
+    display: block;
+  }
+}
+
+body {
+  background-color: #c77d27;
+  padding: 0vw;
+  margin: 0vw;
+  font-family: "Reenie Beanie", cursive;
+  font-size: xxx-large;
+  color: #f1bf85;
+}/*# sourceMappingURL=style.css.map */

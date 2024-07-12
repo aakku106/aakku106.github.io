@@ -1,0 +1,47 @@
+.desktop {
+  @include nav($secondary-bg-color, $primary-text-color, 0vw, 0vw, default);
+  ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2vw 5vw;
+    margin-top: 0vw !important;
+
+    li {
+      list-style: none;
+      a {
+        text-decoration: none;
+        color: $primary-text-color;
+        // padding: 10px;
+        &:hover {
+          background-color: darken($primary-hover-bg-color, 10%);
+        }
+      }
+    }
+    .content {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 1.2vw;
+      li {
+        @include button(
+          $secondary-bg-color,
+          $primary-hover-bg-color,
+          $primary-text-color,
+          $secondary-hover-text-color,
+          $primary-border-color,
+          $primary-border-color,
+          0.5vw 1vw,
+          0.5vw,
+          pointer
+        );
+      }
+    }
+  }
+  .social {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 19vw;
+  }
+}

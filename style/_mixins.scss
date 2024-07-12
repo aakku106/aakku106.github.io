@@ -10,26 +10,25 @@
   $button-cursor
 ) {
   background-color: $button-bg-color;
-  border: 1px solid $button-color;
+  // border: 1px dotted $button-color;
   color: $button-color;
   padding: $button-padding;
   border-radius: $button-border-radius;
   cursor: $button-cursor;
   &:hover {
-    background-color: darken($button-bg-color, 10%);
+    background-color: darken($button-hover-bg-color, 10%);
+    color: $button-hover-color;
   }
 }
 
 @mixin nav(
   $nav-bg-color,
   $nav-color,
-  $nav-border-color,
   $nav-padding,
   $nav-border-radius,
   $nav-cursor
 ) {
   background-color: $nav-bg-color;
-  border: 1px solid $nav-border-color;
   color: $nav-color;
   padding: $nav-padding;
   border-radius: $nav-border-radius;

@@ -1,2 +1,13 @@
 @import "variables";
 @import "mixins";
+@import "desktopnavbar";
+@import "mobileNavBar";
+
+body {
+  background-color: $primary-bg-color;
+  padding: 0vw;
+  margin: 0vw;
+  font-family: "Reenie Beanie", cursive;
+  font-size: xxx-large;
+  color: $primary-text-color;
+}
