@@ -157,7 +157,7 @@
   transition: all 0.3s ease-in-out;
 }
 .mobile .lower.show {
-  height: 26vh !important;
+  height: 100vh !important;
   width: 60vw;
   bottom: auto;
   top: 0;
@@ -165,7 +165,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  animation: slideIn 0.3s forwards;
+  animation: slideIn 0.9s forwards;
 }
 .mobile .lower.show .close {
   display: block;
@@ -175,6 +175,9 @@
 }
 .mobile .lower.show .close img {
   height: 8vw;
+}
+.mobile .lower {
+  animation: fadein 0.9s forwards;
 }
 
 .overlay {

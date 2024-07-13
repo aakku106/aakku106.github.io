@@ -54,75 +54,78 @@
         margin-right: 1vw;
       }
 
-        span {
-          color: $primary-color;
-          font-size: 4vw;
-          font-weight: bold;
-          transition: all 0.3s ease-in-out;
-        }
-      }
-
-      .close {
-        display: none;
+      span {
+        color: $primary-color;
+        font-size: 4vw;
+        font-weight: bold;
         transition: all 0.3s ease-in-out;
       }
     }
 
-    .lower.show {
-      height: 26vh !important;
-      width: 60vw;
-      bottom: auto;
-      top: 0;
-      right: 0;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      animation: slideIn 0.3s forwards;
+    .close {
+      display: none;
+      transition: all 0.3s ease-in-out;
+    }
+  }
 
-      .close {
-        display: block;
-        position: absolute;
-        top: 2vw;
-        right: 0vw !important;
+  .lower.show {
+    height: 100vh !important;
+    width: 60vw;
+    bottom: auto;
+    top: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    animation: slideIn 0.9s forwards;
 
-        img {
-          height: 8vw;
-        }
+    .close {
+      display: block;
+      position: absolute;
+      top: 2vw;
+      right: 0vw !important;
+
+      img {
+        height: 8vw;
       }
     }
-    // .lower.hide {
+  }
+  .lower.hide {
     //   height: 0;
-    //   animation: slideOut 0.3s forwards;
-    // }
+    // animation: slideOut 0.3s forwards;
   }
+  .lower {
+    animation: fadein 0.9s forwards;
+  }
+}
 
-  .overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vw;
-    background: rgba(34, 37, 208, 0.2);
-    backdrop-filter: blur(5px);
-    z-index: 1068;
-    transition: all 0.3s ease-in-out;
-  }
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vw;
+  background: rgba(34, 37, 208, 0.2);
+  backdrop-filter: blur(5px);
+  z-index: 1068;
+  transition: all 0.3s ease-in-out;
+}
 
-  .overlay.show {
-    display: block;
-    animation: fadeIn 0.3s forwards;
-  }
-  .overlay.hide {
-    animation: fadeOut 0.3s forwards;
-  }
-  .closeimg {
-    height: 21vw;
-    width: 21vw;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 10690;
-    background-color: $primary-color;
-    border-radius: 50%;
-  }
+.overlay.show {
+  display: block;
+  animation: fadeIn 0.3s forwards;
+}
+.overlay.hide {
+  animation: fadeOut 0.3s forwards;
+}
+.closeimg {
+  height: 21vw;
+  width: 21vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10690;
+  background-color: $primary-color;
+  border-radius: 50%;
+}
