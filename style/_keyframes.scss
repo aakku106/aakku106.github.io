@@ -1,0 +1,61 @@
+@keyframes discoGlow {
+  0% {
+    filter: hue-rotate(10deg) saturate(200%) brightness(150%);
+    transition: filter 0.5s ease-in-out;
+  }
+  25% {
+    filter: hue-rotate(72deg) saturate(150%) brightness(125%);
+    transition: filter 0.5s ease-in-out;
+  }
+  50% {
+    filter: hue-rotate(144deg) saturate(100%) brightness(100%);
+    transition: filter 0.5s ease-in-out;
+  }
+  75% {
+    filter: hue-rotate(216deg) saturate(150%) brightness(125%);
+    transition: filter 0.5s ease-in-out;
+  }
+  100% {
+    filter: hue-rotate(288deg) saturate(200%) brightness(150%);
+    transition: filter 0.5s ease-in-out;
+  }
+}
+
+//
+//
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

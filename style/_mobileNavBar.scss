@@ -1,15 +1,13 @@
 .mobile {
   display: none;
+
   @media (max-width: 480px) {
     display: block;
+
     .desktop {
       display: none;
     }
   }
-
-  //
-  //
-  //
 
   .upper {
     display: flex;
@@ -20,40 +18,111 @@
     flex-wrap: wrap;
     height: 21vw;
     background-color: $primary-color;
+
     img {
       height: 78px;
     }
+
     .hamburgerimg {
       height: 70px;
     }
+
     padding-bottom: 0;
     border-bottom: 1px solid wheat;
   }
-  //
-  //
+
   .lower {
     z-index: 1069;
     bottom: 0;
     height: 26vw !important;
-    // left: 0;
     width: 100vw;
     position: fixed;
     background-color: $secondary-color;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
+    transition: all 0.3s ease-in-out;
     flex-wrap: wrap;
+
     a {
-      padding: 3vw;
-      padding-top: 5vw;
-      padding-left: 1vw;
-      padding-right: 1vw;
-      margin-left: 1vw;
-      margin-right: 1vw;
+      display: flex;
+      align-items: center;
+      padding: 1vw 2vw;
+
       img {
-        height: 10vw;
+        height: 6vw;
+        margin-right: 1vw;
+      }
+
+        span {
+          color: $primary-color;
+          font-size: 4vw;
+          font-weight: bold;
+          transition: all 0.3s ease-in-out;
+        }
+      }
+
+      .close {
+        display: none;
+        transition: all 0.3s ease-in-out;
       }
     }
+
+    .lower.show {
+      height: 26vh !important;
+      width: 60vw;
+      bottom: auto;
+      top: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      animation: slideIn 0.3s forwards;
+
+      .close {
+        display: block;
+        position: absolute;
+        top: 2vw;
+        right: 0vw !important;
+
+        img {
+          height: 8vw;
+        }
+      }
+    }
+    // .lower.hide {
+    //   height: 0;
+    //   animation: slideOut 0.3s forwards;
+    // }
   }
-}
+
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vw;
+    background: rgba(34, 37, 208, 0.2);
+    backdrop-filter: blur(5px);
+    z-index: 1068;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .overlay.show {
+    display: block;
+    animation: fadeIn 0.3s forwards;
+  }
+  .overlay.hide {
+    animation: fadeOut 0.3s forwards;
+  }
+  .closeimg {
+    height: 21vw;
+    width: 21vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10690;
+    background-color: $primary-color;
+    border-radius: 50%;
+  }

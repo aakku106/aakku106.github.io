@@ -31,30 +31,3 @@
   background-color: $hover-bg-color;
   color: $hover-color;
 }
-
-//
-//
-//
-
-@keyframes discoGlow {
-  0% {
-    filter: hue-rotate(10deg) saturate(200%) brightness(150%);
-    transition: filter 0.5s ease-in-out;
-  }
-  25% {
-    filter: hue-rotate(72deg) saturate(150%) brightness(125%);
-    transition: filter 0.5s ease-in-out;
-  }
-  50% {
-    filter: hue-rotate(144deg) saturate(100%) brightness(100%);
-    transition: filter 0.5s ease-in-out;
-  }
-  75% {
-    filter: hue-rotate(216deg) saturate(150%) brightness(125%);
-    transition: filter 0.5s ease-in-out;
-  }
-  100% {
-    filter: hue-rotate(288deg) saturate(200%) brightness(150%);
-    transition: filter 0.5s ease-in-out;
-  }
-}
