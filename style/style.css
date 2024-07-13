@@ -20,6 +20,11 @@
     transition: filter 0.5s ease-in-out;
   }
 }
+@media (max-width: 480px) {
+  header .desktop {
+    display: none;
+  }
+}
 .desktop {
   background-color: #060310;
   color: #c77d27;
@@ -115,13 +120,54 @@
 .mobile {
   display: none;
 }
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .mobile {
     display: block;
   }
   .mobile .desktop {
     display: none;
   }
+}
+.mobile .upper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 3vw;
+  padding-right: 3vw;
+  flex-wrap: wrap;
+  height: 21vw;
+  background-color: #c77d27;
+  padding-bottom: 0;
+  border-bottom: 1px solid wheat;
+}
+.mobile .upper img {
+  height: 78px;
+}
+.mobile .upper .hamburgerimg {
+  height: 70px;
+}
+.mobile .lower {
+  z-index: 1069;
+  bottom: 0;
+  height: 26vw !important;
+  width: 100vw;
+  position: fixed;
+  background-color: #060310;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.mobile .lower a {
+  padding: 3vw;
+  padding-top: 5vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  margin-left: 1vw;
+  margin-right: 1vw;
+}
+.mobile .lower a img {
+  height: 10vw;
 }
 
 body {

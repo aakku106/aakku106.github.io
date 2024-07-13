@@ -36,29 +36,6 @@
 //
 //
 
-// @keyframes discoGlow {
-//   0% {
-//     // filter: drop-shadow(0 0 10px red);
-//     filter: contrast(200%);
-//   }
-//   25% {
-//     // filter: drop-shadow(0 0 10px yellow);
-//     filter: contrast(100%);
-//   }
-//   50% {
-//     // filter: drop-shadow(0 0 10px green);
-//     filter: contrast(50%);
-//   }
-//   75% {
-//     // filter: drop-shadow(0 0 10px blue);
-//     filter: contrast(10%);
-//   }
-//   100% {
-//     // filter: drop-shadow(0 0 10px purple);
-//     filter: contrast(0%);
-//   }
-// }
-
 @keyframes discoGlow {
   0% {
     filter: hue-rotate(10deg) saturate(200%) brightness(150%);

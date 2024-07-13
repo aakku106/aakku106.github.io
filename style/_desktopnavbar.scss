@@ -1,4 +1,18 @@
+@media (max-width: 480px) {
+  header {
+    .desktop {
+      display: none;
+    }
+  }
+}
+
+//
+//
+
 .desktop {
+  //
+  // display: none;
+  //
   @include nav($secondary-color, $primary-color, 0vw, 0vw, default);
   ul {
     list-style: none !important;
