@@ -1,26 +1,39 @@
+@keyframes discoGlow {
+  0% {
+    filter: hue-rotate(10deg) saturate(200%) brightness(150%);
+    transition: filter 0.5s ease-in-out;
+  }
+  25% {
+    filter: hue-rotate(72deg) saturate(150%) brightness(125%);
+    transition: filter 0.5s ease-in-out;
+  }
+  50% {
+    filter: hue-rotate(144deg) saturate(100%) brightness(100%);
+    transition: filter 0.5s ease-in-out;
+  }
+  75% {
+    filter: hue-rotate(216deg) saturate(150%) brightness(125%);
+    transition: filter 0.5s ease-in-out;
+  }
+  100% {
+    filter: hue-rotate(288deg) saturate(200%) brightness(150%);
+    transition: filter 0.5s ease-in-out;
+  }
+}
 .desktop {
   background-color: #060310;
-  color: #f1bf85;
+  color: #c77d27;
   padding: 0vw;
   border-radius: 0vw;
   cursor: default;
 }
 .desktop ul {
+  list-style: none !important;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 2vw 5vw;
   margin-top: 0vw !important;
-}
-.desktop ul li {
-  list-style: none;
-}
-.desktop ul li a {
-  text-decoration: none;
-  color: #f1bf85;
-}
-.desktop ul li a:hover {
-  background-color: #eca757;
 }
 .desktop ul .content {
   display: flex;
@@ -29,21 +42,74 @@
   gap: 1.2vw;
 }
 .desktop ul .content li {
+  transition: all 0.3s ease-in-out;
   background-color: #060310;
-  color: #f1bf85;
-  padding: 0.5vw 1vw;
-  border-radius: 0.5vw;
+  border: 1px none #c77d27;
+  color: #c77d27;
+  padding: 0vw 0vw;
+  border-radius: 5vw;
   cursor: pointer;
+  gap: 1vw;
 }
-.desktop ul .content li:hover {
-  background-color: #eca757;
+.desktop ul .content li a {
+  text-decoration: none;
+  color: #c77d27;
+  padding-left: 1.4vw;
+  padding-right: 1.4vw;
+  border-radius: 5vw;
+  border-top-left-radius: 1vw;
+  border-top-right-radius: 8vw;
+  border-bottom-left-radius: 3vw;
+  border-bottom-right-radius: 2vw;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out, padding 0.5s ease-in-out;
+}
+.desktop ul .content li a:hover {
+  border: 4px double #060310;
+  background-color: #c77d27;
   color: #060310;
+  padding-left: 2.3vw;
+  padding-right: 2.3vw;
+  margin-left: 9vw;
+  margin-right: 9vw;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out, padding 0.5s ease-in-out;
 }
 .desktop .social {
   display: flex;
   justify-content: space-around;
   align-items: center;
   width: 19vw;
+}
+.desktop .social li {
+  transition: all 0.3s ease-in-out;
+}
+.desktop .social li a img {
+  transition: all 0.3s ease-in-out;
+}
+.desktop .social li a img:hover {
+  transform: scale(1.2);
+  transition: all 0.3s ease-in-out;
+}
+.desktop .social li .linkedin:hover {
+  filter: hue-rotate(180deg) saturate(1.5) contrast(1) !important;
+  box-shadow: 0px 0px 8vw 0vw #c77d27;
+  width: 4vw;
+  height: 4vw;
+  border-radius: 40%;
+  transition: all 0.3s ease-in-out;
+}
+.desktop .social li .github:hover {
+  border-radius: 50%;
+  filter: brightness(100) !important;
+  box-shadow: 0px 0px 100vw 2vw #c77d27;
+}
+.desktop .social li .Others:hover {
+  animation: discoGlow 1s infinite alternate;
+  box-shadow: 0px 0px 1vw 0.5vw #3882d8;
+  border-radius: 50%;
+  background-color: #3882d8 transparent !important;
+  transition: all 0.26s ease-in-out, background-color 0.5s ease-in-out;
 }
 
 .mobile {
@@ -53,6 +119,9 @@
   .mobile {
     display: block;
   }
+  .mobile .desktop {
+    display: none;
+  }
 }
 
 body {
@@ -61,5 +130,5 @@ body {
   margin: 0vw;
   font-family: "Reenie Beanie", cursive;
   font-size: xxx-large;
-  color: #f1bf85;
+  color: #c77d27;
 }/*# sourceMappingURL=style.css.map */

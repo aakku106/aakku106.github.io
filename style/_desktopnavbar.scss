@@ -1,40 +1,52 @@
 .desktop {
-  @include nav($secondary-bg-color, $primary-text-color, 0vw, 0vw, default);
+  @include nav($secondary-color, $primary-color, 0vw, 0vw, default);
   ul {
+    list-style: none !important;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 2vw 5vw;
     margin-top: 0vw !important;
 
-    li {
-      list-style: none;
-      a {
-        text-decoration: none;
-        color: $primary-text-color;
-        // padding: 10px;
-        &:hover {
-          background-color: darken($primary-hover-bg-color, 10%);
-        }
-      }
-    }
     .content {
       display: flex;
       justify-content: space-around;
       align-items: center;
       gap: 1.2vw;
+
       li {
+        transition: all 0.3s ease-in-out;
         @include button(
-          $secondary-bg-color,
-          $primary-hover-bg-color,
-          $primary-text-color,
-          $secondary-hover-text-color,
-          $primary-border-color,
-          $primary-border-color,
-          0.5vw 1vw,
-          0.5vw,
+          $secondary-color,
+          $primary-color,
+          0vw 0vw,
+          5vw,
           pointer
         );
+        gap: 1vw;
+        a {
+          text-decoration: none;
+          color: $primary-color;
+          padding-left: 1.4vw;
+          padding-right: 1.4vw;
+          border-radius: 5vw;
+          border-top-left-radius: 1vw;
+          border-top-right-radius: 8vw;
+          border-bottom-left-radius: 3vw;
+          border-bottom-right-radius: 2vw;
+          font-weight: bold;
+          transition: all 0.3s ease-in-out, padding 0.5s ease-in-out;
+          &:hover {
+            border: 4px double $secondary-color;
+            @include hover($primary-color, $secondary-color);
+            padding-left: 2.3vw;
+            padding-right: 2.3vw;
+            margin-left: 9vw;
+            margin-right: 9vw;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out, padding 0.5s ease-in-out;
+          }
+        }
       }
     }
   }
@@ -43,5 +55,45 @@
     justify-content: space-around;
     align-items: center;
     width: 19vw;
+    li {
+      transition: all 0.3s ease-in-out;
+
+      a {
+        img {
+          transition: all 0.3s ease-in-out;
+
+          &:hover {
+            transform: scale(1.2);
+            transition: all 0.3s ease-in-out;
+          }
+        }
+      }
+      .linkedin {
+        &:hover {
+          filter: hue-rotate(180deg) saturate(1.5) contrast(1) !important ;
+          box-shadow: 0px 0px 8vw 0vw $primary-color;
+          width: 4vw;
+          height: 4vw;
+          border-radius: 40%;
+          transition: all 0.3s ease-in-out;
+        }
+      }
+      .github {
+        &:hover {
+          border-radius: 50%;
+          filter: brightness(100) !important;
+          box-shadow: 0px 0px 100vw 2vw $primary-color;
+        }
+      }
+      .Others {
+        &:hover {
+          animation: discoGlow 1s infinite alternate;
+          box-shadow: 0px 0px 1vw 0.5vw invert($color: $primary-color);
+          border-radius: 50%;
+          background-color: invert($color: $primary-color) transparent !important;
+          transition: all 0.26s ease-in-out, background-color 0.5s ease-in-out;
+        }
+      }
+    }
   }
 }

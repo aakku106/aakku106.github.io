@@ -2,5 +2,8 @@
     display: none;
     @media (max-width: 768px){
         display: block;
+        .desktop{
+            display: none;
+        }
     }
 }

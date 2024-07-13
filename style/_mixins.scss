@@ -1,24 +1,16 @@
 @mixin button(
   $button-bg-color,
-  $button-hover-bg-color,
   $button-color,
-  $button-hover-color,
-  $button-border-color,
-  $button-hover-border-color,
   $button-padding,
   $button-border-radius,
   $button-cursor
 ) {
   background-color: $button-bg-color;
-  // border: 1px dotted $button-color;
+  border: 1px none $button-color;
   color: $button-color;
   padding: $button-padding;
   border-radius: $button-border-radius;
   cursor: $button-cursor;
-  &:hover {
-    background-color: darken($button-hover-bg-color, 10%);
-    color: $button-hover-color;
-  }
 }
 
 @mixin nav(
@@ -33,4 +25,59 @@
   padding: $nav-padding;
   border-radius: $nav-border-radius;
   cursor: $nav-cursor;
+}
+
+@mixin hover($hover-bg-color, $hover-color) {
+  background-color: $hover-bg-color;
+  color: $hover-color;
+}
+
+//
+//
+//
+
+// @keyframes discoGlow {
+//   0% {
+//     // filter: drop-shadow(0 0 10px red);
+//     filter: contrast(200%);
+//   }
+//   25% {
+//     // filter: drop-shadow(0 0 10px yellow);
+//     filter: contrast(100%);
+//   }
+//   50% {
+//     // filter: drop-shadow(0 0 10px green);
+//     filter: contrast(50%);
+//   }
+//   75% {
+//     // filter: drop-shadow(0 0 10px blue);
+//     filter: contrast(10%);
+//   }
+//   100% {
+//     // filter: drop-shadow(0 0 10px purple);
+//     filter: contrast(0%);
+//   }
+// }
+
+@keyframes discoGlow {
+  0% {
+    filter: hue-rotate(10deg) saturate(200%) brightness(150%);
+    transition: filter 0.5s ease-in-out;
+  }
+  25% {
+    filter: hue-rotate(72deg) saturate(150%) brightness(125%);
+    transition: filter 0.5s ease-in-out;
+  }
+  50% {
+    filter: hue-rotate(144deg) saturate(100%) brightness(100%);
+    transition: filter 0.5s ease-in-out;
+  }
+  75% {
+    filter: hue-rotate(216deg) saturate(150%) brightness(125%);
+    transition: filter 0.5s ease-in-out;
+  }
+  100% {
+    filter: hue-rotate(288deg) saturate(200%) brightness(150%);
+    transition: filter 0.5s ease-in-out;
+  }
 }
