@@ -31,3 +31,8 @@
   background-color: $hover-bg-color;
   color: $hover-color;
 }
+
+@mixin aboutMeBody($bg-color, $text-color) {
+  background-color: $bg-color;
+  color: $text-color;
+}

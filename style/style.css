@@ -268,6 +268,27 @@
     opacity: 0;
   }
 }
+@media (max-width: 480px) {
+  header .desktop {
+    display: none;
+  }
+}
+html,
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #c77d27;
+  color: #060310;
+  height: 100vw;
+}
+html .AboutMeDesktopView,
+body .AboutMeDesktopView {
+  background-color: #c77d27;
+  color: #060310;
+  padding: 1.4vw;
+}
+
 body {
   background-color: #c77d27;
   padding: 0vw;
