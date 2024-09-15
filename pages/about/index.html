@@ -145,40 +145,69 @@
     </header>
 
     <div class="AboutMeDesktopView">
-      Hey there! I'm <b>Adarasha Gaihre</b> (Aakku) , an IT student currently
-      pursuing my
-      <b>BSc in Computer Science and Information Technology (BSc.CSIT)</b>
-      in Nepal. I'm passionate about <b>coding</b>, anime (huge
-      <b>Naruto</b> fan!), and working on creative web projects. I enjoy
-      spending time with friends, <b>drawing</b>, and continuously learning new
-      skills in the world of development.<br /><br />
-      I’ve been honing my coding skills for over six months now, with experience
-      in C, C++, <b>C#</b>, and HTML/CSS. Currently, I’m diving deeper into
-      <b>Python</b> and exploring new technologies like Swift and Rust to expand
-      my toolkit. I have a strong interest in security, networking, and cloud
-      computing, and I dream of becoming a software engineer
-      <!--- or even an Apple employee --->one day.<br /><br />
-      I’m also fascinated by web development, both front-end and
-      <b>back-end</b>, and have been working on some exciting projects, like
-      this portfolio! <br />
-      One of my proudest achievements so far has been leading my team,
-      <b>"The JEEZ," to second runner-up </b>in the Nepathya Intra-College RC
-      Robo Racing competition. The project involved designing and building an RC
-      car from scratch, where we collaborated on everything from hardware
-      assembly to software implementation. This experience deepened my
-      understanding of robotics and teamwork, and I’m excited to continue
-      working on such innovative projects in the future. <br /><br />Whether
-      it’s building websites, experimenting with animations, or collaborating on
-      tech projects like JEEZ, I’m always eager to learn and apply my skills in
-      creative ways.<br /><br />
+      <section class="intro">
+        <p>
+          Hey there! I'm <b>Adarasha Gaihre</b> (Aakku), an IT student currently
+          pursuing my
+          <b>BSc in Computer Science and Information Technology (BSc.CSIT)</b>
+          in Nepal. I'm passionate about <b>coding</b>, anime (huge
+          <b>Naruto</b> fan!), and working on creative web projects. I enjoy
+          spending time with friends, <b>drawing</b>, and continuously learning
+          new skills in the world of development.
+        </p>
+      </section>
+
+      <section class="skills-experience">
+        <h3>Skills & Experience</h3>
+        <p>
+          I’ve been honing my coding skills for over six months now, with
+          experience in C, C++, <b>C#</b>, and HTML/CSS. Currently, I’m diving
+          deeper into <b>Python</b> and exploring new technologies like Swift
+          and Rust to expand my toolkit. I also have a strong interest in
+          security, networking, and cloud computing.
+        </p>
+      </section>
+
+      <section class="projects">
+        <h3>Projects & Achievements</h3>
+        <p>
+          One of my proudest achievements has been leading my team,
+          <b>"The JEEZ," to second runner-up </b>in the Nepathya Intra-College
+          RC Robo Racing competition. This project involved designing and
+          building an RC car from scratch, where we collaborated on everything
+          from hardware assembly to software implementation.
+        </p>
+      </section>
+
+      <section class="future-goals">
+        <h3>Future Goals</h3>
+        <p>
+          I’m excited to continue working on innovative projects and dream of
+          becoming a software engineer
+          <!--- or even an Apple employee --->
+          one day. Whether it’s building websites, experimenting with
+          animations, or collaborating on tech projects like JEEZ, I’m always
+          eager to learn and apply my skills in creative ways.
+        </p>
+      </section>
+
       <p>
-        Design inspired by :
+        Design inspired by:
         <a target="_blank" href="https://www.adhamdannaway.com/"
           >Adham Dannaway</a
-        >
-        <br />
-        a product designer based in sunny Sydney, Australia.
+        >, a product designer based in sunny Sydney, Australia.
       </p>
+
+      <!--- <p><i>"A ninja is one who endures." – Naruto Uzumaki</i></p> --->
+      <footer>
+        <p>Last updated on: <span id="lastUpdated"></span></p>
+      </footer>
+
+      <script>
+        const lastUpdated = new Date(document.lastModified);
+        document.getElementById("lastUpdated").textContent =
+          lastUpdated.toLocaleString();
+      </script>
     </div>
   </body>
 </html>
