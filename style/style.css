@@ -23,9 +23,8 @@
 }
 .desktop ul .content {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
-  gap: 1.2vw;
 }
 .desktop ul .content li {
   transition: all 0.3s ease-in-out;
@@ -35,12 +34,13 @@
   padding: 0vw 0vw;
   border-radius: 5vw;
   cursor: pointer;
-  gap: 1vw;
 }
-.desktop ul .content li a {
+.desktop ul .content li .aboutMe,
+.desktop ul .content li .contactMe {
   text-decoration: none;
   color: #c77d27;
   padding-left: 1.4vw;
+  padding-top: 0.2vw;
   padding-right: 1.4vw;
   border-radius: 5vw;
   border-top-left-radius: 1vw;
@@ -48,18 +48,73 @@
   border-bottom-left-radius: 3vw;
   border-bottom-right-radius: 2vw;
   font-weight: bold;
-  transition: all 0.3s ease-in-out, padding 0.5s ease-in-out;
+  margin: -1vw;
+  transition: all 0.3s ease-in-out, padding-right 0.6s ease-in-out, margin 0.6s ease-in-out;
 }
-.desktop ul .content li a:hover {
+.desktop ul .content li .aboutMe:hover,
+.desktop ul .content li .contactMe:hover {
   border: 4px double #060310;
   background-color: #c77d27;
   color: #060310;
   padding-left: 2.3vw;
-  padding-right: 2.3vw;
+  padding-right: 4vw;
   margin-left: 9vw;
   margin-right: 9vw;
   overflow: hidden;
-  transition: all 0.3s ease-in-out, padding 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out, padding-right 0.6s ease-in-out, margin 0.6s ease-in-out;
+}
+.desktop ul .content li .aboutMe:hover::after,
+.desktop ul .content li .contactMe:hover::after {
+  content: "ME";
+  opacity: 1;
+  background: #c77d27;
+  transition: opacity 2s ease-in-out;
+}
+.desktop ul .content li .aboutMe::after,
+.desktop ul .content li .contactMe::after {
+  content: "Me";
+  opacity: 0;
+  background: #060310;
+}
+.desktop ul .content li .portfolio {
+  margin-right: 7vw;
+  text-decoration: none;
+  color: #c77d27;
+  padding-left: 1.4vw;
+  padding-top: 0.2vw;
+  padding-right: 1.4vw;
+  border-radius: 5vw;
+  border-top-left-radius: 1vw;
+  border-top-right-radius: 8vw;
+  border-bottom-left-radius: 3vw;
+  border-bottom-right-radius: 2vw;
+  font-weight: bold;
+  margin: -1vw;
+  margin-right: 3vw;
+  transition: all 0.3s ease-in-out, padding-left 0.6s ease-in-out, margin 0.6s ease-in-out;
+}
+.desktop ul .content li .portfolio::before {
+  content: "My";
+  opacity: 0;
+  background: #060310;
+}
+.desktop ul .content li .portfolio:hover {
+  border: 4px double #060310;
+  background-color: #c77d27;
+  color: #060310;
+  padding-left: 2.5vw;
+  padding-right: 2.3vw;
+  margin-left: 9vw;
+  margin-right: 15vw;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out, padding-left 0.6s ease-in-out, margin 0.6s ease-in-out;
+}
+.desktop ul .content li .portfolio:hover::before {
+  content: "My";
+  opacity: 1;
+  height: 0.2vw;
+  background: #c77d27;
+  transition: opacity 2s ease-in-out;
 }
 .desktop .social {
   display: flex;
@@ -85,15 +140,22 @@
   border-radius: 40%;
   transition: all 0.3s ease-in-out;
 }
+.desktop .social li .github {
+  border-radius: 50%;
+}
 .desktop .social li .github:hover {
   border-radius: 50%;
-  filter: brightness(100) !important;
-  box-shadow: 0px 0px 100vw 2vw #c77d27;
+  width: 4vw;
+  height: 4vw;
+  filter: brightness(10) !important;
+  box-shadow: 0px 0px 80vw 1vw white;
+}
+.desktop .social li .Others {
+  border-radius: 50%;
 }
 .desktop .social li .Others:hover {
   animation: discoGlow 1s infinite alternate;
   box-shadow: 0px 0px 1vw 0.5vw #3882d8;
-  border-radius: 50%;
   background-color: #3882d8 transparent !important;
   transition: all 0.26s ease-in-out, background-color 0.5s ease-in-out;
 }

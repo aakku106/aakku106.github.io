@@ -5,17 +5,10 @@
     }
   }
 }
-
-//
-//
-
 .desktop {
   position: sticky;
   top: 0;
   z-index: 10;
-  //
-  // display: none;
-  //
   @include nav($secondary-color, $primary-color, 0vw, 0vw, default);
   ul {
     list-style: none !important;
@@ -27,9 +20,9 @@
 
     .content {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-evenly;
       align-items: center;
-      gap: 1.2vw;
+      // gap: 1.2vw;
 
       li {
         transition: all 0.3s ease-in-out;
@@ -40,11 +33,13 @@
           5vw,
           pointer
         );
-        gap: 1vw;
-        a {
+        
+        .aboutMe,
+        .contactMe {
           text-decoration: none;
           color: $primary-color;
           padding-left: 1.4vw;
+          padding-top: 0.2vw;
           padding-right: 1.4vw;
           border-radius: 5vw;
           border-top-left-radius: 1vw;
@@ -52,16 +47,70 @@
           border-bottom-left-radius: 3vw;
           border-bottom-right-radius: 2vw;
           font-weight: bold;
-          transition: all 0.3s ease-in-out, padding 0.5s ease-in-out;
+          margin: -1vw;
+          transition: all 0.3s ease-in-out, padding-right 0.6s ease-in-out,margin 0.6s ease-in-out;
           &:hover {
             border: 4px double $secondary-color;
             @include hover($primary-color, $secondary-color);
             padding-left: 2.3vw;
-            padding-right: 2.3vw;
+            padding-right: 4vw;
             margin-left: 9vw;
             margin-right: 9vw;
             overflow: hidden;
-            transition: all 0.3s ease-in-out, padding 0.5s ease-in-out;
+            transition: all 0.3s ease-in-out, padding-right 0.6s ease-in-out,margin 0.6s ease-in-out;
+            &::after {
+              content: "ME";
+              opacity: 1;
+              background: $primary-color;
+              transition: opacity 2s ease-in-out;
+            }
+          }
+          &::after {
+            content: "Me";
+            opacity: 0;
+            background: $secondary-color;
+            // transition: width 0.6s ease-in-out;
+          }
+        }
+        .portfolio {
+          margin-right: 7vw;
+          text-decoration: none;
+          color: $primary-color;
+          padding-left: 1.4vw;
+          padding-top: 0.2vw;
+          padding-right: 1.4vw;
+          border-radius: 5vw;
+          border-top-left-radius: 1vw;
+          border-top-right-radius: 8vw;
+          border-bottom-left-radius: 3vw;
+          border-bottom-right-radius: 2vw;
+          font-weight: bold;
+          margin:-1vw;
+          margin-right: 3vw;
+          transition: all 0.3s ease-in-out, padding-left 0.6s ease-in-out,margin 0.6s ease-in-out;
+          &::before {
+            content: "My";
+            opacity: 0;
+            background: $secondary-color;
+            // transition: opacity 2s ease-in-out;
+          }
+
+          &:hover {
+            border: 4px double $secondary-color;
+            @include hover($primary-color, $secondary-color);
+            padding-left: 2.5vw;
+            padding-right: 2.3vw;
+            margin-left: 9vw;
+            margin-right: 15vw;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out, padding-left 0.6s ease-in-out,margin 0.6s ease-in-out;
+            &::before {
+              content: "My";
+              opacity: 1;
+              height: 0.2vw;
+              background: $primary-color;
+              transition: opacity 2s ease-in-out;
+            }
           }
         }
       }
@@ -96,17 +145,20 @@
         }
       }
       .github {
+        border-radius: 50%;
         &:hover {
           border-radius: 50%;
-          filter: brightness(100) !important;
-          box-shadow: 0px 0px 100vw 2vw $primary-color;
+          width: 4vw;
+          height: 4vw;
+          filter: brightness(10) !important;
+          box-shadow: 0px 0px 80vw 1vw white;
         }
       }
       .Others {
+        border-radius: 50%;
         &:hover {
           animation: discoGlow 1s infinite alternate;
           box-shadow: 0px 0px 1vw 0.5vw invert($color: $primary-color);
-          border-radius: 50%;
           background-color: invert($color: $primary-color) transparent !important;
           transition: all 0.26s ease-in-out, background-color 0.5s ease-in-out;
         }
