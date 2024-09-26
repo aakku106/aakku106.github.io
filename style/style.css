@@ -385,6 +385,8 @@ body .AboutMeDesktopView .intro .introText {
 html .AboutMeDesktopView .intro .introText:hover,
 body .AboutMeDesktopView .intro .introText:hover {
   box-shadow: 0vw 0vw 1.1vw 0.7vw #060310;
+  padding: 2.4vw;
+  border-radius: 5vw;
   transition: all 0.4s ease-in-out;
 }
 html .AboutMeDesktopView .intro .introImage,
