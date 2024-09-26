@@ -5,12 +5,13 @@
 @import "keyframes";
 @import "desktopAboutMeBody";
 @import "showDateAndTime";
+@import "_desktopLandingPageBody.scss";
 
 body {
-  background-color: $primary-color;
+  // background-color: $primary-color;
   padding: 0vw;
   margin: 0vw;
   font-family: "Reenie Beanie", cursive;
   font-size: xxx-large;
-  color: $primary-color;
+  // color: $primary-color;
 }

@@ -353,6 +353,59 @@ body .AboutMeDesktopView {
   color: #060310;
   padding-left: 1.4vw;
   font-family: "Amatic SC", sans-serif;
+  background-color: transparent;
+}
+html .AboutMeDesktopView .intro,
+body .AboutMeDesktopView .intro {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: -2vw;
+  margin-bottom: 5vw;
+  position: relative;
+  flex-wrap: wrap !important;
+}
+html .AboutMeDesktopView .intro .introText,
+body .AboutMeDesktopView .intro .introText {
+  z-index: 5;
+  width: 50vw;
+  text-align: justify;
+  margin-bottom: 2vw;
+  line-height: 1.5;
+  font-size: 3.4vw;
+  -webkit-backdrop-filter: blur(20px) !important;
+          backdrop-filter: blur(20px) !important;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.078), rgba(0, 0, 0, 0.229));
+  padding: 2vw;
+  border-radius: 2vw;
+  box-shadow: 0 0 1vw 0.5vw rgba(0, 0, 0, 0.349);
+  transition: all 0.4s ease-in-out;
+}
+html .AboutMeDesktopView .intro .introText:hover,
+body .AboutMeDesktopView .intro .introText:hover {
+  box-shadow: 0vw 0vw 1.1vw 0.7vw #060310;
+  transition: all 0.4s ease-in-out;
+}
+html .AboutMeDesktopView .intro .introImage,
+body .AboutMeDesktopView .intro .introImage {
+  z-index: 5;
+  width: 35vw;
+  height: 35vw;
+  margin-bottom: 2vw;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 1vw 0.5vw rgba(0, 0, 0, 0.349);
+  transition: all 0.4s ease-in-out;
+}
+html .AboutMeDesktopView .intro .introImage:hover,
+body .AboutMeDesktopView .intro .introImage:hover {
+  border-radius: 40%;
+  z-index: 3;
+  width: 36vw;
+  height: 36vw;
+  box-shadow: 0vw 0vw 1.1vw 0.7vw #060310;
+  transition: all 0.4s ease-in-out;
 }
 
 p {
@@ -381,11 +434,28 @@ p:hover::after {
   visibility: visible;
 }
 
+body .LandingDesktopView {
+  -moz-columns: 2;
+       columns: 2;
+  position: relative;
+}
+body .LandingDesktopView img {
+  -moz-columns: 300px;
+       columns: 300px;
+  z-index: 10;
+}
+body .LandingDesktopView section {
+  margin-top: -17vw;
+  position: absolute;
+  background: linear-gradient(0deg, rgba(32, 90, 235, 0.318), rgba(209, 50, 220, 0.109));
+  -webkit-backdrop-filter: blur(2.5px) !important;
+          backdrop-filter: blur(2.5px) !important;
+  z-index: 40;
+}
+
 body {
-  background-color: #c77d27;
   padding: 0vw;
   margin: 0vw;
   font-family: "Reenie Beanie", cursive;
   font-size: xxx-large;
-  color: #c77d27;
 }/*# sourceMappingURL=style.css.map */

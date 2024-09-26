@@ -6,8 +6,6 @@
   }
 }
 
-//
-//
 html,
 body {
   margin: 0;
@@ -19,7 +17,59 @@ body {
   .AboutMeDesktopView {
     @include aboutMeBody($primary-color, $secondary-color);
     padding-left: 1.4vw;
-  font-family: "Amatic SC", sans-serif;
+    font-family: "Amatic SC", sans-serif;
+    background-color: transparent;
+    .intro {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: -2vw;
+      margin-bottom: 5vw;
+      position: relative;
+      flex-wrap: wrap !important;
+      .introText {
+        z-index: 5;
+        width: 50vw;
+        text-align: justify;
+        margin-bottom: 2vw;
+        line-height: 1.5;
+        font-size: 3.4vw;
+        backdrop-filter: blur(20px) !important;
+        background: linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.078),
+          rgba(0, 0, 0, 0.229)
+        );
 
+        padding: 2vw;
+        border-radius: 2vw;
+        box-shadow: 0 0 1vw 0.5vw rgba(0, 0, 0, 0.349);
+        transition: all 0.4s ease-in-out;
+        &:hover {
+          box-shadow: 0vw 0vw 1.1vw 0.7vw $secondary-color;
+            transition: all 0.4s ease-in-out;
+        }
+      }
+      .introImage {
+        z-index: 5;
+        width: 35vw;
+        height: 35vw;
+        margin-bottom: 2vw;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: 0 0 1vw 0.5vw rgba(0, 0, 0, 0.349);
+        transition: all 0.4s ease-in-out;
+
+        &:hover {
+          border-radius: 40%;
+          z-index: 3;
+          width: 36vw;
+          height: 36vw;
+          box-shadow: 0vw 0vw 1.1vw 0.7vw $secondary-color;
+          transition: all 0.4s ease-in-out;
+        }
+      }
+    }
   }
 }
