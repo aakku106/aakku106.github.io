@@ -1,9 +1,7 @@
 .mobile {
   display: none;
-
   @media (max-width: 480px) {
     display: block;
-
     .desktop {
       display: none;
     }
