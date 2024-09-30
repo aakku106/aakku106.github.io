@@ -1,23 +1,91 @@
 body {
-  .LandingDesktopView {
-    .playground {
-      position: absolute;
-      z-index: 40;
-      border: solid red 4px;
-      width: 70vw;
-      height: 40vw;
-      top: 20vw;
-      left: 15vw;
+  .playground {
+    position: absolute;
+    // border: solid red 4px;
+    width: 50vw;
+    height: 40vw;
+    top: 29%;
+    left: 30%;
+    color: black;
+    transition: all 0.5s;
 
-      .click {
-        top: 35vw;
-        left: 15vw;
+    &:hover {
+      transform: translateY(-1vw) translateX(3vw) rotate(-3deg) scale(0.8);
+      transition: all 10s;
+    }
+
+    &:active {
+      transform: translateY(10vw) translateX(30vw) rotate(30deg) scale(1.2);
+      transition: all 0.5s;
+    }
+
+    .click {
+      // border: solid red 4px;
+      top: 50%;
+      left: 50%;
+      position: relative;
+      width: 10vw;
+      height: 7vw;
+      padding: 1vw;
+      transition: all 0.5s;
+
+      &:hover {
+        transition: all 2s;
+        transform: translateY(3vw) translateX(-5vw) rotate(30deg) scale(1);
+      }
+
+      &:active {
+        transform: translateX(10vw) translateY(-30vw) rotate(-60deg) scale(0.5);
+        transition: all 0.6s;
+      }
+      &:active > .clickII > button {
+        transform: scaleY(5);
+      }
+
+      &:hover > .clickII {
+        transform: translateY(10vw) translateX(10vw) rotate(360deg) scale(1.5);
+      }
+
+      .clickII {
+        // border: solid red 4px;
+        top: 50%;
+        left: 50%;
         position: relative;
-        border: solid red 4px;
-        position: relative;
-        b {
+        width: 5vw;
+        height: 3vw;
+        padding: 1vw;
+        transition: all 0.6s;
+        &:hover {
+          transition: all 1s;
+          transform: translateY(-7vw) translateX(7vw) rotate(-30deg) scale(1.3);
+        }
+
+        &:hover > button {
+          transform: translateY(10vw) translateX(10vw) rotate(360deg) scale(1.5);
+        }
+        &:active {
+          transform: translateX(-50vw) translateY(30vw) rotate(-60deg) scaleX(3);
+          transition: all 0.5s;
+        }
+
+        button {
+          z-index: 100000;
+          transition: all 0.5s;
+          top: 50%;
+          left: 50%;
+          margin: auto;
+          position: absolute !important;
           &:hover {
-            color: red;
+            background-color: red;
+            color: white;
+            transform: translateX(-50vw) translateY(-90vw) rotate(-360deg)
+              scale(0.6);
+          }
+          &:active {
+            background-color: green;
+            color: white;
+            transform: translateX(50vw) translateY(90vw) rotateY(-360deg)
+              scale(0.6);
           }
         }
       }
