@@ -89,11 +89,11 @@
     }
   }
   .lower.hide {
-    //   height: 0;
-    // animation: slideOut 0.3s forwards;
+      height: 0;
+    animation: slideOut 0.3s forwards;
   }
   .lower {
-    animation: fadein 0.9s forwards;
+    animation: all 0.9s forwards;
   }
 }
 

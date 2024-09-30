@@ -5,16 +5,12 @@
     }
   }
 }
-header{
+header {
   position: sticky !important;
   top: 0;
   z-index: 11;
-
 }
 .desktop {
-  // position: sticky !important;
-  // top: 0;
-  // z-index: 10;
   @include nav($secondary-color, $primary-color, 0vw, 0vw, default);
   ul {
     list-style: none !important;
@@ -39,7 +35,7 @@ header{
           5vw,
           pointer
         );
-        
+
         .aboutMe,
         .contactMe {
           text-decoration: none;
@@ -54,7 +50,8 @@ header{
           border-bottom-right-radius: 2vw;
           font-weight: bold;
           margin: -1vw;
-          transition: all 0.3s ease-in-out, padding-right 0.6s ease-in-out,margin 0.6s ease-in-out;
+          transition: all 0.3s ease-in-out, padding-right 0.6s ease-in-out,
+            margin 0.6s ease-in-out;
           &:hover {
             border: 4px double $secondary-color;
             @include hover($primary-color, $secondary-color);
@@ -63,7 +60,8 @@ header{
             margin-left: 9vw;
             margin-right: 9vw;
             // overflow: hidden;
-            transition: all 0.3s ease-in-out, padding-right 0.6s ease-in-out,margin 0.6s ease-in-out;
+            transition: all 0.3s ease-in-out, padding-right 0.6s ease-in-out,
+              margin 0.6s ease-in-out;
             &::after {
               content: "ME";
               opacity: 1;
@@ -91,9 +89,10 @@ header{
           border-bottom-left-radius: 3vw;
           border-bottom-right-radius: 2vw;
           font-weight: bold;
-          margin:-1vw;
+          margin: -1vw;
           margin-right: 3vw;
-          transition: all 0.3s ease-in-out, padding-left 0.6s ease-in-out,margin 0.6s ease-in-out;
+          transition: all 0.3s ease-in-out, padding-left 0.6s ease-in-out,
+            margin 0.6s ease-in-out;
           &::before {
             content: "My";
             opacity: 0;
@@ -109,7 +108,8 @@ header{
             margin-left: 9vw;
             margin-right: 15vw;
             // overflow: hidden;
-            transition: all 0.3s ease-in-out, padding-left 0.6s ease-in-out,margin 0.6s ease-in-out;
+            transition: all 0.3s ease-in-out, padding-left 0.6s ease-in-out,
+              margin 0.6s ease-in-out;
             &::before {
               content: "My";
               opacity: 1;

@@ -1,0 +1,26 @@
+body {
+  .LandingDesktopView {
+    .playground {
+      position: absolute;
+      z-index: 40;
+      border: solid red 4px;
+      width: 70vw;
+      height: 40vw;
+      top: 20vw;
+      left: 15vw;
+
+      .click {
+        top: 35vw;
+        left: 15vw;
+        position: relative;
+        border: solid red 4px;
+        position: relative;
+        b {
+          &:hover {
+            color: red;
+          }
+        }
+      }
+    }
+  }
+}

@@ -242,8 +242,12 @@ header {
 .mobile .lower.show .close img {
   height: 8vw;
 }
+.mobile .lower.hide {
+  height: 0;
+  animation: slideOut 0.3s forwards;
+}
 .mobile .lower {
-  animation: fadein 0.9s forwards;
+  animation: all 0.9s forwards;
 }
 
 .overlay {
@@ -335,7 +339,7 @@ header {
   }
 }
 @media (max-width: 480px) {
-  header .desktop {
+  .AboutMeDesktopView {
     display: none;
   }
 }
@@ -436,6 +440,11 @@ p:hover::after {
   visibility: visible;
 }
 
+@media (max-width: 480px) {
+  .LandingDesktopView {
+    display: none;
+  }
+}
 body .LandingDesktopView {
   -moz-columns: 2;
        columns: 2;
@@ -455,9 +464,31 @@ body .LandingDesktopView section {
   z-index: 40;
 }
 
+body .LandingDesktopView .playground {
+  position: absolute;
+  z-index: 40;
+  border: solid red 4px;
+  width: 70vw;
+  height: 40vw;
+  top: 20vw;
+  left: 15vw;
+}
+body .LandingDesktopView .playground .click {
+  top: 35vw;
+  left: 15vw;
+  position: relative;
+  border: solid red 4px;
+  position: relative;
+}
+body .LandingDesktopView .playground .click b:hover {
+  color: red;
+}
+
 body {
+  background-color: #c77d27;
   padding: 0vw;
   margin: 0vw;
   font-family: "Reenie Beanie", cursive;
   font-size: xxx-large;
+  color: #c77d27;
 }/*# sourceMappingURL=style.css.map */
