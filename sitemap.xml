@@ -2,7 +2,7 @@
 <urlset
       xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.adarashagaihre.com.np/</loc>
+    <loc>https://www.adarashagaihre.com.np/index.html</loc>
     <lastmod>2024-10-02</lastmod>
     <priority>1.00</priority>
   </url>
@@ -21,8 +21,9 @@
     <lastmod>2024-01-02</lastmod>
     <priority>0.80</priority>
   </url>
- <url>
+  <url>
     <loc>https://artgallery.adarashagaihre.com.np</loc>
     <lastmod>2024-11-07</lastmod>
     <priority>0.80</priority>
+  </url>
 </urlset>
