@@ -191,7 +191,7 @@ header {
   height: 70px;
 }
 .mobile .lower {
-  z-index: 1069;
+  z-index: 106;
   bottom: 0;
   height: 26vw !important;
   width: 100vw;
@@ -207,20 +207,24 @@ header {
   display: flex;
   align-items: center;
   padding: 1vw 2vw;
+  z-index: 106;
 }
 .mobile .lower a img {
   height: 6vw;
   margin-right: 1vw;
+  z-index: 106;
 }
 .mobile .lower a span {
   color: #c77d27;
   font-size: 4vw;
   font-weight: bold;
   transition: all 0.3s ease-in-out;
+  z-index: 106;
 }
 .mobile .lower .close {
   display: none;
   transition: all 0.3s ease-in-out;
+  z-index: 106;
 }
 .mobile .lower.show {
   height: 100vh !important;
@@ -232,22 +236,27 @@ header {
   align-items: flex-start;
   justify-content: center;
   animation: slideIn 0.9s forwards;
+  z-index: 106;
 }
 .mobile .lower.show .close {
   display: block;
   position: absolute;
   top: 2vw;
   right: 0vw !important;
+  z-index: 106;
 }
 .mobile .lower.show .close img {
   height: 8vw;
+  z-index: 106;
 }
 .mobile .lower.hide {
   height: 0;
   animation: slideOut 0.3s forwards;
+  z-index: 106;
 }
 .mobile .lower {
   animation: all 0.9s forwards;
+  z-index: 106;
 }
 
 .overlay {
@@ -256,21 +265,23 @@ header {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vw;
-  background: rgba(34, 37, 208, 0.2);
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
-  z-index: 1068;
+  height: 1000vh;
+  background: linear-gradient(rgba(34, 37, 208, 0.2), rgba(162, 208, 34, 0.2));
+  -webkit-backdrop-filter: blur(17px);
+          backdrop-filter: blur(17px);
   transition: all 0.3s ease-in-out;
+  z-index: 10;
 }
 
 .overlay.show {
   display: block;
   animation: fadeIn 0.3s forwards;
+  z-index: 106;
 }
 
 .overlay.hide {
   animation: fadeOut 0.3s forwards;
+  z-index: 106;
 }
 
 .closeimg {
@@ -282,6 +293,7 @@ header {
   z-index: 10690;
   background-color: #c77d27;
   border-radius: 50%;
+  z-index: 106;
 }
 
 @keyframes discoGlow {
@@ -441,8 +453,14 @@ p:hover::after {
 }
 
 @media (max-width: 480px) {
-  .LandingDesktopView {
-    display: none;
+  .LandingDesktopView .construction {
+    margin-top: -17vw;
+    position: absolute;
+    background: linear-gradient(0deg, rgba(32, 90, 235, 0.318), rgba(209, 50, 220, 0.109));
+    top: 15%;
+    left: 10%;
+    -webkit-backdrop-filter: blur(2.5px) !important;
+            backdrop-filter: blur(2.5px) !important;
   }
 }
 body .LandingDesktopView {
@@ -461,9 +479,14 @@ body .LandingDesktopView .construction {
   background: linear-gradient(0deg, rgba(32, 90, 235, 0.318), rgba(209, 50, 220, 0.109));
   -webkit-backdrop-filter: blur(2.5px) !important;
           backdrop-filter: blur(2.5px) !important;
-  z-index: 40;
+  z-index: 4;
 }
 
+@media (max-width: 480px) {
+  .playground {
+    display: none;
+  }
+}
 body .playground {
   position: absolute;
   width: 50vw;
@@ -550,4 +573,5 @@ body {
   font-family: "Reenie Beanie", cursive;
   font-size: xxx-large;
   color: #c77d27;
+  overflow-x: hidden;
 }/*# sourceMappingURL=style.css.map */

@@ -30,7 +30,7 @@
   }
 
   .lower {
-    z-index: 1069;
+    z-index: 106;
     bottom: 0;
     height: 26vw !important;
     width: 100vw;
@@ -46,10 +46,12 @@
       display: flex;
       align-items: center;
       padding: 1vw 2vw;
+      z-index: 106;
 
       img {
         height: 6vw;
         margin-right: 1vw;
+        z-index: 106;
       }
 
       span {
@@ -57,12 +59,14 @@
         font-size: 4vw;
         font-weight: bold;
         transition: all 0.3s ease-in-out;
+        z-index: 106;
       }
     }
 
     .close {
       display: none;
       transition: all 0.3s ease-in-out;
+      z-index: 106;
     }
   }
 
@@ -76,24 +80,29 @@
     align-items: flex-start;
     justify-content: center;
     animation: slideIn 0.9s forwards;
+    z-index: 106;
 
     .close {
       display: block;
       position: absolute;
       top: 2vw;
       right: 0vw !important;
+      z-index: 106;
 
       img {
         height: 8vw;
+        z-index: 106;
       }
     }
   }
   .lower.hide {
-      height: 0;
+    height: 0;
     animation: slideOut 0.3s forwards;
+    z-index: 106;
   }
   .lower {
     animation: all 0.9s forwards;
+    z-index: 106;
   }
 }
 
@@ -103,19 +112,21 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vw;
-  background: rgba(34, 37, 208, 0.2);
-  backdrop-filter: blur(5px);
-  z-index: 1068;
+  height: 1000vh;
+  background: linear-gradient(rgba(34, 37, 208, 0.2), rgba(162, 208, 34, 0.2));
+  backdrop-filter: blur(17px);
   transition: all 0.3s ease-in-out;
+  z-index: 10;
 }
 
 .overlay.show {
   display: block;
   animation: fadeIn 0.3s forwards;
+  z-index: 106;
 }
 .overlay.hide {
   animation: fadeOut 0.3s forwards;
+  z-index: 106;
 }
 .closeimg {
   height: 21vw;
@@ -126,4 +137,5 @@
   z-index: 10690;
   background-color: $primary-color;
   border-radius: 50%;
+  z-index: 106;
 }
