@@ -305,14 +305,51 @@
       <!--  -->
 
       <nav class="mobile">
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const closeBtn = document.querySelector(".mobile #close");
+            closeBtn.style.display = "none";
+
+            const overlay = document.querySelector(".overlay");
+            overlay.style.display = "none";
+          });
+
+          document
+            .getElementById("hamburger")
+            .addEventListener("click", function () {
+              const lowerNav = document.querySelector(".mobile .lower");
+              lowerNav.classList.add("show");
+              lowerNav.classList.remove("hide");
+
+              const closeBtn = document.querySelector(".mobile #close");
+              closeBtn.style.display = "block";
+
+              const overlay = document.querySelector(".overlay");
+              overlay.style.display = "block";
+            });
+
+          document
+            .getElementById("close")
+            .addEventListener("click", function () {
+              const lowerNav = document.querySelector(".mobile .lower");
+              lowerNav.classList.remove("show");
+              lowerNav.classList.add("hide");
+
+              const closeBtn = document.querySelector(".mobile #close");
+              closeBtn.style.display = "none";
+
+              const overlay = document.querySelector(".overlay");
+              overlay.style.display = "none";
+            });
+        </script>
         <div class="upper">
-          <div class="logo">
+          <span class="logo">
             <img
-              src="https://www.adarashagaihre.com.np/pictures/desktop/navbar/logo/Ag.svg"
+              src="https://www.adarashagaihre.com.np/pictures/mobile/logoHamBurger/Ag.svg"
               alt="Logo"
             /><a href="https://www.adarashagaihre.com.np"></a>
-          </div>
-          <div class="hamburger">
+          </span>
+          <span class="hamburger">
             <span id="hamburger">
               <img
                 class="hamburgerimg"
@@ -320,34 +357,39 @@
                 alt="hamburger"
               />
             </span>
-          </div>
+          </span>
         </div>
         <div class="close">
-          <a href="#" id="close">
+          <span id="close">
             <img
               class="closeimg"
               src="/pictures/mobile/logoHamBurger/closeBtn.svg"
               alt="close"
             />
-          </a>
+          </span>
         </div>
         <div class="lower">
-          <a href="/pages/about/index.html"
-            ><img
-              src="/pictures/mobile/navBar/icons/aboutMe.svg"
-              alt="About Me"
-          /></a>
-          <a href="/pages/portfolio/index.html">
-            <img src="/pictures/mobile/navBar/icons/portifolio.svg" alt=""
-          /></a>
-          <a href="https://www.adarashagaihre.com.np/pages/contact/index.html"
+          <a
+            href="https://www.adarashagaihre.com.np/pages/contact/index.html"
+            class="a"
             ><img
               src="/pictures/mobile/navBar/icons/contactAakku.svg"
               alt="Contact Me"
           /></a>
-          <a href="#"
-            ><img src="/pictures/mobile/navBar/icons/social.svg" alt="socials"
+          <a href="/pages/about/index.html" class="a"
+            ><img
+              src="/pictures/mobile/navBar/icons/aboutMe.svg"
+              alt="About Me"
           /></a>
+          <a href="/pages/portfolio/index.html" class="a">
+            <img
+              src="/pictures/mobile/navBar/icons/portifolio.svg"
+              alt=" Portfolio"
+          /></a>
+
+          <span class="a"
+            ><img src="/pictures/mobile/navBar/icons/social.svg" alt="socials"
+          /></span>
         </div>
       </nav>
     </header>

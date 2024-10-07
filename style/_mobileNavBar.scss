@@ -32,34 +32,22 @@
   .lower {
     z-index: 106;
     bottom: 0;
-    height: 26vw !important;
+    height: 27vw;
     width: 100vw;
     position: fixed;
     background-color: $secondary-color;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    transition: all 0.3s ease-in-out;
+    align-items: center;
     flex-wrap: wrap;
+    transition: all 0.3s ease-in-out;
 
-    a {
-      display: flex;
-      align-items: center;
-      padding: 1vw 2vw;
-      z-index: 106;
+    .a {
+      padding: 0vw 4vw 0vw 4vw;
 
       img {
-        height: 6vw;
-        margin-right: 1vw;
-        z-index: 106;
-      }
-
-      span {
-        color: $primary-color;
-        font-size: 4vw;
-        font-weight: bold;
-        transition: all 0.3s ease-in-out;
-        z-index: 106;
+        height: 8vw;
       }
     }
 

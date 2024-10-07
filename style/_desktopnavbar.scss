@@ -8,7 +8,7 @@
 header {
   position: sticky !important;
   top: 0;
-  z-index: 11;
+  z-index: 110;
 }
 .desktop {
   @include nav($secondary-color, $primary-color, 0vw, 0vw, default);
@@ -24,7 +24,6 @@ header {
       display: flex;
       justify-content: space-evenly;
       align-items: center;
-      // gap: 1.2vw;
 
       li {
         transition: all 0.3s ease-in-out;
@@ -59,7 +58,7 @@ header {
             padding-right: 4vw;
             margin-left: 9vw;
             margin-right: 9vw;
-            // overflow: hidden;
+            overflow: hidden;
             transition: all 0.3s ease-in-out, padding-right 0.6s ease-in-out,
               margin 0.6s ease-in-out;
             &::after {
@@ -73,7 +72,6 @@ header {
             content: "Me";
             opacity: 0;
             background: $secondary-color;
-            // transition: width 0.6s ease-in-out;
           }
         }
         .portfolio {
@@ -97,7 +95,6 @@ header {
             content: "My";
             opacity: 0;
             background: $secondary-color;
-            // transition: opacity 2s ease-in-out;
           }
 
           &:hover {
@@ -107,7 +104,6 @@ header {
             padding-right: 2.3vw;
             margin-left: 9vw;
             margin-right: 15vw;
-            // overflow: hidden;
             transition: all 0.3s ease-in-out, padding-left 0.6s ease-in-out,
               margin 0.6s ease-in-out;
             &::before {

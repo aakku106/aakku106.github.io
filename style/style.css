@@ -6,7 +6,7 @@
 header {
   position: sticky !important;
   top: 0;
-  z-index: 11;
+  z-index: 110;
 }
 
 .desktop {
@@ -63,6 +63,7 @@ header {
   padding-right: 4vw;
   margin-left: 9vw;
   margin-right: 9vw;
+  overflow: hidden;
   transition: all 0.3s ease-in-out, padding-right 0.6s ease-in-out, margin 0.6s ease-in-out;
 }
 .desktop ul .content li .aboutMe:hover::after,
@@ -193,33 +194,22 @@ header {
 .mobile .lower {
   z-index: 106;
   bottom: 0;
-  height: 26vw !important;
+  height: 27vw;
   width: 100vw;
   position: fixed;
   background-color: #060310;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  transition: all 0.3s ease-in-out;
-  flex-wrap: wrap;
-}
-.mobile .lower a {
-  display: flex;
   align-items: center;
-  padding: 1vw 2vw;
-  z-index: 106;
-}
-.mobile .lower a img {
-  height: 6vw;
-  margin-right: 1vw;
-  z-index: 106;
-}
-.mobile .lower a span {
-  color: #c77d27;
-  font-size: 4vw;
-  font-weight: bold;
+  flex-wrap: wrap;
   transition: all 0.3s ease-in-out;
-  z-index: 106;
+}
+.mobile .lower .a {
+  padding: 0vw 4vw 0vw 4vw;
+}
+.mobile .lower .a img {
+  height: 8vw;
 }
 .mobile .lower .close {
   display: none;

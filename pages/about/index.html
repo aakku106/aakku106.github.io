@@ -250,7 +250,7 @@
     <header>
       <nav class="desktop">
         <ul>
-          <ul class="logoholder">
+          <div class="logoholder">
             <li>
               <a href="https://www.adarashagaihre.com.np">
                 <img
@@ -258,8 +258,8 @@
                   alt="Logo"
               /></a>
             </li>
-          </ul>
-          <ul class="content">
+          </div>
+          <div class="content">
             <li>
               <a
                 class="aboutMe"
@@ -281,8 +281,8 @@
                 >Contact</a
               >
             </li>
-          </ul>
-          <ul class="social">
+          </div>
+          <div class="social">
             <li>
               <a href="https://www.linkedin.com/in/adarashaagaihre106/"
                 ><img
@@ -307,7 +307,7 @@
                   alt="Other social links"
               /></a>
             </li>
-          </ul>
+          </div>
         </ul>
       </nav>
 
@@ -316,50 +316,89 @@
       <!--  -->
 
       <nav class="mobile">
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const closeBtn = document.querySelector(".mobile #close");
+            closeBtn.style.display = "none";
+
+            const overlay = document.querySelector(".overlay");
+            overlay.style.display = "none";
+          });
+
+          document
+            .getElementById("hamburger")
+            .addEventListener("click", function () {
+              const lowerNav = document.querySelector(".mobile .lower");
+              lowerNav.classList.add("show");
+              lowerNav.classList.remove("hide");
+
+              const closeBtn = document.querySelector(".mobile #close");
+              closeBtn.style.display = "block";
+
+              const overlay = document.querySelector(".overlay");
+              overlay.style.display = "block";
+            });
+
+          document
+            .getElementById("close")
+            .addEventListener("click", function () {
+              const lowerNav = document.querySelector(".mobile .lower");
+              lowerNav.classList.remove("show");
+              lowerNav.classList.add("hide");
+
+              const closeBtn = document.querySelector(".mobile #close");
+              closeBtn.style.display = "none";
+
+              const overlay = document.querySelector(".overlay");
+              overlay.style.display = "none";
+            });
+        </script>
         <div class="upper">
           <div class="logo">
             <a href="https://www.adarashagaihre.com.np/">
               <img
-                src="https://www.adarashagaihre.com.np/pictures/desktop/navbar/logo/Ag.svg"
+                src="https://www.adarashagaihre.com.np/pictures/mobile/logoHamBurger/Ag.svg"
                 alt="Logo"
             /></a>
           </div>
           <div class="hamburger">
-            <a href="#" id="hamburger">
+            <span id="hamburger">
               <img
                 class="hamburgerimg"
                 src="/pictures/mobile/logoHamBurger/hamburger.svg"
                 alt="hamburger"
               />
-            </a>
+            </span>
           </div>
         </div>
         <div class="close">
-          <a href="#" id="close">
+          <span id="close">
             <img
               class="closeimg"
               src="/pictures/mobile/logoHamBurger/closeBtn.svg"
               alt="close"
             />
-          </a>
+          </span>
         </div>
         <div class="lower">
-          <a href="https://www.adarashagaihre.com.np/pages/about/index.html"
+          <a
+            href="https://www.adarashagaihre.com.np/pages/about/index.html"
+            class="a"
             ><img
               src="/pictures/mobile/navBar/icons/aboutMe.svg"
               alt="About Me"
           /></a>
-          <a href="/pages/portfolio/index.html">
+          <a href="/pages/portfolio/index.html" class="a">
             <img src="/pictures/mobile/navBar/icons/portifolio.svg" alt=""
           /></a>
-          <a href="/pages/contact/index.html"
+          <a href="/pages/contact/index.html" class="a"
             ><img
               src="/pictures/mobile/navBar/icons/contactAakku.svg"
               alt="Contact Me"
           /></a>
-          <a href="#"
+          <span class="a"
             ><img src="/pictures/mobile/navBar/icons/social.svg" alt="socials"
-          /></a>
+          /></span>
         </div>
       </nav>
     </header>
