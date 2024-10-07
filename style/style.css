@@ -556,7 +556,12 @@ body .playground .click .clickII button:active {
   transform: translateX(50vw) translateY(90vw) rotateY(-360deg) scale(0.6);
 }
 
+html, body {
+  scroll-behavior: smooth;
+}
+
 body {
+  height: 150%;
   background-color: #c77d27;
   padding: 0vw;
   margin: 0vw;

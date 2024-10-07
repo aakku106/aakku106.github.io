@@ -7,13 +7,17 @@
 @import "showDateAndTime";
 @import "desktopLandingPageBody";
 @import "desktopplaygrpunfMainPage";
+
+html,body {
+  scroll-behavior: smooth;
+}
 body {
+  height: 150%;
   background-color: $primary-color;
   padding: 0vw;
   margin: 0vw;
   font-family: "Reenie Beanie", cursive;
   font-size: xxx-large;
   color: $primary-color;
-  overflow-x:hidden;
-
+  overflow-x: hidden;
 }
