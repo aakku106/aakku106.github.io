@@ -1,0 +1,122 @@
+/** @format */
+
+@keyframes blinkCursor {
+  50% {
+    border-right-color: transparent;
+  }
+}
+
+@keyframes typeAndDelete {
+  0%,
+  10% {
+    width: 0;
+  }
+
+  45%,
+  55% {
+    width: 5em;
+  }
+
+  90%,
+  100% {
+    width: 0;
+  }
+}
+.warp {
+  height: 100vh;
+  width: 100vw;
+  background-color: #fffdfd;
+  position: fixed;
+   top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  z-index: 999999999999999;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.terminal-loader {
+  width: 50vw;
+  height: 30vw;
+  background: #1c1c1c;
+  border: 1px solid #ffffff3e;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  z-index: 99999999999999;
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  /* transform: translate(-79%, -89%); */
+  margin-left: 10vw;
+  margin-top: 10vh;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.terminal-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #343434;
+  padding: 6px;
+}
+
+.terminal-controls {
+  position: absolute;
+  left: 10px;
+  display: flex;
+  gap: 7px;
+}
+
+.control {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #777;
+}
+
+.control.close {
+  background-color: #e33;
+}
+
+.control.minimize {
+  background-color: #ee0;
+}
+
+.control.maximize {
+  background-color: #0b0;
+}
+
+.terminal-title {
+  color: #eeeeeec1;
+}
+
+.content {
+  padding: 10px;
+}
+.text {
+  /* display: inline-block; */
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 7px solid #d5fb00;
+  animation: typeAndDelete 4s steps(11) infinite,
+    blinkCursor 0.5s step-end infinite alternate;
+  color: #00ff22;
+  font-weight: 600;
+}
+#preLoader {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 1.7s ease, visibility 1s ease-in-out;
+}
+
+#preLoader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}

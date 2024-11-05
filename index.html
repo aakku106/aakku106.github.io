@@ -132,9 +132,15 @@
   <link rel="alternate" href="https://www.adarashagaihre.com.np" hreflang="en-lb" />
   <link rel="alternate" href="https://www.adarashagaihre.com.np" hreflang="en-kw" />
   <link rel="alternate" href="https://www.adarashagaihre.com.np" hreflang="en-bh" />
+  <link rel="stylesheet" href="loder.css">
+  
 </head>
 
 <body>
+
+
+
+
   <header>
     <nav class="desktop">
       <ul>
@@ -231,6 +237,29 @@
 
   <div class="overlay"></div>
   <script src="./js/script.js"></script>
+
+  <div class="warp" id="preLoader">
+    <div class="terminal-loader">
+      <div class="terminal-header">
+        <div class="terminal-title">Status</div>
+        <div class="terminal-controls">
+          <div class="control close"></div>
+          <div class="control minimize"></div>
+          <div class="control maximize"></div>
+        </div>
+      </div>
+      <div class="content">
+        <div class="text"> Loading......</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var loader = document.getElementById("preLoader");
+    window.addEventListener("load", function () {
+      var loader = document.getElementById("preLoader");
+      loader.classList.add("fade-out");
+    });
+  </script>
 </body>
 
 </html>
