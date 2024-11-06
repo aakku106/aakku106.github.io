@@ -25,15 +25,13 @@
   width: 100vw;
   background-color: #fffdfd;
   position: fixed;
-   top: 50%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
   z-index: 999999999999999;
-    justify-content: center;
-    align-items: center;
-
-
+  justify-content: center;
+  align-items: center;
 }
 
 .terminal-loader {
