@@ -340,6 +340,7 @@ header {
     opacity: 0;
   }
 }
+/** @format */
 @media (max-width: 480px) {
   .AboutMeDesktopView {
     display: none;
@@ -386,17 +387,16 @@ body .AboutMeDesktopView .intro .introText {
   padding: 2vw;
   border-radius: 2vw;
   box-shadow: 0 0 1vw 0.5vw rgba(0, 0, 0, 0.349);
-  transition: all 0.4s ease-in-out;
+  transition: all 0.9s cubic-bezier(0.8, 1.38, 0.03, 1);
 }
 html .AboutMeDesktopView .intro .introText:hover,
 body .AboutMeDesktopView .intro .introText:hover {
   box-shadow: 0vw 0vw 1.1vw 0.7vw #060310;
   padding: 2.4vw;
   border-radius: 5vw;
-  transition: all 0.4s ease-in-out;
 }
-html .AboutMeDesktopView .intro .introImage,
-body .AboutMeDesktopView .intro .introImage {
+html .AboutMeDesktopView .intro .introImageHolder,
+body .AboutMeDesktopView .intro .introImageHolder {
   z-index: 5;
   width: 35vw;
   height: 35vw;
@@ -404,16 +404,29 @@ body .AboutMeDesktopView .intro .introImage {
   border-radius: 50%;
   overflow: hidden;
   box-shadow: 0 0 1vw 0.5vw rgba(0, 0, 0, 0.349);
-  transition: all 0.4s ease-in-out;
+  transition: all 0.6s cubic-bezier(0.87, -1.38, 0.03, 1);
 }
-html .AboutMeDesktopView .intro .introImage:hover,
-body .AboutMeDesktopView .intro .introImage:hover {
+html .AboutMeDesktopView .intro .introImageHolder:hover,
+body .AboutMeDesktopView .intro .introImageHolder:hover {
   border-radius: 40%;
   z-index: 3;
   width: 36vw;
   height: 36vw;
   box-shadow: 0vw 0vw 1.1vw 0.7vw #060310;
-  transition: all 0.4s ease-in-out;
+  transform: rotate(6deg);
+}
+html .AboutMeDesktopView .intro .introImage,
+body .AboutMeDesktopView .intro .introImage {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  filter: grayscale(100%);
+}
+html .AboutMeDesktopView .intro .introImage:hover,
+body .AboutMeDesktopView .intro .introImage:hover {
+  filter: none;
+  transform: translateX(1vw) scale(1.1) rotate(-9deg);
 }
 
 p {

@@ -1,0 +1,52 @@
+/*
+ * @format
+ * creates a blinking effect on buttons or div..
+ */
+
+.blink1 {
+  animation: blink 2s infinite;
+  background-color: rgba(139, 0, 0, 0.254);
+  border-radius: 15vw;
+  box-shadow: 0 0 0.4vw 0.7vw rgba(139, 0, 0, 0.38);
+}
+
+.blink2 {
+  animation: blink 4s infinite;
+  background-color: #f0e91c62;
+  border-radius: 15vw;
+  box-shadow: 0 0 2vw 0.6vw #f0e91c64;
+  filter: brightness(100%);
+}
+.blink3 {
+  animation: blink 6s infinite;
+  background-color: #2f5bd56a;
+  border-radius: 15vw;
+  box-shadow: 0 0 0.9vw 0.3vw #2f5bd575;
+  transition: all 0.7s;
+  &:hover {
+    color: #c77d27;
+    background: rgba(0, 0, 0, 0.796);
+  }
+}
+
+@keyframes blink {
+  0% {
+    border-top-left-radius: 10vw;
+  }
+
+  15% {
+    border-bottom-right-radius: 5vw;
+  }
+
+  50% {
+    border-top-right-radius: 10vw;
+  }
+
+  75% {
+    border-bottom-left-radius: 5vw;
+  }
+
+  100% {
+    border-top-right-radius: 5vw;
+  }
+}
