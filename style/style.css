@@ -455,6 +455,7 @@ p:hover::after {
   visibility: visible;
 }
 
+/** @format */
 @media (max-width: 480px) {
   .LandingDesktopView .construction {
     margin-top: -17vw;
