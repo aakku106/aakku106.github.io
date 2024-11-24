@@ -141,6 +141,63 @@
   <link rel="stylesheet" href="/style/navhover.css">
   <link rel="stylesheet" href="/style/loder.css">
 
+
+
+
+  <style>
+    #output {
+      display: none;
+      width: 10vw;
+      height: 10vw;
+      background-color: #c77d27;
+      text-align: center;
+      line-height: 100px;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+      position: fixed;
+      top: -5%;
+      right: 0%;
+      box-shadow: 0 0 10vw 1px #f1bf85;
+      ;
+      transition: background-color 0.5s;
+      z-index: 1;
+      padding: 10px;
+      border-radius: 50%;
+      text-decoration: none;
+      font-size: 1.5rem;
+      text-align: center;
+      color: #fff;
+
+      &:hover {
+        background-color: #f1bf85;
+        color: black;
+        box-shadow: 0 0 10vw 1px #f1bf85;
+      }
+    }
+
+    #draggableWindow {
+      display: none;
+      /* Hidden by default */
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      /* Just an example, use your X icon or style */
+      color: white;
+      text-align: center;
+      line-height: 20px;
+      border-radius: 50%;
+      position: absolute;
+      /* Important for mouse tracking */
+      pointer-events: none;
+      /* So it doesn't block mouse clicks */
+    }
+  </style>
+
+
+
 </head>
 
 <body>
@@ -178,8 +235,24 @@
                 alt="Custom made  github logo by Adarasha Gaihre for desktop view" /></a>
           </li>
           <li>
-            <a href="#"><img class="Others" src="./pictures/desktop/navbar/social/plus.svg"
-                alt="Custom Other social links logo by Adarasha Gaihre for desktop view" /></a>
+            <span><img class="Others" id="Others" src="./pictures/desktop/navbar/social/plus.svg"
+                alt="Custom Other social links logo by Adarasha Gaihre for desktop view" /></span>
+            <div id="output">The Vault</div>
+            <div id="draggableWindow">X</div>
+
+
+            <script>
+              const showButton = document.getElementById('Others');
+              const vaultDiv = document.getElementById('output');
+
+              showButton.addEventListener('click', function () {
+                vaultDiv.style.display = 'block'; // Make the div visible
+              });
+
+              vaultDiv.addEventListener('click', function () {
+                window.location.href = 'https://archive.adarashagaihre.com.np';
+              });
+            </script>
           </li>
         </div>
       </ul>
