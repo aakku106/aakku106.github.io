@@ -179,20 +179,14 @@
     }
 
     #draggableWindow {
-      display: none;
-      /* Hidden by default */
       width: 20px;
-      height: 20px;
-      background-color: red;
-      /* Just an example, use your X icon or style */
+      display: none;
+      z-index: 2;
       color: white;
-      text-align: center;
-      line-height: 20px;
-      border-radius: 50%;
       position: absolute;
-      /* Important for mouse tracking */
-      pointer-events: none;
-      /* So it doesn't block mouse clicks */
+      top: 0;
+      right: 50%;
+      font-size: 600px;
     }
   </style>
 
@@ -244,6 +238,8 @@
             <script>
               const showButton = document.getElementById('Others');
               const vaultDiv = document.getElementById('output');
+              const draggableWindow = document.getElementById('draggableWindow');
+
 
               showButton.addEventListener('click', function () {
                 vaultDiv.style.display = 'block'; // Make the div visible
@@ -251,6 +247,10 @@
 
               vaultDiv.addEventListener('click', function () {
                 window.location.href = 'https://archive.adarashagaihre.com.np';
+              });
+
+              draggableWindow.addEventListener('click', function () {
+                vaultDiv.style.display = 'block';
               });
             </script>
           </li>
