@@ -341,11 +341,6 @@ header {
   }
 }
 /** @format */
-@media (max-width: 480px) {
-  .AboutMeDesktopView {
-    display: none;
-  }
-}
 html,
 body {
   margin: 0;
