@@ -3,9 +3,24 @@
 @media (max-width: 480px) {
   .AboutMeDesktopView {
     // display: none;
-    .intro{
+    .intro {
+      .introText {
+        height: max-content !important;
+        font-size: 2.1rem !important;
+      }
+      .introImageHolder {
+        margin-top: 3rem !important;
+        width: 20rem !important;
+        height: 20rem !important;
+      }
     }
-
+    .skills-experience,
+    .projects,
+    .future-goals {
+      padding: 1vw;
+      text-align: center !important;
+      font-size: 1.7rem;
+    }
   }
 }
 
@@ -89,7 +104,9 @@ body {
         }
       }
     }
-    .skills-experience,.projects,.future-goals {
+    .skills-experience,
+    .projects,
+    .future-goals {
       padding: 1vw;
     }
   }
