@@ -1,3 +1,5 @@
+/** @format */
+
 @import "variables";
 @import "mixins";
 @import "desktopnavbar";
@@ -8,7 +10,8 @@
 @import "desktopLandingPageBody";
 @import "desktopplaygrpunfMainPage";
 
-html,body {
+html,
+body {
   scroll-behavior: smooth;
 }
 body {
@@ -20,4 +23,7 @@ body {
   font-size: xxx-large;
   color: $primary-color;
   overflow-x: hidden;
+}
+.text-center {
+  text-align: center;
 }
