@@ -343,10 +343,14 @@ header {
 }
 /** @format */
 @media (max-width: 480px) {
+  .AboutMeDesktopView {
+    overflow-x: hidden !important;
+  }
   .AboutMeDesktopView .intro .introText {
     height: -moz-max-content !important;
     height: max-content !important;
     font-size: 2.1rem !important;
+    margin-right: 0.2rem !important;
   }
   .AboutMeDesktopView .intro .introImageHolder {
     margin-top: 3rem !important;
@@ -393,7 +397,8 @@ html .AboutMeDesktopView .intro .introText,
 body .AboutMeDesktopView .intro .introText {
   z-index: 5;
   width: 45rem;
-  height: 37rem;
+  height: -moz-max-content;
+  height: max-content;
   text-align: justify;
   margin-bottom: 2vw;
   line-height: 1.5;
