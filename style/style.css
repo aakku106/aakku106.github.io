@@ -360,9 +360,10 @@ header {
   .AboutMeDesktopView .skills-experience,
   .AboutMeDesktopView .projects,
   .AboutMeDesktopView .future-goals {
-    padding: 1vw;
+    padding: 0.5vw !important;
     text-align: center !important;
-    font-size: 1.7rem;
+    font-size: 1.7rem !important;
+    margin-right: 0.1rem !important;
   }
 }
 html,

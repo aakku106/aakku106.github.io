@@ -8,7 +8,7 @@
       .introText {
         height: max-content !important;
         font-size: 2.1\rem !important;
-        margin-right: .2rem !important;
+        margin-right: 0.2rem !important;
       }
       .introImageHolder {
         margin-top: 3rem !important;
@@ -19,9 +19,10 @@
     .skills-experience,
     .projects,
     .future-goals {
-      padding: 1vw;
+      padding: 0.5vw !important;
       text-align: center !important;
-      font-size: 1.7rem;
+      font-size: 1.7rem !important;
+      margin-right: 0.1rem !important;
     }
   }
 }
