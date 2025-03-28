@@ -1,0 +1,418 @@
+/** @format */
+
+// Naruto theme color variables
+$naruto-orange: #ff7800;
+$naruto-blue: #0080ff;
+$naruto-black: #1a1a1a;
+$naruto-red: #ff0000;
+$naruto-light-yellow: #ffe5b4;
+$naruto-scroll: #e9d8b8;
+$naruto-dark: #333333;
+$naruto-light: #ffffff;
+
+// Font variables
+$naruto-font: "Ninja Naruto", sans-serif;
+$body-font: Arial, Helvetica, sans-serif;
+
+// Mixins
+@mixin naruto-gradient {
+  background: linear-gradient(135deg, $naruto-orange 0%, #ff9d42 100%);
+}
+
+@mixin naruto-shadow($color: rgba(0, 0, 0, 0.2)) {
+  box-shadow: 0 4px 8px $color;
+}
+
+@mixin naruto-scroll-bg {
+  background: $naruto-scroll
+    url("https://images.unsplash.com/photo-1527064563583-ea47cfc0a7eb?q=80&w=1470")
+    repeat;
+  background-size: 200px;
+  background-blend-mode: overlay;
+}
+
+@mixin naruto-button {
+  background-color: $naruto-orange;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: darken($naruto-orange, 10%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 120, 0, 0.4);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transform: translateX(-100%);
+  }
+
+  &:hover::before {
+    animation: shine 1.5s infinite;
+  }
+}
+
+@keyframes shine {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// Main styles
+.naruto-contact {
+  font-family: $body-font;
+  color: $naruto-dark;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 80px;
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("https://i.pinimg.com/originals/43/a4/c7/43a4c7e383d2d85458e9184d8be366b5.jpg")
+      no-repeat center center;
+    background-size: cover;
+    opacity: 0.1;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  // Hero section styling
+  .contact-hero {
+    position: relative;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("https://i.pinimg.com/originals/0e/94/36/0e9436aad6506520d06a05afe357e8c8.jpg")
+        no-repeat center center;
+      background-size: cover;
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    .hero-content {
+      text-align: center;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+
+      h1 {
+        font-family: $naruto-font;
+        font-size: 4rem;
+        color: $naruto-dark;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 0 $naruto-orange;
+
+        span {
+          color: $naruto-orange;
+        }
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin: 0 auto;
+        color: $naruto-dark;
+      }
+    }
+  }
+
+  // Contact container styling
+  .contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    gap: 40px;
+    justify-content: center;
+  }
+
+  // Contact form styling
+  .contact-form-wrapper {
+    flex: 1 1 500px;
+    max-width: 700px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 30px;
+    @include naruto-shadow;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 120px;
+      height: 120px;
+      background: url("https://images.vexels.com/media/users/3/145841/isolated/preview/43fb6e27d37b9cc341d42ad654db9ddb-naruto-symbol-logo-by-vexels.png")
+        no-repeat;
+      background-size: contain;
+      opacity: 0.1;
+      pointer-events: none;
+    }
+
+    .form-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 30px;
+
+      h2 {
+        font-family: $naruto-font;
+        color: $naruto-dark;
+        font-size: 2rem;
+        margin: 0 15px;
+      }
+
+      .scroll-design {
+        height: 2px;
+        background-color: $naruto-orange;
+        flex: 1;
+        position: relative;
+
+        &::before {
+          content: "";
+          position: absolute;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background-color: $naruto-orange;
+          top: -4px;
+        }
+
+        &.left::before {
+          right: 0;
+        }
+
+        &.right::before {
+          left: 0;
+        }
+      }
+    }
+  }
+
+  .contact-form {
+    .form-group {
+      margin-bottom: 20px;
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: $naruto-dark;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 12px 15px;
+        border: 2px solid #ddd;
+        border-radius: 6px;
+        background-color: #f9f9f9;
+        font-size: 16px;
+        transition: all 0.3s ease;
+
+        &:focus {
+          outline: none;
+          border-color: $naruto-orange;
+          background-color: white;
+          box-shadow: 0 0 0 3px rgba(255, 120, 0, 0.2);
+        }
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+    }
+
+    .send-btn {
+      @include naruto-button;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: $naruto-font;
+      width: 100%;
+
+      .btn-text {
+        margin-right: 10px;
+      }
+
+      .btn-icon {
+        font-size: 1.2rem;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover .btn-icon {
+        transform: translateX(5px);
+      }
+    }
+  }
+
+  // Contact Info styling
+  .contact-info {
+    flex: 1 1 300px;
+    max-width: 400px;
+
+    .info-card {
+      perspective: 1000px;
+      height: 100%;
+      min-height: 400px;
+
+      &:hover .card-inner {
+        transform: rotateY(10deg);
+      }
+
+      .card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        padding: 30px;
+        @include naruto-shadow;
+        @include naruto-scroll-bg;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 20px;
+          right: 20px;
+          width: 80px;
+          height: 80px;
+          background: url("https://www.pngitem.com/pimgs/m/5-52281_naruto-logo-uzumaki-clan-symbol-hd-png-download.png")
+            no-repeat;
+          background-size: contain;
+          opacity: 0.2;
+        }
+
+        h3 {
+          font-family: $naruto-font;
+          color: $naruto-orange;
+          font-size: 1.8rem;
+          margin-bottom: 30px;
+          text-align: center;
+          position: relative;
+
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: $naruto-orange;
+          }
+        }
+      }
+    }
+
+    .contact-methods {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      .contact-method {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 30px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        .method-icon {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background-color: $naruto-light-yellow;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-right: 15px;
+        }
+
+        .method-details {
+          flex: 1;
+
+          h4 {
+            font-family: $naruto-font;
+            font-size: 1.2rem;
+            color: $naruto-dark;
+            margin-bottom: 5px;
+          }
+
+          p {
+            font-size: 1rem;
+            color: $naruto-dark;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
