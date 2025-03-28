@@ -616,6 +616,369 @@ body .playground .click .clickII button:active {
   transform: translateX(50vw) translateY(90vw) rotateY(-360deg) scale(0.6);
 }
 
+/** @format */
+@keyframes shine {
+  100% {
+    transform: translateX(100%);
+  }
+}
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.naruto-contact {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333333;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 80px;
+  padding: 1vw;
+  margin-top: -55px !important;
+}
+.naruto-contact .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../pictures/contactPage/naru.jpg") no-repeat center center;
+  background-size: cover;
+  opacity: 0.1;
+  pointer-events: none;
+  padding: 1vw !important;
+}
+.naruto-contact .contact-hero {
+  position: relative;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+  overflow: hidden;
+  border-radius: 10px !important;
+  -webkit-backdrop-filter: blur(5px) !important;
+          backdrop-filter: blur(5px) !important;
+}
+.naruto-contact .contact-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../pictures/contactPage/Bgcover.jpg") no-repeat center;
+  background-size: cover;
+  opacity: 0.3;
+}
+.naruto-contact .contact-hero .hero-content {
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+  -webkit-backdrop-filter: blur(5px) !important;
+          backdrop-filter: blur(5px) !important;
+  border-radius: 10px;
+}
+.naruto-contact .contact-hero .hero-content h1 {
+  font-family: "Ninja Naruto", sans-serif;
+  font-size: 4rem;
+  color: #333333;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 0 #ff7800;
+}
+.naruto-contact .contact-hero .hero-content h1 span {
+  color: #ff7800;
+}
+.naruto-contact .contact-hero .hero-content .subtitle {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  color: #333333;
+}
+.naruto-contact .contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  gap: 40px;
+  justify-content: center;
+}
+.naruto-contact .contact-form-wrapper {
+  flex: 1 1 500px;
+  max-width: 700px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  padding: 1vw;
+  border-radius: 10px;
+}
+.naruto-contact .contact-form-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 120px;
+  height: 120px;
+  background: url("../pictures/contactPage/naru.jpg") no-repeat;
+  background-size: contain;
+  opacity: 0.1;
+  pointer-events: none;
+}
+.naruto-contact .contact-form-wrapper .form-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  padding: 1vw !important;
+}
+.naruto-contact .contact-form-wrapper .form-header h2 {
+  font-family: "Ninja Naruto", sans-serif;
+  color: #333333;
+  font-size: 2rem;
+  margin: 0 15px;
+}
+.naruto-contact .contact-form-wrapper .form-header .scroll-design {
+  height: 2px;
+  background-color: #ff7800;
+  flex: 1;
+  position: relative;
+}
+.naruto-contact .contact-form-wrapper .form-header .scroll-design::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ff7800;
+  top: -4px;
+}
+.naruto-contact .contact-form-wrapper .form-header .scroll-design.left::before {
+  right: 0;
+}
+.naruto-contact .contact-form-wrapper .form-header .scroll-design.right::before {
+  left: 0;
+}
+.naruto-contact .contact-form {
+  padding: 1vw;
+}
+.naruto-contact .contact-form .form-group {
+  padding: 1vw;
+  margin-bottom: 20px;
+}
+.naruto-contact .contact-form .form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333333;
+}
+.naruto-contact .contact-form .form-group input,
+.naruto-contact .contact-form .form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+.naruto-contact .contact-form .form-group input:focus,
+.naruto-contact .contact-form .form-group textarea:focus {
+  outline: none;
+  border-color: #ff7800;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(255, 120, 0, 0.2);
+}
+.naruto-contact .contact-form .form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+.naruto-contact .contact-form .send-btn {
+  background-color: #ff7800;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Ninja Naruto", sans-serif;
+  width: 100%;
+}
+.naruto-contact .contact-form .send-btn:hover {
+  background-color: #cc6000;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 120, 0, 0.4);
+}
+.naruto-contact .contact-form .send-btn:active {
+  transform: translateY(0);
+}
+.naruto-contact .contact-form .send-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: translateX(-100%);
+}
+.naruto-contact .contact-form .send-btn:hover::before {
+  animation: shine 1.5s infinite;
+}
+.naruto-contact .contact-form .send-btn .btn-text {
+  margin-right: 10px;
+}
+.naruto-contact .contact-form .send-btn .btn-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+.naruto-contact .contact-form .send-btn:hover .btn-icon {
+  transform: translateX(5px);
+}
+.naruto-contact .contact-info {
+  flex: 1 1 300px;
+  max-width: 400px;
+  padding: 1vw;
+  margin-bottom: 10px;
+}
+.naruto-contact .contact-info .info-card {
+  perspective: 900px;
+  height: 100%;
+  min-height: 400px;
+  padding: 1vw;
+}
+.naruto-contact .contact-info .info-card:hover .card-inner {
+  transform: rotateY(10deg);
+}
+.naruto-contact .contact-info .info-card .card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background: #e9d8b8 url("../pictures/contactPage/naru.jpg") repeat;
+  background-size: 200px;
+  background-blend-mode: overlay;
+}
+.naruto-contact .contact-info .info-card .card-inner::after {
+  content: "";
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  background: url("https://avatars.githubusercontent.com/u/155184299?v=4") no-repeat;
+  background-size: contain;
+  opacity: 0.6;
+}
+.naruto-contact .contact-info .info-card .card-inner h3 {
+  font-family: "Ninja Naruto", sans-serif;
+  color: #ff7800;
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  text-align: center;
+  position: relative;
+  border-radius: 10px;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  perspective: 100px;
+}
+.naruto-contact .contact-info .info-card .card-inner h3::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: #ff7800;
+}
+.naruto-contact .contact-info .contact-methods {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 10px;
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  padding: 3vw;
+  perspective: 200px;
+}
+.naruto-contact .contact-info .contact-methods .contact-method {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  padding: 1vw;
+  perspective: 200px;
+  transition: all 0.5s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.naruto-contact .contact-info .contact-methods .contact-method:hover {
+  transform: rotateY(-2deg);
+}
+.naruto-contact .contact-info .contact-methods .contact-method:last-child {
+  margin-bottom: 0;
+}
+.naruto-contact .contact-info .contact-methods .contact-method .method-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ffe5b4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+}
+.naruto-contact .contact-info .contact-methods .contact-method .method-details {
+  flex: 1;
+}
+.naruto-contact .contact-info .contact-methods .contact-method .method-details h4 {
+  font-family: "Ninja Naruto", sans-serif;
+  font-size: 1.2rem;
+  color: #333333;
+  margin-bottom: 5px;
+}
+.naruto-contact .contact-info .contact-methods .contact-method .method-details a {
+  font-size: 1.7rem;
+}
+.naruto-contact .contact-info .contact-methods .contact-method .method-details p {
+  font-size: 1rem;
+  color: #333333;
+  margin: 0;
+}
+
 html,
 body {
   scroll-behavior: smooth;

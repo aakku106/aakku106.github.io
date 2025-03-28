@@ -24,9 +24,7 @@ $body-font: Arial, Helvetica, sans-serif;
 }
 
 @mixin naruto-scroll-bg {
-  background: $naruto-scroll
-    url("https://images.unsplash.com/photo-1527064563583-ea47cfc0a7eb?q=80&w=1470")
-    repeat;
+  background: $naruto-scroll url("../pictures/contactPage/naru.jpg") repeat;
   background-size: 200px;
   background-blend-mode: overlay;
 }
@@ -110,6 +108,8 @@ $body-font: Arial, Helvetica, sans-serif;
   position: relative;
   overflow: hidden;
   padding-bottom: 80px;
+  padding: 1vw;
+  margin-top: -55px !important;
 
   .overlay {
     position: fixed;
@@ -117,12 +117,12 @@ $body-font: Arial, Helvetica, sans-serif;
     left: 0;
     width: 100%;
     height: 100%;
-    background: url("https://i.pinimg.com/originals/43/a4/c7/43a4c7e383d2d85458e9184d8be366b5.jpg")
-      no-repeat center center;
+    background: url("../pictures/contactPage/naru.jpg") no-repeat center center;
     background-size: cover;
     opacity: 0.1;
-    z-index: -1;
+    // z-index: -1;
     pointer-events: none;
+    padding: 1vw !important;
   }
 
   // Hero section styling
@@ -132,9 +132,10 @@ $body-font: Arial, Helvetica, sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 50px;
     margin-bottom: 50px;
     overflow: hidden;
+    border-radius: 10px !important;
+    backdrop-filter: blur(5px) !important;
 
     &::before {
       content: "";
@@ -143,11 +144,10 @@ $body-font: Arial, Helvetica, sans-serif;
       left: 0;
       width: 100%;
       height: 100%;
-      background: url("https://i.pinimg.com/originals/0e/94/36/0e9436aad6506520d06a05afe357e8c8.jpg")
-        no-repeat center center;
+      background: url("../pictures/contactPage/Bgcover.jpg") no-repeat center;
       background-size: cover;
       opacity: 0.3;
-      z-index: -1;
+      // z-index: -1;
     }
 
     .hero-content {
@@ -155,6 +155,8 @@ $body-font: Arial, Helvetica, sans-serif;
       padding: 0 20px;
       position: relative;
       z-index: 1;
+      backdrop-filter: blur(5px) !important;
+      border-radius: 10px;
 
       h1 {
         font-family: $naruto-font;
@@ -197,6 +199,8 @@ $body-font: Arial, Helvetica, sans-serif;
     padding: 30px;
     @include naruto-shadow;
     position: relative;
+    padding: 1vw;
+    border-radius: 10px;
 
     &::before {
       content: "";
@@ -205,8 +209,7 @@ $body-font: Arial, Helvetica, sans-serif;
       right: 0;
       width: 120px;
       height: 120px;
-      background: url("https://images.vexels.com/media/users/3/145841/isolated/preview/43fb6e27d37b9cc341d42ad654db9ddb-naruto-symbol-logo-by-vexels.png")
-        no-repeat;
+      background: url("../pictures/contactPage/naru.jpg") no-repeat;
       background-size: contain;
       opacity: 0.1;
       pointer-events: none;
@@ -217,6 +220,7 @@ $body-font: Arial, Helvetica, sans-serif;
       align-items: center;
       justify-content: center;
       margin-bottom: 30px;
+      padding: 1vw !important;
 
       h2 {
         font-family: $naruto-font;
@@ -253,7 +257,9 @@ $body-font: Arial, Helvetica, sans-serif;
   }
 
   .contact-form {
+    padding: 1vw;
     .form-group {
+      padding: 1vw;
       margin-bottom: 20px;
 
       label {
@@ -314,11 +320,14 @@ $body-font: Arial, Helvetica, sans-serif;
   .contact-info {
     flex: 1 1 300px;
     max-width: 400px;
+    padding: 1vw;
+    margin-bottom: 10px;
 
     .info-card {
-      perspective: 1000px;
+      perspective: 900px;
       height: 100%;
       min-height: 400px;
+      padding: 1vw;
 
       &:hover .card-inner {
         transform: rotateY(10deg);
@@ -343,10 +352,11 @@ $body-font: Arial, Helvetica, sans-serif;
           right: 20px;
           width: 80px;
           height: 80px;
-          background: url("https://www.pngitem.com/pimgs/m/5-52281_naruto-logo-uzumaki-clan-symbol-hd-png-download.png")
+          border-radius: 10px;
+          background: url("https://avatars.githubusercontent.com/u/155184299?v=4")
             no-repeat;
           background-size: contain;
-          opacity: 0.2;
+          opacity: 0.6;
         }
 
         h3 {
@@ -356,6 +366,9 @@ $body-font: Arial, Helvetica, sans-serif;
           margin-bottom: 30px;
           text-align: center;
           position: relative;
+          border-radius: 10px;
+          backdrop-filter: blur(10px);
+          perspective: 100px;
 
           &::after {
             content: "";
@@ -375,11 +388,24 @@ $body-font: Arial, Helvetica, sans-serif;
       list-style: none;
       padding: 0;
       margin: 0;
+      border-radius: 10px;
+      backdrop-filter: blur(3px);
+      padding: 3vw;
+      perspective: 200px;
 
       .contact-method {
         display: flex;
         align-items: flex-start;
         margin-bottom: 30px;
+        border-radius: 10px;
+        backdrop-filter: blur(20px);
+        padding: 1vw;
+        perspective: 200px;
+        transition: all 0.5s ease-in-out;
+        @include naruto-shadow;
+        &:hover {
+          transform: rotateY(-2deg);
+        }
 
         &:last-child {
           margin-bottom: 0;
@@ -404,6 +430,9 @@ $body-font: Arial, Helvetica, sans-serif;
             font-size: 1.2rem;
             color: $naruto-dark;
             margin-bottom: 5px;
+          }
+          a {
+            font-size: 1.7rem;
           }
 
           p {
