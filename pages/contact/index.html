@@ -285,7 +285,7 @@
           <div class="scroll-design right"></div>
         </div>
 
-        <form class="contact-form">
+        <form class="contact-form" action="https://formspree.io/f/mblgagdq" method="POST">
           <div class="form-group">
             <label for="name">Your Name</label>
             <input type="text" id="name" name="name" required placeholder="Enter your name">
@@ -409,7 +409,84 @@
  -->
 
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function ()
+    {
+      const contactForm = document.querySelector('.contact-form');
 
+      contactForm.addEventListener('submit', function (e)
+      {
+        e.preventDefault();
+
+        // Show loading state
+        const submitBtn = contactForm.querySelector('.send-btn');
+        const originalBtnText = submitBtn.querySelector('.btn-text').textContent;
+        submitBtn.querySelector('.btn-text').textContent = 'Sending...';
+        submitBtn.disabled = true;
+
+        // Collect form data
+        const formData = new FormData(contactForm);
+
+        // Send the form using fetch API
+        fetch(contactForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        })
+          .then(response =>
+          {
+            if (response.ok)
+            {
+              // Success message
+              showFormMessage('success', 'Message sent successfully! I\'ll get back to you soon.');
+              contactForm.reset();
+            } else
+            {
+              // Error message
+              showFormMessage('error', 'Oops! Something went wrong. Please try again.');
+            }
+          })
+          .catch(error =>
+          {
+            showFormMessage('error', 'Network error. Please check your connection and try again.');
+          })
+          .finally(() =>
+          {
+            // Restore button state
+            submitBtn.querySelector('.btn-text').textContent = originalBtnText;
+            submitBtn.disabled = false;
+          });
+      });
+
+      // Function to show feedback message
+      function showFormMessage(type, message)
+      {
+        // Remove any existing message
+        const existingMsg = document.querySelector('.form-message');
+        if (existingMsg) existingMsg.remove();
+
+        // Create new message element
+        const msgElement = document.createElement('div');
+        msgElement.className = `form-message ${type}`;
+        msgElement.innerHTML = message;
+
+        // Add to DOM
+        contactForm.insertAdjacentElement('beforebegin', msgElement);
+
+        // Auto-remove after some time for success messages
+        if (type === 'success')
+        {
+          setTimeout(() =>
+          {
+            msgElement.classList.add('fade-out');
+            setTimeout(() => msgElement.remove(), 500);
+          }, 5000);
+        }
+      }
+    });
+  </script>
 </body>
 
 </html>
