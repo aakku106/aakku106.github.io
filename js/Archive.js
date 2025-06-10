@@ -2,7 +2,7 @@
 
 const showButton = document.getElementById("Others");
 const vaultDiv = document.getElementById("ValutSectionShow");
-const draggableWindow = document.getElementById("draggableWindow");
+const CrossBtnVault = document.getElementById("CrossBtnVault");
 
 showButton.addEventListener("click", () => {
   vaultDiv.style.display = "block";
@@ -11,7 +11,6 @@ showButton.addEventListener("click", () => {
 vaultDiv.addEventListener("click", () => {
   window.location.href = "https://archive.adarashagaihre.com.np";
 });
-
-draggableWindow.addEventListener("click", () => {
-  vaultDiv.style.display = "block";
+CrossBtnVault.addEventListener("click", () => {
+  window.location.href = "https://archive.adarashagaihre.com.np";
 });
