@@ -3,7 +3,7 @@
 @media (max-width: 480px) {
   .LandingDesktopView {
     .construction {
-      margin-top: -17vw;
+      // margin-top: -17vw;
       position: absolute;
       background: linear-gradient(
         0deg,
@@ -26,15 +26,14 @@ body {
       z-index: 10;
     }
     .construction {
-      margin-top: -17vw;
       position: absolute;
       background: linear-gradient(
-        0deg,
-        rgba(32, 90, 235, 0.318),
-        rgba(209, 50, 220, 0.109)
+        45deg,
+        rgba(32, 90, 235, 0.393),
+        rgba(220, 50, 141, 0.294)
       );
       backdrop-filter: blur(2.5px) !important;
-      z-index: 4;
+      z-index: 99999 !important;
       top: 70%;
       left: 15%;
       color: white;

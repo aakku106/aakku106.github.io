@@ -10,13 +10,22 @@
 @import "desktopLandingPageBody";
 @import "desktopplaygrpunfMainPage";
 @import "contactMePage";
+@import "otherView";
+
+* {
+  padding: 0;
+  margin: 0;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: none;
+}
 
 html,
 body {
   scroll-behavior: smooth;
 }
 body {
-  height: 150%;
+  min-height: 100vh;
   background-color: $primary-color;
   padding: 0vw;
   margin: 0vw;
