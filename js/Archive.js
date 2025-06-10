@@ -23,4 +23,4 @@ setTimeout(() => {
     vaultDiv.style.display = "none";
     CrossBtnVault.style.display = "none";
   });
-}, 2000);
+}, 0);
