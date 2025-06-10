@@ -1045,7 +1045,14 @@ body .playground .click .clickII button:active {
 #ValutSectionShow {
   position: absolute !important;
   top: 12rem;
-  left: 12rem;
+  left: 0rem;
+  background-color: rgba(148, 37, 37, 0.5607843137) !important;
+}
+
+#CrossBtnVault {
+  position: absolute !important;
+  top: 12rem;
+  left: 0rem;
   background-color: rgba(148, 37, 37, 0.5607843137) !important;
 }
 
