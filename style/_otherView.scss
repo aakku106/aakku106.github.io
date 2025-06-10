@@ -1,14 +1,35 @@
 /** @format */
+#OthersSectionActive {
+  position: absolute;
+  top: 12rem;
+  left: -10rem;
+  transform: translate(-50%, -50%);
+  background-color: rgba(39, 101, 195, 0.215);
+  padding: 1.6rem;
+}
 
 #ValutSectionShow {
-  position: absolute !important;
-  top: 12rem;
-  left: 0rem;
-  background-color: #9425258f !important;
+  padding: 1rem;
+  background-color: #9614c66a !important;
 }
 #CrossBtnVault {
   position: absolute !important;
-  top: 12rem;
-  left: 0rem;
-  background-color: #9425258f !important;
+  top: 0.7rem;
+  left: 1.4rem;
+  transform: translate(-50%, -50%);
+  background-color: red;
+  min-height: 1rem;
+  min-width: 1rem;
+  border-radius: 50%;
+  &:hover {
+    &::after {
+      content: "X";
+      text-align: center;
+      color: black;
+      font-size: 1.5rem;
+      position: absolute;
+      top: -0.3rem;
+      left: 0.3rem;
+    }
+  }
 }

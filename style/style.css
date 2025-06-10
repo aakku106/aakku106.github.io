@@ -488,6 +488,9 @@ p:hover::after {
 
 /** @format */
 @media (max-width: 480px) {
+  .LandingDesktopView {
+    display: none;
+  }
   .LandingDesktopView .construction {
     position: absolute;
     background: linear-gradient(0deg, rgba(32, 90, 235, 0.318), rgba(209, 50, 220, 0.109));
@@ -1042,18 +1045,38 @@ body .playground .click .clickII button:active {
 }
 
 /** @format */
-#ValutSectionShow {
-  position: absolute !important;
+#OthersSectionActive {
+  position: absolute;
   top: 12rem;
-  left: 0rem;
-  background-color: rgba(148, 37, 37, 0.5607843137) !important;
+  left: -10rem;
+  transform: translate(-50%, -50%);
+  background-color: rgba(39, 101, 195, 0.215);
+  padding: 1.6rem;
+}
+
+#ValutSectionShow {
+  padding: 1rem;
+  background-color: rgba(150, 20, 198, 0.4156862745) !important;
 }
 
 #CrossBtnVault {
   position: absolute !important;
-  top: 12rem;
-  left: 0rem;
-  background-color: rgba(148, 37, 37, 0.5607843137) !important;
+  top: 0.7rem;
+  left: 1.4rem;
+  transform: translate(-50%, -50%);
+  background-color: red;
+  min-height: 1rem;
+  min-width: 1rem;
+  border-radius: 50%;
+}
+#CrossBtnVault:hover::after {
+  content: "X";
+  text-align: center;
+  color: black;
+  font-size: 1.5rem;
+  position: absolute;
+  top: -0.3rem;
+  left: 0.3rem;
 }
 
 * {
@@ -1063,6 +1086,7 @@ body .playground .click .clickII button:active {
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
   border: none;
+  transition: all 0.3s ease-in-out;
 }
 
 html,
