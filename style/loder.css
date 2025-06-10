@@ -48,7 +48,6 @@
   position: fixed;
   top: 10%;
   left: 10%;
-  /* transform: translate(-79%, -89%); */
   margin-left: 10vw;
   margin-top: 10vh;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -99,10 +98,13 @@
   background: rgba(28, 28, 28, 0.784);
 }
 .text {
-  /* display: inline-block; */
+  background: rgba(28, 28, 28, 0.784);
+  padding: 0.6rem;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 7px solid #d5fb00;
+  border-top-right-radius: 0rem;
+  border-bottom-right-radius: 0rem;
+  border-right: 4px solid #d5fb00;
   animation: typeAndDelete 4s steps(11) infinite,
     blinkCursor 0.5s step-end infinite alternate;
   color: #00ff22;

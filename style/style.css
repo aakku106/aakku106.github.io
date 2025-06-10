@@ -612,9 +612,9 @@ body .playground .click .clickII button {
   left: 50%;
   margin: auto;
   position: absolute !important;
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
-  background: linear-gradient(45deg, rgba(127, 255, 212, 0.364), rgba(11, 25, 131, 0.538));
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  background: linear-gradient(45deg, rgba(107, 5, 81, 0.364), rgba(11, 25, 131, 0.538));
 }
 body .playground .click .clickII button:hover {
   background-color: red;
