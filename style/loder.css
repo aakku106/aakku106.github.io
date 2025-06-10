@@ -1,3 +1,5 @@
+/** @format */
+
 @keyframes blinkCursor {
   50% {
     border-right-color: transparent;
@@ -25,7 +27,6 @@
   width: 100vw;
   background-color: #fffdfd;
   position: fixed;
-  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
@@ -37,7 +38,7 @@
 .terminal-loader {
   width: 50vw;
   height: 30vw;
-  background: #1c1c1c;
+  background: rgba(28, 28, 28, 0.784);
   border: 1px solid #ffffff3e;
   border-radius: 10px;
   overflow: hidden;
@@ -93,8 +94,9 @@
   color: #eeeeeec1;
 }
 
-.content {
+.PreLoadContent {
   padding: 10px;
+  background: rgba(28, 28, 28, 0.784);
 }
 .text {
   /* display: inline-block; */
