@@ -33,7 +33,7 @@ body {
   padding: 0;
   background-color: $primary-color;
   color: $secondary-color;
-  height: 100vw;
+  min-height: 100vh;
 
   .AboutMeDesktopView {
     @include aboutMeBody($primary-color, $secondary-color);
@@ -45,17 +45,15 @@ body {
       flex-direction: row;
       justify-content: space-around;
       align-items: center;
-      margin-top: -2vw;
-      margin-bottom: 5vw;
+      margin-top: 5rem;
       position: relative;
       flex-wrap: wrap !important;
-      padding: 1vw;
       .introText {
         z-index: 5;
         width: 45rem;
         height: max-content;
         text-align: justify;
-        margin-bottom: 2vw;
+        // margin-bottom: 2vw;
         line-height: 1.5;
         font-size: 3.4vw;
         backdrop-filter: blur(20px) !important;
@@ -110,7 +108,8 @@ body {
     .skills-experience,
     .projects,
     .future-goals {
-      padding: 1vw;
+      margin-top: 4rem;
+      padding: 1rem;
     }
   }
 }
