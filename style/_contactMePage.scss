@@ -1,49 +1,53 @@
 /** @format */
 
-// Naruto theme color variables
-$naruto-orange: #ff7800;
-$naruto-blue: #0080ff;
-$naruto-black: #1a1a1a;
-$naruto-red: #ff0000;
-$naruto-light-yellow: #ffe5b4;
-$naruto-scroll: #e9d8b8;
-$naruto-dark: #333333;
-$naruto-light: #ffffff;
+// Glassmorphism design color variables
+$glass-primary: #c77d27; // Your brand orange
+$glass-secondary: #ffffff;
+$glass-dark: #060310;
+$glass-light: rgba(255, 255, 255, 0.1);
+$glass-border: rgba(255, 255, 255, 0.2);
+$glass-shadow: rgba(0, 0, 0, 0.1);
+$glass-accent: rgba(199, 125, 39, 0.3);
 
 // Font variables
-$naruto-font: "Ninja Naruto", sans-serif;
-$body-font: Arial, Helvetica, sans-serif;
+$primary-font: "Reenie Beanie", cursive;
+$body-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
-// Mixins
-@mixin naruto-gradient {
-  background: linear-gradient(135deg, $naruto-orange 0%, #ff9d42 100%);
+// Glassmorphism mixins
+@mixin glass-card($opacity: 0.1, $blur: 20px) {
+  background: rgba(255, 255, 255, $opacity);
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-@mixin naruto-shadow($color: rgba(0, 0, 0, 0.2)) {
-  box-shadow: 0 4px 8px $color;
-}
-
-@mixin naruto-scroll-bg {
-  background: $naruto-scroll url("../pictures/contactPage/naru.jpg") repeat;
-  background-size: 200px;
-  background-blend-mode: overlay;
-}
-
-@mixin naruto-button {
-  background-color: $naruto-orange;
+@mixin glass-button {
+  background: linear-gradient(
+    135deg,
+    rgba(199, 125, 39, 0.8),
+    rgba(199, 125, 39, 0.6)
+  );
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(199, 125, 39, 0.3);
   color: white;
-  border: none;
+  border-radius: 15px;
   padding: 12px 24px;
-  border-radius: 30px;
-  font-weight: bold;
+  font-weight: 600;
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
+  cursor: pointer;
 
   &:hover {
-    background-color: darken($naruto-orange, 10%);
+    background: linear-gradient(
+      135deg,
+      rgba(199, 125, 39, 0.9),
+      rgba(199, 125, 39, 0.7)
+    );
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 120, 0, 0.4);
+    box-shadow: 0 15px 35px rgba(199, 125, 39, 0.3);
   }
 
   &:active {
@@ -58,58 +62,86 @@ $body-font: Arial, Helvetica, sans-serif;
     width: 100%;
     height: 100%;
     background: linear-gradient(
-      to right,
+      45deg,
       transparent,
-      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0.1),
       transparent
     );
     transform: translateX(-100%);
+    transition: transform 0.6s;
   }
 
   &:hover::before {
-    animation: shine 1.5s infinite;
-  }
-}
-
-@keyframes shine {
-  100% {
     transform: translateX(100%);
   }
 }
 
-@keyframes floating {
-  0% {
-    transform: translateY(0px);
+@mixin glass-input {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: $glass-dark;
+  transition: all 0.3s ease;
+
+  &:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(199, 125, 39, 0.5);
+    box-shadow: 0 0 0 3px rgba(199, 125, 39, 0.1);
   }
-  50% {
-    transform: translateY(-15px);
+
+  &::placeholder {
+    color: rgba(6, 3, 16, 0.6);
+  }
+}
+
+// Animation keyframes
+@keyframes floatUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
   }
   100% {
-    transform: translateY(0px);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
   }
 }
 
 @keyframes pulse {
-  0% {
+  0%,
+  100% {
     transform: scale(1);
+    opacity: 1;
   }
   50% {
     transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
+    opacity: 0.8;
   }
 }
 
-// Main styles
+// Main contact page styles
 .naruto-contact {
   font-family: $body-font;
-  color: $naruto-dark;
+  color: $glass-dark;
   position: relative;
-  overflow: hidden;
-  padding-bottom: 80px;
-  padding: 1vw;
-  margin-top: -55px !important;
+  min-height: 100vh;
+  padding: 40px 20px 80px;
+  background: linear-gradient(
+    135deg,
+    rgba(199, 125, 39, 0.1) 0%,
+    rgba(6, 3, 16, 0.1) 50%,
+    rgba(199, 125, 39, 0.05) 100%
+  );
 
   .overlay {
     position: fixed;
@@ -117,12 +149,12 @@ $body-font: Arial, Helvetica, sans-serif;
     left: 0;
     width: 100%;
     height: 100%;
-    background: url("../pictures/contactPage/naru.jpg") no-repeat center center;
+    background: url("../pictures/contactPage/Bgcover.jpg") no-repeat center
+      center;
     background-size: cover;
-    opacity: 0.1;
-    // z-index: -1;
+    opacity: 0.05;
+    z-index: -1;
     pointer-events: none;
-    padding: 1vw !important;
   }
 
   // Hero section styling
@@ -132,174 +164,161 @@ $body-font: Arial, Helvetica, sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 50px;
-    overflow: hidden;
-    border-radius: 10px !important;
-    backdrop-filter: blur(5px) !important;
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url("../pictures/contactPage/Bgcover.jpg") no-repeat center;
-      background-size: cover;
-      opacity: 0.3;
-      // z-index: -1;
-    }
+    margin-bottom: 60px;
+    animation: floatUp 0.8s ease-out;
 
     .hero-content {
       text-align: center;
-      padding: 0 20px;
-      position: relative;
-      z-index: 1;
-      backdrop-filter: blur(5px) !important;
-      border-radius: 10px;
+      padding: 40px;
+      @include glass-card(0.1, 15px);
+      max-width: 600px;
+      margin: 0 auto;
 
       h1 {
-        font-family: $naruto-font;
-        font-size: 4rem;
-        color: $naruto-dark;
+        font-family: $primary-font;
+        font-size: clamp(3rem, 8vw, 5rem);
+        color: $glass-dark;
         margin-bottom: 20px;
-        text-shadow: 2px 2px 0 $naruto-orange;
+        background: linear-gradient(135deg, $glass-dark, $glass-primary);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: none;
 
         span {
-          color: $naruto-orange;
+          background: linear-gradient(
+            135deg,
+            $glass-primary,
+            darken($glass-primary, 20%)
+          );
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
         }
       }
 
       .subtitle {
         font-size: 1.2rem;
-        max-width: 600px;
-        margin: 0 auto;
-        color: $naruto-dark;
+        color: rgba(6, 3, 16, 0.8);
+        font-weight: 500;
+        letter-spacing: 0.5px;
       }
     }
   }
 
   // Contact container styling
   .contact-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
     gap: 40px;
-    justify-content: center;
+    padding: 0 20px;
+
+    @media (min-width: 768px) {
+      grid-template-columns: 1.5fr 1fr;
+    }
   }
 
   // Contact form styling
   .contact-form-wrapper {
-    flex: 1 1 500px;
-    max-width: 700px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    padding: 30px;
-    @include naruto-shadow;
+    @include glass-card(0.08, 25px);
+    padding: 40px;
+    animation: floatUp 0.8s ease-out 0.2s both;
     position: relative;
-    padding: 1vw;
-    border-radius: 10px;
+    overflow: hidden;
 
     &::before {
       content: "";
       position: absolute;
       top: 0;
+      left: 0;
       right: 0;
-      width: 120px;
-      height: 120px;
-      background: url("../pictures/contactPage/buddha.jpg") no-repeat;
-      background-size: contain;
-      opacity: 0.2;
-      pointer-events: none;
+      height: 3px;
+      background: linear-gradient(
+        90deg,
+        $glass-primary,
+        transparent,
+        $glass-primary
+      );
+      background-size: 200% 100%;
+      animation: shimmer 3s infinite;
     }
 
     .form-header {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 30px;
-      padding: 1vw !important;
+      text-align: center;
+      margin-bottom: 40px;
 
       h2 {
-        font-family: $naruto-font;
-        color: $naruto-dark;
-        font-size: 2rem;
-        margin: 0 15px;
+        font-family: $primary-font;
+        color: $glass-dark;
+        font-size: 2.5rem;
+        margin: 0;
+        background: linear-gradient(135deg, $glass-dark, $glass-primary);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
 
-      .scroll-design {
-        height: 2px;
-        background-color: $naruto-orange;
-        flex: 1;
-        position: relative;
-
-        &::before {
-          content: "";
-          position: absolute;
-          width: 10px;
-          height: 10px;
-          border-radius: 50%;
-          background-color: $naruto-orange;
-          top: -4px;
-        }
-
-        &.left::before {
-          right: 0;
-        }
-
-        &.right::before {
-          left: 0;
-        }
+      &::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          $glass-primary,
+          darken($glass-primary, 20%)
+        );
+        margin: 20px auto 0;
+        border-radius: 2px;
       }
     }
   }
 
   .contact-form {
-    padding: 1vw;
     .form-group {
-      padding: 1vw;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
 
       label {
         display: block;
         margin-bottom: 8px;
-        font-weight: bold;
-        color: $naruto-dark;
+        font-weight: 600;
+        color: $glass-dark;
+        font-size: 0.95rem;
+        letter-spacing: 0.3px;
       }
 
       input,
       textarea {
         width: 100%;
-        padding: 12px 15px;
-        border: 2px solid #ddd;
-        border-radius: 6px;
-        background-color: #f9f9f9;
+        padding: 15px 20px;
+        @include glass-input;
         font-size: 16px;
-        transition: all 0.3s ease;
+        font-family: $body-font;
+        resize: none;
 
-        &:focus {
-          outline: none;
-          border-color: $naruto-orange;
-          background-color: white;
-          box-shadow: 0 0 0 3px rgba(255, 120, 0, 0.2);
+        &:-webkit-autofill {
+          -webkit-box-shadow: 0 0 0 30px rgba(255, 255, 255, 0.1) inset;
+          -webkit-text-fill-color: $glass-dark;
         }
       }
 
       textarea {
-        resize: vertical;
         min-height: 120px;
+        resize: vertical;
       }
     }
 
     .send-btn {
-      @include naruto-button;
+      @include glass-button;
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: $naruto-font;
-      width: 100%;
+      font-family: $body-font;
+      font-size: 1.1rem;
+      margin-top: 30px;
 
       .btn-text {
         margin-right: 10px;
@@ -313,62 +332,44 @@ $body-font: Arial, Helvetica, sans-serif;
       &:hover .btn-icon {
         transform: translateX(5px);
       }
+
+      &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+
+        &:hover {
+          transform: none;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+      }
     }
   }
 
   // Contact Info styling
   .contact-info {
-    flex: 1 1 300px;
-    max-width: 400px;
-    padding: 1vw;
-    margin-bottom: 10px;
+    animation: floatUp 0.8s ease-out 0.4s both;
 
     .info-card {
-      perspective: 900px;
       height: 100%;
-      min-height: 400px;
-      padding: 1vw;
-
-      &:hover .card-inner {
-        transform: rotateY(10deg);
-      }
 
       .card-inner {
-        position: relative;
-        width: 100%;
+        @include glass-card(0.08, 25px);
+        padding: 40px;
         height: 100%;
-        transition: transform 0.8s;
-        transform-style: preserve-3d;
-        background-color: rgba(255, 255, 255, 0.9);
-        border-radius: 10px;
-        padding: 30px;
-        @include naruto-shadow;
-        @include naruto-scroll-bg;
+        position: relative;
+        transition: transform 0.3s ease;
 
-        &::after {
-          content: "";
-          position: absolute;
-          bottom: 20px;
-          right: 20px;
-          width: 80px;
-          height: 80px;
-          border-radius: 10px;
-          background: url("https://avatars.githubusercontent.com/u/155184299?v=4")
-            no-repeat;
-          background-size: contain;
-          opacity: 0.6;
+        &:hover {
+          transform: translateY(-5px);
         }
 
         h3 {
-          font-family: $naruto-font;
-          color: $naruto-orange;
-          font-size: 1.8rem;
+          font-family: $primary-font;
+          color: $glass-primary;
+          font-size: 2rem;
           margin-bottom: 30px;
           text-align: center;
           position: relative;
-          border-radius: 10px;
-          backdrop-filter: blur(10px);
-          perspective: 100px;
 
           &::after {
             content: "";
@@ -378,7 +379,12 @@ $body-font: Arial, Helvetica, sans-serif;
             transform: translateX(-50%);
             width: 60px;
             height: 3px;
-            background-color: $naruto-orange;
+            background: linear-gradient(
+              90deg,
+              $glass-primary,
+              darken($glass-primary, 20%)
+            );
+            border-radius: 2px;
           }
         }
       }
@@ -388,23 +394,18 @@ $body-font: Arial, Helvetica, sans-serif;
       list-style: none;
       padding: 0;
       margin: 0;
-      border-radius: 10px;
-      backdrop-filter: blur(3px);
-      padding: 3vw;
-      perspective: 200px;
 
       .contact-method {
         display: flex;
         align-items: flex-start;
-        margin-bottom: 30px;
-        border-radius: 10px;
-        backdrop-filter: blur(20px);
-        padding: 1vw;
-        perspective: 200px;
-        transition: all 0.5s ease-in-out;
-        @include naruto-shadow;
+        margin-bottom: 25px;
+        padding: 20px;
+        @include glass-card(0.05, 10px);
+        transition: all 0.3s ease;
+
         &:hover {
-          transform: rotateY(-2deg);
+          transform: translateX(5px);
+          background: rgba(199, 125, 39, 0.1);
         }
 
         &:last-child {
@@ -414,31 +415,73 @@ $body-font: Arial, Helvetica, sans-serif;
         .method-icon {
           width: 50px;
           height: 50px;
-          border-radius: 50%;
-          background-color: $naruto-light-yellow;
+          border-radius: 15px;
+          background: linear-gradient(
+            135deg,
+            rgba(199, 125, 39, 0.2),
+            rgba(199, 125, 39, 0.1)
+          );
+          backdrop-filter: blur(10px);
           display: flex;
           align-items: center;
           justify-content: center;
-          margin-right: 15px;
+          margin-right: 20px;
+          font-size: 1.3rem;
+          color: $glass-primary;
+          flex-shrink: 0;
+
+          &.email::before {
+            content: "✉";
+          }
+          &.location::before {
+            content: "📍";
+          }
+          &.social::before {
+            content: "🌐";
+          }
         }
 
         .method-details {
           flex: 1;
 
           h4 {
-            font-family: $naruto-font;
-            font-size: 1.2rem;
-            color: $naruto-dark;
+            font-family: $body-font;
+            font-size: 1.1rem;
+            color: $glass-dark;
             margin-bottom: 5px;
-          }
-          a {
-            font-size: 1.7rem;
+            font-weight: 600;
           }
 
-          p {
-            font-size: 1rem;
-            color: $naruto-dark;
+          p,
+          a {
+            font-size: 0.95rem;
+            color: rgba(6, 3, 16, 0.8);
             margin: 0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+          }
+
+          a:hover {
+            color: $glass-primary;
+          }
+
+          .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 5px;
+
+            .social-link {
+              padding: 5px 12px;
+              @include glass-card(0.05, 5px);
+              font-size: 0.85rem;
+              font-weight: 500;
+              transition: all 0.3s ease;
+
+              &:hover {
+                background: rgba(199, 125, 39, 0.1);
+                transform: translateY(-2px);
+              }
+            }
           }
         }
       }
@@ -448,52 +491,92 @@ $body-font: Arial, Helvetica, sans-serif;
 
 /* Form message styles */
 .form-message {
-  padding: 15px;
-  border-radius: 8px;
-  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 25px;
   font-weight: 500;
-  animation: fadeIn 0.3s ease-in-out;
+  animation: floatUp 0.5s ease-out;
+  @include glass-card(0.1, 10px);
+  border-left: 4px solid;
 }
 
 .form-message.success {
-  background-color: #e8f5e9;
-  border-left: 4px solid #4caf50;
+  border-left-color: #4caf50;
   color: #2e7d32;
+
+  &::before {
+    content: "✓ ";
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
 }
 
 .form-message.error {
-  background-color: #ffebee;
-  border-left: 4px solid #f44336;
+  border-left-color: #f44336;
   color: #c62828;
+
+  &::before {
+    content: "⚠ ";
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
 }
 
 .form-message.fade-out {
   opacity: 0;
-  transition: opacity 0.5s ease-out;
+  transform: translateY(-10px);
+  transition: all 0.5s ease-out;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .naruto-contact {
+    padding: 20px 15px 80px;
+
+    .contact-hero .hero-content {
+      padding: 30px 20px;
+
+      h1 {
+        font-size: clamp(2.5rem, 10vw, 4rem);
+      }
+
+      .subtitle {
+        font-size: 1.1rem;
+      }
+    }
+
+    .contact-container {
+      gap: 30px;
+      padding: 0 10px;
+    }
+
+    .contact-form-wrapper,
+    .contact-info .info-card .card-inner {
+      padding: 25px 20px;
+    }
+
+    .contact-methods .contact-method {
+      padding: 15px;
+      flex-direction: column;
+      text-align: center;
+
+      .method-icon {
+        margin: 0 auto 15px;
+      }
+    }
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+}
+
+/* Tablet responsiveness */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .naruto-contact {
+    .contact-container {
+      grid-template-columns: 1fr;
+      max-width: 800px;
+    }
+
+    .contact-form-wrapper {
+      margin-bottom: 20px;
+    }
   }
-}
-
-/* Improved button states */
-.send-btn:hover {
-  background-color: #ff6f00;
-  transform: translateY(-2px);
-}
-
-.send-btn:active {
-  transform: translateY(0);
-}
-
-.send-btn:disabled {
-  background-color: #ffb74d;
-  cursor: not-allowed;
 }
