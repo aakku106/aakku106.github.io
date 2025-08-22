@@ -90,9 +90,10 @@ body {
           backdrop-filter: blur(3px);
           background: linear-gradient(
             45deg,
-            rgba(107, 5, 81, 0.364),
-            rgba(11, 25, 131, 0.538)
+            rgba(239, 251, 21, 0.364),
+            rgba(27, 224, 99, 0.538)
           );
+          color: black;
 
           &:hover {
             background-color: red;

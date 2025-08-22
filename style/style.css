@@ -524,6 +524,9 @@ body .Remember-Me h1 {
   padding: 1rem;
   margin: 1rem;
 }
+body .Remember-Me button {
+  padding: 1rem;
+}
 
 .hidden {
   display: none !important;
@@ -615,7 +618,8 @@ body .playground .click .clickII button {
   position: absolute !important;
   -webkit-backdrop-filter: blur(3px);
           backdrop-filter: blur(3px);
-  background: linear-gradient(45deg, rgba(107, 5, 81, 0.364), rgba(11, 25, 131, 0.538));
+  background: linear-gradient(45deg, rgba(239, 251, 21, 0.364), rgba(27, 224, 99, 0.538));
+  color: black;
 }
 body .playground .click .clickII button:hover {
   background-color: red;

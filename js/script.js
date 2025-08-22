@@ -1,3 +1,5 @@
+/** @format */
+
 document.addEventListener("DOMContentLoaded", function () {
   const closeBtn = document.querySelector(".mobile #close");
   closeBtn.style.display = "none";
@@ -28,4 +30,13 @@ document.getElementById("close").addEventListener("click", function () {
 
   const overlay = document.querySelector(".overlay");
   overlay.style.display = "none";
+});
+
+document.getElementById("remember-me").addEventListener("click", () => {
+  let user = prompt("Enter your Name so that we can remember you ");
+  localStorage.setItem("welcomeUser", user);
+  let welcomeMessage = document.getElementById("WelcomeBack");
+  welcomeMessage.innerHTML = `Welcome Back, ${user}`;
+  welcomeMessage.style.color = "Green";
+
 });
