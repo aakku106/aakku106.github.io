@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /** @format */
 @media (max-width: 480px) {
   header .desktop {
@@ -490,39 +491,38 @@ p:hover::after {
     display: none;
   }
   .LandingDesktopView .construction {
-    position: absolute;
     background: linear-gradient(0deg, rgba(32, 90, 235, 0.318), rgba(209, 50, 220, 0.109));
-    top: 15%;
-    left: 10%;
     -webkit-backdrop-filter: blur(2.5px) !important;
             backdrop-filter: blur(2.5px) !important;
   }
 }
 body .LandingDesktopView {
-  -moz-columns: 2;
-       columns: 2;
   position: relative;
-}
-body .LandingDesktopView img {
-  -moz-columns: 300px;
-       columns: 300px;
-  z-index: 10;
+  height: -moz-max-content;
+  height: max-content;
 }
 body .LandingDesktopView .construction {
-  position: absolute;
   background: linear-gradient(45deg, rgba(32, 90, 235, 0.393), rgba(220, 50, 141, 0.294));
   -webkit-backdrop-filter: blur(2.5px) !important;
           backdrop-filter: blur(2.5px) !important;
   z-index: 99999 !important;
-  top: 70%;
-  left: 15%;
   color: white;
   padding: 10px;
   border-radius: 10px;
-  font-size: 3.5rem;
+  padding: 1rem;
+  font-size: 1.1em;
   font-weight: 600;
-  width: 70%;
   text-align: center;
+}
+body .Remember-Me {
+  padding: 1rem;
+  margin: 1rem;
+  color: green;
+  z-index: 100;
+}
+body .Remember-Me h1 {
+  padding: 1rem;
+  margin: 1rem;
 }
 
 .hidden {
@@ -629,41 +629,39 @@ body .playground .click .clickII button:active {
 }
 
 /** @format */
-@keyframes shine {
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
   100% {
-    transform: translateX(100%);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
-@keyframes floating {
-  0% {
-    transform: translateY(0px);
+@keyframes narutoGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
   }
   50% {
-    transform: translateY(-15px);
-  }
-  100% {
-    transform: translateY(0px);
+    box-shadow: 0 0 40px rgba(255, 107, 53, 0.6);
   }
 }
-@keyframes pulse {
-  0% {
-    transform: scale(1);
+@keyframes floatingCard {
+  0%, 100% {
+    transform: translateY(0) rotateX(0) rotateY(0);
   }
   50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
+    transform: translateY(-10px) rotateX(2deg) rotateY(1deg);
   }
 }
 .naruto-contact {
-  font-family: Arial, Helvetica, sans-serif;
-  color: #333333;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+  min-height: 100vh;
   position: relative;
-  overflow: hidden;
-  padding-bottom: 80px;
-  padding: 1vw;
-  margin-top: -55px !important;
+  color: #eee2dc;
+  overflow-x: hidden;
+  background: radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(74, 144, 226, 0.15) 0%, transparent 50%), linear-gradient(135deg, #1a1a2e 0%, rgb(35.2083333333, 35.2083333333, 62.2916666667) 50%, #1a1a2e 100%);
 }
 .naruto-contact .overlay {
   position: fixed;
@@ -671,377 +669,500 @@ body .playground .click .clickII button:active {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("../pictures/contactPage/naru.jpg") no-repeat center center;
-  background-size: cover;
-  opacity: 0.1;
-  pointer-events: none;
-  padding: 1vw !important;
+  background: url("../pictures/contactPage/naru.jpg") center/cover no-repeat, rgba(26, 26, 46, 0.85);
+  background-blend-mode: overlay;
+  opacity: 0.4;
+  z-index: -1;
 }
 .naruto-contact .contact-hero {
-  position: relative;
-  min-height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 50px;
-  overflow: hidden;
-  border-radius: 10px !important;
-  -webkit-backdrop-filter: blur(5px) !important;
-          backdrop-filter: blur(5px) !important;
-}
-.naruto-contact .contact-hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("../pictures/contactPage/Bgcover.jpg") no-repeat center;
-  background-size: cover;
-  opacity: 0.3;
+  min-height: 40vh;
+  padding: 80px 20px 60px;
+  animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .naruto-contact .contact-hero .hero-content {
   text-align: center;
-  padding: 0 20px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  padding: 60px 40px;
+  max-width: 700px;
   position: relative;
-  z-index: 1;
-  -webkit-backdrop-filter: blur(5px) !important;
-          backdrop-filter: blur(5px) !important;
-  border-radius: 10px;
+}
+.naruto-contact .contact-hero .hero-content::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #ff6b35, #4a90e2, #f4a261, #ff6b35);
+  border-radius: 26px;
+  z-index: -1;
+  opacity: 0.6;
+  filter: blur(8px);
+  animation: narutoGlow 3s ease-in-out infinite;
 }
 .naruto-contact .contact-hero .hero-content h1 {
-  font-family: "Ninja Naruto", sans-serif;
-  font-size: 4rem;
-  color: #333333;
+  font-family: "Reenie Beanie", cursive;
+  font-size: clamp(3.5rem, 8vw, 6rem);
   margin-bottom: 20px;
-  text-shadow: 2px 2px 0 #ff7800;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #eee2dc 0%, #f4a261 50%, #ff6b35 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .naruto-contact .contact-hero .hero-content h1 span {
-  color: #ff7800;
+  background: linear-gradient(135deg, #ff6b35 0%, #f4a261 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .naruto-contact .contact-hero .hero-content .subtitle {
-  font-size: 1.2rem;
-  max-width: 600px;
-  margin: 0 auto;
-  color: #333333;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: rgba(238, 226, 220, 0.8);
+  letter-spacing: 0.3px;
+  line-height: 1.6;
 }
 .naruto-contact .contact-container {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 20px;
   gap: 40px;
-  justify-content: center;
+  padding: 0 20px 100px;
+}
+@media (min-width: 992px) {
+  .naruto-contact .contact-container {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+  }
 }
 .naruto-contact .contact-form-wrapper {
-  flex: 1 1 500px;
-  max-width: 700px;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 10px;
-  padding: 30px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  padding: 50px;
+  animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
   position: relative;
-  padding: 1vw;
-  border-radius: 10px;
 }
 .naruto-contact .contact-form-wrapper::before {
   content: "";
   position: absolute;
   top: 0;
+  left: 0;
   right: 0;
-  width: 120px;
-  height: 120px;
-  background: url("../pictures/contactPage/buddha.jpg") no-repeat;
-  background-size: contain;
-  opacity: 0.2;
-  pointer-events: none;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ff6b35, #4a90e2, #ff6b35, transparent);
+  background-size: 300% 100%;
+  animation: slideGradient 4s ease-in-out infinite;
 }
 .naruto-contact .contact-form-wrapper .form-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 30px;
-  padding: 1vw !important;
+  text-align: center;
+  margin-bottom: 50px;
 }
 .naruto-contact .contact-form-wrapper .form-header h2 {
-  font-family: "Ninja Naruto", sans-serif;
-  color: #333333;
-  font-size: 2rem;
-  margin: 0 15px;
+  font-family: "Reenie Beanie", cursive;
+  font-size: 3rem;
+  margin: 0;
+  font-weight: 400;
+  background: linear-gradient(135deg, #eee2dc 0%, #ff6b35 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-.naruto-contact .contact-form-wrapper .form-header .scroll-design {
-  height: 2px;
-  background-color: #ff7800;
-  flex: 1;
-  position: relative;
-}
-.naruto-contact .contact-form-wrapper .form-header .scroll-design::before {
+.naruto-contact .contact-form-wrapper .form-header::after {
   content: "";
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #ff7800;
-  top: -4px;
-}
-.naruto-contact .contact-form-wrapper .form-header .scroll-design.left::before {
-  right: 0;
-}
-.naruto-contact .contact-form-wrapper .form-header .scroll-design.right::before {
-  left: 0;
-}
-.naruto-contact .contact-form {
-  padding: 1vw;
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #ff6b35, #f4a261);
+  margin: 25px auto 0;
+  border-radius: 2px;
 }
 .naruto-contact .contact-form .form-group {
-  padding: 1vw;
-  margin-bottom: 20px;
+  margin-bottom: 32px;
 }
 .naruto-contact .contact-form .form-group label {
   display: block;
-  margin-bottom: 8px;
-  font-weight: bold;
-  color: #333333;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: #eee2dc;
+  font-size: 1rem;
+  letter-spacing: 0.3px;
 }
 .naruto-contact .contact-form .form-group input,
 .naruto-contact .contact-form .form-group textarea {
   width: 100%;
-  padding: 12px 15px;
-  border: 2px solid #ddd;
-  border-radius: 6px;
-  background-color: #f9f9f9;
+  padding: 18px 24px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  color: #eee2dc;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   font-size: 16px;
-  transition: all 0.3s ease;
+  font-weight: 500;
 }
 .naruto-contact .contact-form .form-group input:focus,
 .naruto-contact .contact-form .form-group textarea:focus {
   outline: none;
-  border-color: #ff7800;
-  background-color: white;
-  box-shadow: 0 0 0 3px rgba(255, 120, 0, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 107, 53, 0.6);
+  box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.1), 0 8px 25px rgba(255, 107, 53, 0.15);
+  transform: translateY(-1px);
+}
+.naruto-contact .contact-form .form-group input::-moz-placeholder, .naruto-contact .contact-form .form-group textarea::-moz-placeholder {
+  color: rgba(238, 226, 220, 0.6);
+}
+.naruto-contact .contact-form .form-group input::placeholder,
+.naruto-contact .contact-form .form-group textarea::placeholder {
+  color: rgba(238, 226, 220, 0.6);
+}
+.naruto-contact .contact-form .form-group input:-webkit-autofill,
+.naruto-contact .contact-form .form-group textarea:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px rgba(255, 255, 255, 0.05) inset;
+  -webkit-text-fill-color: #eee2dc;
 }
 .naruto-contact .contact-form .form-group textarea {
+  min-height: 140px;
   resize: vertical;
-  min-height: 120px;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
 }
 .naruto-contact .contact-form .send-btn {
-  background-color: #ff7800;
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.9), rgba(255, 107, 53, 0.7));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 107, 53, 0.3);
+  border-radius: 16px;
   color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 30px;
-  font-weight: bold;
+  font-weight: 600;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Ninja Naruto", sans-serif;
-  width: 100%;
-}
-.naruto-contact .contact-form .send-btn:hover {
-  background-color: #cc6000;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(255, 120, 0, 0.4);
-}
-.naruto-contact .contact-form .send-btn:active {
-  transform: translateY(0);
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 18px 32px;
+  margin-top: 40px;
+  letter-spacing: 0.3px;
 }
 .naruto-contact .contact-form .send-btn::before {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
+  left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+.naruto-contact .contact-form .send-btn:hover {
+  background: linear-gradient(135deg, rgb(255, 107, 53), rgba(255, 107, 53, 0.8));
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(255, 107, 53, 0.3), 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 .naruto-contact .contact-form .send-btn:hover::before {
-  animation: shine 1.5s infinite;
+  left: 100%;
+}
+.naruto-contact .contact-form .send-btn:active {
+  transform: translateY(-1px) scale(1.01);
 }
 .naruto-contact .contact-form .send-btn .btn-text {
-  margin-right: 10px;
+  margin-right: 12px;
 }
 .naruto-contact .contact-form .send-btn .btn-icon {
-  font-size: 1.2rem;
-  transition: transform 0.3s ease;
+  font-size: 1.3rem;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .naruto-contact .contact-form .send-btn:hover .btn-icon {
-  transform: translateX(5px);
+  transform: translateX(6px);
+}
+.naruto-contact .contact-form .send-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.naruto-contact .contact-form .send-btn:disabled:hover {
+  transform: none;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 .naruto-contact .contact-info {
-  flex: 1 1 300px;
-  max-width: 400px;
-  padding: 1vw;
-  margin-bottom: 10px;
+  animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s both;
 }
 .naruto-contact .contact-info .info-card {
-  perspective: 900px;
   height: 100%;
-  min-height: 400px;
-  padding: 1vw;
-}
-.naruto-contact .contact-info .info-card:hover .card-inner {
-  transform: rotateY(10deg);
+  perspective: 1000px;
 }
 .naruto-contact .contact-info .info-card .card-inner {
-  position: relative;
-  width: 100%;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  padding: 50px;
   height: 100%;
-  transition: transform 0.8s;
+  position: relative;
   transform-style: preserve-3d;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 10px;
-  padding: 30px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  background: #e9d8b8 url("../pictures/contactPage/naru.jpg") repeat;
-  background-size: 200px;
-  background-blend-mode: overlay;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation: floatingCard 6s ease-in-out infinite;
 }
-.naruto-contact .contact-info .info-card .card-inner::after {
-  content: "";
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  width: 80px;
-  height: 80px;
-  border-radius: 10px;
-  background: url("https://avatars.githubusercontent.com/u/155184299?v=4") no-repeat;
-  background-size: contain;
-  opacity: 0.6;
+.naruto-contact .contact-info .info-card .card-inner:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) translateZ(20px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25), 0 0 40px rgba(255, 107, 53, 0.2);
 }
 .naruto-contact .contact-info .info-card .card-inner h3 {
-  font-family: "Ninja Naruto", sans-serif;
-  color: #ff7800;
-  font-size: 1.8rem;
-  margin-bottom: 30px;
+  font-family: "Reenie Beanie", cursive;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
   text-align: center;
-  position: relative;
-  border-radius: 10px;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-  perspective: 100px;
+  font-weight: 400;
+  background: linear-gradient(135deg, #ff6b35 0%, #f4a261 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .naruto-contact .contact-info .info-card .card-inner h3::after {
   content: "";
   position: absolute;
-  bottom: -10px;
+  bottom: -15px;
   left: 50%;
   transform: translateX(-50%);
-  width: 60px;
+  width: 80px;
   height: 3px;
-  background-color: #ff7800;
+  background: linear-gradient(90deg, #ff6b35, #f4a261);
+  border-radius: 2px;
 }
 .naruto-contact .contact-info .contact-methods {
   list-style: none;
   padding: 0;
   margin: 0;
-  border-radius: 10px;
-  -webkit-backdrop-filter: blur(3px);
-          backdrop-filter: blur(3px);
-  padding: 3vw;
-  perspective: 200px;
 }
 .naruto-contact .contact-info .contact-methods .contact-method {
   display: flex;
   align-items: flex-start;
   margin-bottom: 30px;
-  border-radius: 10px;
-  -webkit-backdrop-filter: blur(20px);
-          backdrop-filter: blur(20px);
-  padding: 1vw;
-  perspective: 200px;
-  transition: all 0.5s ease-in-out;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(15px) saturate(180%);
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
 }
 .naruto-contact .contact-info .contact-methods .contact-method:hover {
-  transform: rotateY(-2deg);
+  transform: translateX(8px) translateY(-2px);
+  background: rgba(255, 107, 53, 0.08);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15), 0 0 20px rgba(255, 107, 53, 0.1);
 }
 .naruto-contact .contact-info .contact-methods .contact-method:last-child {
   margin-bottom: 0;
 }
 .naruto-contact .contact-info .contact-methods .contact-method .method-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: #ffe5b4;
+  width: 60px;
+  height: 60px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.2), rgba(244, 162, 97, 0.15));
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 15px;
+  margin-right: 25px;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+.naruto-contact .contact-info .contact-methods .contact-method .method-icon:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+.naruto-contact .contact-info .contact-methods .contact-method .method-icon.email::before {
+  content: "✉️";
+}
+.naruto-contact .contact-info .contact-methods .contact-method .method-icon.location::before {
+  content: "📍";
+}
+.naruto-contact .contact-info .contact-methods .contact-method .method-icon.social::before {
+  content: "🌐";
 }
 .naruto-contact .contact-info .contact-methods .contact-method .method-details {
   flex: 1;
 }
 .naruto-contact .contact-info .contact-methods .contact-method .method-details h4 {
-  font-family: "Ninja Naruto", sans-serif;
   font-size: 1.2rem;
-  color: #333333;
-  margin-bottom: 5px;
+  color: #eee2dc;
+  margin-bottom: 8px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
 }
+.naruto-contact .contact-info .contact-methods .contact-method .method-details p,
 .naruto-contact .contact-info .contact-methods .contact-method .method-details a {
-  font-size: 1.7rem;
-}
-.naruto-contact .contact-info .contact-methods .contact-method .method-details p {
   font-size: 1rem;
-  color: #333333;
+  color: rgba(238, 226, 220, 0.8);
   margin: 0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  line-height: 1.5;
+}
+.naruto-contact .contact-info .contact-methods .contact-method .method-details a:hover {
+  color: #ff6b35;
+}
+.naruto-contact .contact-info .contact-methods .contact-method .method-details .social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 12px;
+}
+.naruto-contact .contact-info .contact-methods .contact-method .method-details .social-links .social-link {
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border-radius: 12px;
+}
+.naruto-contact .contact-info .contact-methods .contact-method .method-details .social-links .social-link:hover {
+  background: rgba(255, 107, 53, 0.1);
+  transform: translateY(-3px);
+  color: #ff6b35;
 }
 
-/* Form message styles */
+/* Professional form messages with Naruto theme */
 .form-message {
-  padding: 15px;
-  border-radius: 8px;
-  margin-bottom: 20px;
+  padding: 24px 30px;
+  border-radius: 20px;
+  margin-bottom: 30px;
   font-weight: 500;
-  animation: fadeIn 0.3s ease-in-out;
+  font-size: 1rem;
+  animation: fadeInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px) saturate(180%);
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border-left: 4px solid;
+  letter-spacing: 0.3px;
 }
 
 .form-message.success {
-  background-color: #e8f5e9;
-  border-left: 4px solid #4caf50;
-  color: #2e7d32;
+  border-left-color: #4caf50;
+  color: #4caf50;
+  background: rgba(76, 175, 80, 0.05);
+}
+.form-message.success::before {
+  content: "🎉 ";
+  font-size: 1.3rem;
+  margin-right: 8px;
 }
 
 .form-message.error {
-  background-color: #ffebee;
-  border-left: 4px solid #f44336;
-  color: #c62828;
+  border-left-color: #ff5722;
+  color: #ff5722;
+  background: rgba(255, 87, 34, 0.05);
+}
+.form-message.error::before {
+  content: "⚡ ";
+  font-size: 1.3rem;
+  margin-right: 8px;
 }
 
 .form-message.fade-out {
   opacity: 0;
-  transition: opacity 0.5s ease-out;
+  transform: translateY(-15px);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
+/* Additional animations */
+@keyframes slideGradient {
+  0%, 100% {
+    background-position: 0% 50%;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  50% {
+    background-position: 100% 50%;
   }
 }
-/* Improved button states */
-.send-btn:hover {
-  background-color: #ff6f00;
-  transform: translateY(-2px);
+/* Responsive design for professional layout */
+@media (max-width: 768px) {
+  .naruto-contact .contact-hero {
+    padding: 60px 15px 40px;
+  }
+  .naruto-contact .contact-hero .hero-content {
+    padding: 40px 25px;
+  }
+  .naruto-contact .contact-hero .hero-content h1 {
+    font-size: clamp(2.8rem, 12vw, 4.5rem);
+  }
+  .naruto-contact .contact-hero .hero-content .subtitle {
+    font-size: 1.1rem;
+  }
+  .naruto-contact .contact-container {
+    gap: 30px;
+    padding: 0 15px 80px;
+  }
+  .naruto-contact .contact-form-wrapper {
+    padding: 35px 25px;
+  }
+  .naruto-contact .contact-info .info-card .card-inner {
+    padding: 35px 25px;
+  }
+  .naruto-contact .contact-methods .contact-method {
+    padding: 20px;
+    flex-direction: column;
+    text-align: center;
+  }
+  .naruto-contact .contact-methods .contact-method .method-icon {
+    margin: 0 auto 20px;
+  }
+  .naruto-contact .contact-methods .contact-method .method-details .social-links {
+    justify-content: center;
+  }
 }
-
-.send-btn:active {
-  transform: translateY(0);
+@media (min-width: 769px) and (max-width: 1024px) {
+  .naruto-contact .contact-container {
+    grid-template-columns: 1fr;
+    max-width: 900px;
+    gap: 50px;
+  }
 }
-
-.send-btn:disabled {
-  background-color: #ffb74d;
-  cursor: not-allowed;
+/* Safari-specific optimizations */
+@supports (-webkit-backdrop-filter: blur(25px)) {
+  .naruto-contact .contact-form-wrapper,
+  .naruto-contact .contact-info .info-card .card-inner {
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+  }
 }
-
+/* High-resolution display optimizations */
+@media (min-resolution: 192dpi) {
+  .naruto-contact .hero-content,
+  .naruto-contact .contact-form-wrapper,
+  .naruto-contact .contact-info .info-card .card-inner {
+    border-width: 0.5px;
+  }
+}
 /** @format */
 #OthersSectionActive {
   position: absolute;

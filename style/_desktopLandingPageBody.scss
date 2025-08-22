@@ -4,14 +4,14 @@
   .LandingDesktopView {
     display: none;
     .construction {
-      position: absolute;
+      // position: absolute;
       background: linear-gradient(
         0deg,
         rgba(32, 90, 235, 0.318),
         rgba(209, 50, 220, 0.109)
       );
-      top: 15%;
-      left: 10%;
+      // top: 15%;
+      // left: 10%;
       backdrop-filter: blur(2.5px) !important;
     }
   }
@@ -19,14 +19,11 @@
 
 body {
   .LandingDesktopView {
-    columns: 2;
     position: relative;
-    img {
-      columns: 300px;
-      z-index: 10;
-    }
+    height: max-content;
+
     .construction {
-      position: absolute;
+      // position: absolute;
       background: linear-gradient(
         45deg,
         rgba(32, 90, 235, 0.393),
@@ -34,15 +31,30 @@ body {
       );
       backdrop-filter: blur(2.5px) !important;
       z-index: 99999 !important;
-      top: 70%;
-      left: 15%;
+      // top: 70%;
+      // left: 15%;
       color: white;
       padding: 10px;
       border-radius: 10px;
-      font-size: 3.5rem;
+      padding: 1rem;
+      font-size: 1.1em;
       font-weight: 600;
-      width: 70%;
+      // width: 70%;
       text-align: center;
+    }
+  }
+  .Remember-Me {
+    // position: absolute;
+    padding: 1rem;
+    margin: 1rem;
+    // top: 10%;
+    // left: 45%;
+    color: green;
+    z-index: 100;
+
+    h1 {
+      padding: 1rem;
+      margin: 1rem;
     }
   }
 }
