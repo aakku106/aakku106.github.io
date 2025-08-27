@@ -1,5 +1,23 @@
 /** @format */
 
+// Add smooth scrolling to the entire document
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; // Account for any fixed headers
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+// Improve scrolling specifically for contact page
+.naruto-contact {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; // Better scrolling on iOS
+}
+
 // Professional Naruto-inspired glassmorphism design
 $naruto-orange: #ff6b35;
 $naruto-blue: #4a90e2;
@@ -86,16 +104,6 @@ $body-font: -apple-system, BlinkMacSystemFont, "SF Pro Display",
   border-radius: 16px;
   color: $naruto-light;
   font-family: $body-font;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-  &:focus {
-    outline: none;
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 107, 53, 0.6);
-    box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.1),
-      0 8px 25px rgba(255, 107, 53, 0.15);
-    transform: translateY(-1px);
-  }
 
   &::placeholder {
     color: rgba(238, 226, 220, 0.6);
@@ -120,27 +128,21 @@ $body-font: -apple-system, BlinkMacSystemFont, "SF Pro Display",
     box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
   }
   50% {
-    box-shadow: 0 0 40px rgba(255, 107, 53, 0.6);
+    box-shadow: 0 0 30px rgba(255, 107, 53, 0.5);
   }
 }
 
-@keyframes floatingCard {
-  0%,
-  100% {
-    transform: translateY(0) rotateX(0) rotateY(0);
-  }
-  50% {
-    transform: translateY(-10px) rotateX(2deg) rotateY(1deg);
-  }
-}
+// Removed heavy rotation animations for better performance
+// Only keeping essential animations
 
 // Professional Naruto-themed contact page
 .naruto-contact {
   font-family: $body-font;
-  min-height: 100vh;
+  width: 100%;
   position: relative;
   color: $naruto-light;
   overflow-x: hidden;
+  padding-top: 0; // Remove any top padding
 
   // Sophisticated background with Naruto elements
   background: radial-gradient(
@@ -171,25 +173,33 @@ $body-font: -apple-system, BlinkMacSystemFont, "SF Pro Display",
     background-blend-mode: overlay;
     opacity: 0.4;
     z-index: -1;
+    pointer-events: none; // Prevent interference with scrolling
   }
 
-  // Hero section with professional styling
+  // Hero section with reduced spacing
   .contact-hero {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 40vh;
-    padding: 80px 20px 60px;
+    min-height: 25vh; // Reduced from 45vh
+    padding: 40px 20px 30px; // Reduced from 80px top and 60px bottom
     animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     .hero-content {
       text-align: center;
       @include glass-morphism(0.08, 30px);
-      padding: 60px 40px;
+      padding: 40px 30px; // Reduced from 60px 40px
       max-width: 700px;
       position: relative;
 
-      // Subtle Naruto-inspired glow
+      // Only hover effects, no continuous animation
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: scale(1.005);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1),
+          0 0 25px rgba(255, 107, 53, 0.08);
+      } // Subtle Naruto-inspired glow
       &::before {
         content: "";
         position: absolute;
@@ -206,15 +216,19 @@ $body-font: -apple-system, BlinkMacSystemFont, "SF Pro Display",
         );
         border-radius: 26px;
         z-index: -1;
-        opacity: 0.6;
-        filter: blur(8px);
-        animation: narutoGlow 3s ease-in-out infinite;
+        opacity: 0.4;
+        filter: blur(6px);
+        animation: narutoGlow 4s ease-in-out infinite;
       }
 
       h1 {
         font-family: $primary-font;
-        font-size: clamp(3.5rem, 8vw, 6rem);
-        margin-bottom: 20px;
+        font-size: clamp(
+          2.5rem,
+          6vw,
+          4rem
+        ); // Reduced from clamp(3.5rem, 8vw, 6rem)
+        margin-bottom: 15px; // Reduced from 20px
         font-weight: 400;
         letter-spacing: -0.02em;
 
@@ -250,48 +264,36 @@ $body-font: -apple-system, BlinkMacSystemFont, "SF Pro Display",
     }
   }
 
-  // Grid layout with Apple-inspired spacing
+  // Grid layout with reduced spacing
   .contact-container {
     display: grid;
     grid-template-columns: 1fr;
     max-width: 1400px;
     margin: 0 auto;
-    gap: 40px;
-    padding: 0 20px 100px;
+    gap: 30px; // Reduced from 40px
+    padding: 0 20px 60px; // Reduced bottom padding from 100px
 
     @media (min-width: 992px) {
       grid-template-columns: 1.2fr 1fr;
-      gap: 60px;
+      gap: 50px; // Reduced from 60px
     }
   }
 
-  // Contact form with sophisticated styling
+  // Contact form with clean styling for better UX
   .contact-form-wrapper {
     @include glass-morphism(0.06, 25px);
     padding: 50px;
     animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
     position: relative;
+    transition: all 0.3s ease;
 
-    // Animated border gradient
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        $naruto-orange,
-        $naruto-blue,
-        $naruto-orange,
-        transparent
-      );
-      background-size: 300% 100%;
-      animation: slideGradient 4s ease-in-out infinite;
+    // Subtle hover effect only - no distracting animations
+    &:hover {
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15),
+        0 0 25px rgba(255, 107, 53, 0.08);
     }
 
+    // Remove the animated border - too distracting for form input
     .form-header {
       text-align: center;
       margin-bottom: 50px;
@@ -326,6 +328,9 @@ $body-font: -apple-system, BlinkMacSystemFont, "SF Pro Display",
   .contact-form {
     .form-group {
       margin-bottom: 32px;
+      transition: all 0.2s ease;
+
+      // Remove distracting hover effects from form groups
 
       label {
         display: block;
@@ -334,6 +339,7 @@ $body-font: -apple-system, BlinkMacSystemFont, "SF Pro Display",
         color: $naruto-light;
         font-size: 1rem;
         letter-spacing: 0.3px;
+        transition: all 0.2s ease;
       }
 
       input,
@@ -343,6 +349,22 @@ $body-font: -apple-system, BlinkMacSystemFont, "SF Pro Display",
         @include apple-input;
         font-size: 16px;
         font-weight: 500;
+        transition: all 0.3s ease;
+
+        // Simplified hover - no rotation
+        &:hover {
+          border-color: rgba(255, 107, 53, 0.3);
+        }
+
+        // Clean focus effect - minimal rotation
+        &:focus {
+          outline: none;
+          background: rgba(255, 255, 255, 0.08);
+          border-color: rgba(255, 107, 53, 0.6);
+          box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.1),
+            0 4px 15px rgba(255, 107, 53, 0.1);
+          transform: translateY(-1px);
+        }
 
         &:-webkit-autofill {
           -webkit-box-shadow: 0 0 0 30px rgba(255, 255, 255, 0.05) inset;
@@ -368,6 +390,30 @@ $body-font: -apple-system, BlinkMacSystemFont, "SF Pro Display",
       padding: 18px 32px;
       margin-top: 40px;
       letter-spacing: 0.3px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 107, 53, 1),
+          rgba(255, 107, 53, 0.8)
+        );
+        transform: translateY(-2px) scale(1.01);
+        box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3),
+          0 5px 15px rgba(0, 0, 0, 0.1);
+
+        &::before {
+          left: 100%;
+        }
+
+        .btn-icon {
+          transform: translateX(6px) rotate(5deg);
+        }
+      }
+
+      &:active {
+        transform: translateY(-1px) scale(1.005);
+      }
 
       .btn-text {
         margin-right: 12px;
@@ -375,11 +421,7 @@ $body-font: -apple-system, BlinkMacSystemFont, "SF Pro Display",
 
       .btn-icon {
         font-size: 1.3rem;
-        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      }
-
-      &:hover .btn-icon {
-        transform: translateX(6px);
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       }
 
       &:disabled {
@@ -394,32 +436,33 @@ $body-font: -apple-system, BlinkMacSystemFont, "SF Pro Display",
     }
   }
 
-  // Contact info with Safari-compatible 3D effects
+  // Contact info with reduced animations for better performance
   .contact-info {
     animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s both;
 
     .info-card {
       height: 100%;
-      perspective: 1000px;
+      perspective: 800px;
 
       .card-inner {
         @include glass-morphism(0.06, 25px);
         padding: 50px;
         height: 100%;
         position: relative;
-        transform-style: preserve-3d;
-        transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transition: all 0.4s ease;
 
-        // Safari-compatible 3D effects
+        // Better perspective rotation - contact info rotates left
         &:hover {
-          transform: perspective(1000px) rotateX(5deg) rotateY(-5deg)
-            translateZ(20px);
-          box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25),
-            0 0 40px rgba(255, 107, 53, 0.2);
+          transform: perspective(1000px) rotateY(-5deg) translateZ(15px)
+            scale(1.005);
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15),
+            0 0 30px rgba(255, 107, 53, 0.12);
         }
 
-        // Floating animation for Safari
-        animation: floatingCard 6s ease-in-out infinite;
+        &:active {
+          transform: perspective(1000px) rotateY(-3deg) translateZ(10px)
+            scale(1.002);
+        }
 
         h3 {
           font-family: $primary-font;
@@ -463,16 +506,20 @@ $body-font: -apple-system, BlinkMacSystemFont, "SF Pro Display",
         margin-bottom: 30px;
         padding: 25px;
         @include glass-morphism(0.04, 15px);
-        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transition: all 0.3s ease;
         position: relative;
+        border-radius: 20px;
 
         &:hover {
-          transform: translateX(8px) translateY(-2px);
+          // Rotate right to balance contact info (which rotates left)
+          transform: perspective(100px) rotateY(2deg) translateY(-3px)
+            scale(1.005);
           background: rgba(255, 107, 53, 0.08);
-          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15),
-            0 0 20px rgba(255, 107, 53, 0.1);
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12),
+            0 0 15px rgba(255, 107, 53, 0.08);
         }
 
+        // Remove continuous animations - only hover effects
         &:last-child {
           margin-bottom: 0;
         }
@@ -494,10 +541,17 @@ $body-font: -apple-system, BlinkMacSystemFont, "SF Pro Display",
           margin-right: 25px;
           font-size: 1.5rem;
           flex-shrink: 0;
-          transition: transform 0.3s ease;
+          transition: all 0.3s ease;
 
           &:hover {
-            transform: scale(1.1) rotate(5deg);
+            // Rotate left to balance their container (which rotates right)
+            transform: perspective(600px) rotateY(-3deg) scale(1.05);
+            background: linear-gradient(
+              135deg,
+              rgba(255, 107, 53, 0.3),
+              rgba(244, 162, 97, 0.25)
+            );
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.15);
           }
 
           &.email::before {
@@ -606,38 +660,28 @@ $body-font: -apple-system, BlinkMacSystemFont, "SF Pro Display",
 }
 
 /* Additional animations */
-@keyframes slideGradient {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
 /* Responsive design for professional layout */
 @media (max-width: 768px) {
   .naruto-contact {
     .contact-hero {
-      padding: 60px 15px 40px;
+      padding: 30px 15px 20px; // Reduced mobile hero padding
 
       .hero-content {
-        padding: 40px 25px;
+        padding: 30px 20px; // Reduced mobile hero content padding
 
         h1 {
-          font-size: clamp(2.8rem, 12vw, 4.5rem);
+          font-size: clamp(2rem, 10vw, 3.5rem); // Reduced mobile font sizes
         }
 
         .subtitle {
-          font-size: 1.1rem;
+          font-size: 1rem; // Reduced from 1.1rem
         }
       }
     }
 
     .contact-container {
-      gap: 30px;
-      padding: 0 15px 80px;
+      gap: 20px; // Reduced from 30px
+      padding: 0 15px 50px; // Reduced from 80px bottom
     }
 
     .contact-form-wrapper {

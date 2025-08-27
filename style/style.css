@@ -633,6 +633,22 @@ body .playground .click .clickII button:active {
 }
 
 /** @format */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.naruto-contact {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
 @keyframes fadeInUp {
   0% {
     opacity: 0;
@@ -648,23 +664,16 @@ body .playground .click .clickII button:active {
     box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
   }
   50% {
-    box-shadow: 0 0 40px rgba(255, 107, 53, 0.6);
-  }
-}
-@keyframes floatingCard {
-  0%, 100% {
-    transform: translateY(0) rotateX(0) rotateY(0);
-  }
-  50% {
-    transform: translateY(-10px) rotateX(2deg) rotateY(1deg);
+    box-shadow: 0 0 30px rgba(255, 107, 53, 0.5);
   }
 }
 .naruto-contact {
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
-  min-height: 100vh;
+  width: 100%;
   position: relative;
   color: #eee2dc;
   overflow-x: hidden;
+  padding-top: 0;
   background: radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(74, 144, 226, 0.15) 0%, transparent 50%), linear-gradient(135deg, #1a1a2e 0%, rgb(35.2083333333, 35.2083333333, 62.2916666667) 50%, #1a1a2e 100%);
 }
 .naruto-contact .overlay {
@@ -677,13 +686,14 @@ body .playground .click .clickII button:active {
   background-blend-mode: overlay;
   opacity: 0.4;
   z-index: -1;
+  pointer-events: none;
 }
 .naruto-contact .contact-hero {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 40vh;
-  padding: 80px 20px 60px;
+  min-height: 25vh;
+  padding: 40px 20px 30px;
   animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .naruto-contact .contact-hero .hero-content {
@@ -694,9 +704,14 @@ body .playground .click .clickII button:active {
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 24px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  padding: 60px 40px;
+  padding: 40px 30px;
   max-width: 700px;
   position: relative;
+  transition: all 0.3s ease;
+}
+.naruto-contact .contact-hero .hero-content:hover {
+  transform: scale(1.005);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 0 25px rgba(255, 107, 53, 0.08);
 }
 .naruto-contact .contact-hero .hero-content::before {
   content: "";
@@ -708,14 +723,14 @@ body .playground .click .clickII button:active {
   background: linear-gradient(45deg, #ff6b35, #4a90e2, #f4a261, #ff6b35);
   border-radius: 26px;
   z-index: -1;
-  opacity: 0.6;
-  filter: blur(8px);
-  animation: narutoGlow 3s ease-in-out infinite;
+  opacity: 0.4;
+  filter: blur(6px);
+  animation: narutoGlow 4s ease-in-out infinite;
 }
 .naruto-contact .contact-hero .hero-content h1 {
   font-family: "Reenie Beanie", cursive;
-  font-size: clamp(3.5rem, 8vw, 6rem);
-  margin-bottom: 20px;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  margin-bottom: 15px;
   font-weight: 400;
   letter-spacing: -0.02em;
   background: linear-gradient(135deg, #eee2dc 0%, #f4a261 50%, #ff6b35 100%);
@@ -741,13 +756,13 @@ body .playground .click .clickII button:active {
   grid-template-columns: 1fr;
   max-width: 1400px;
   margin: 0 auto;
-  gap: 40px;
-  padding: 0 20px 100px;
+  gap: 30px;
+  padding: 0 20px 60px;
 }
 @media (min-width: 992px) {
   .naruto-contact .contact-container {
     grid-template-columns: 1.2fr 1fr;
-    gap: 60px;
+    gap: 50px;
   }
 }
 .naruto-contact .contact-form-wrapper {
@@ -760,17 +775,10 @@ body .playground .click .clickII button:active {
   padding: 50px;
   animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
   position: relative;
+  transition: all 0.3s ease;
 }
-.naruto-contact .contact-form-wrapper::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #ff6b35, #4a90e2, #ff6b35, transparent);
-  background-size: 300% 100%;
-  animation: slideGradient 4s ease-in-out infinite;
+.naruto-contact .contact-form-wrapper:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15), 0 0 25px rgba(255, 107, 53, 0.08);
 }
 .naruto-contact .contact-form-wrapper .form-header {
   text-align: center;
@@ -797,6 +805,7 @@ body .playground .click .clickII button:active {
 }
 .naruto-contact .contact-form .form-group {
   margin-bottom: 32px;
+  transition: all 0.2s ease;
 }
 .naruto-contact .contact-form .form-group label {
   display: block;
@@ -805,6 +814,7 @@ body .playground .click .clickII button:active {
   color: #eee2dc;
   font-size: 1rem;
   letter-spacing: 0.3px;
+  transition: all 0.2s ease;
 }
 .naruto-contact .contact-form .form-group input,
 .naruto-contact .contact-form .form-group textarea {
@@ -817,17 +827,9 @@ body .playground .click .clickII button:active {
   border-radius: 16px;
   color: #eee2dc;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   font-size: 16px;
   font-weight: 500;
-}
-.naruto-contact .contact-form .form-group input:focus,
-.naruto-contact .contact-form .form-group textarea:focus {
-  outline: none;
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 107, 53, 0.6);
-  box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.1), 0 8px 25px rgba(255, 107, 53, 0.15);
-  transform: translateY(-1px);
+  transition: all 0.3s ease;
 }
 .naruto-contact .contact-form .form-group input::-moz-placeholder, .naruto-contact .contact-form .form-group textarea::-moz-placeholder {
   color: rgba(238, 226, 220, 0.6);
@@ -835,6 +837,18 @@ body .playground .click .clickII button:active {
 .naruto-contact .contact-form .form-group input::placeholder,
 .naruto-contact .contact-form .form-group textarea::placeholder {
   color: rgba(238, 226, 220, 0.6);
+}
+.naruto-contact .contact-form .form-group input:hover,
+.naruto-contact .contact-form .form-group textarea:hover {
+  border-color: rgba(255, 107, 53, 0.3);
+}
+.naruto-contact .contact-form .form-group input:focus,
+.naruto-contact .contact-form .form-group textarea:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 107, 53, 0.6);
+  box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.1), 0 4px 15px rgba(255, 107, 53, 0.1);
+  transform: translateY(-1px);
 }
 .naruto-contact .contact-form .form-group input:-webkit-autofill,
 .naruto-contact .contact-form .form-group textarea:-webkit-autofill {
@@ -866,6 +880,7 @@ body .playground .click .clickII button:active {
   padding: 18px 32px;
   margin-top: 40px;
   letter-spacing: 0.3px;
+  transition: all 0.3s ease;
 }
 .naruto-contact .contact-form .send-btn::before {
   content: "";
@@ -888,15 +903,26 @@ body .playground .click .clickII button:active {
 .naruto-contact .contact-form .send-btn:active {
   transform: translateY(-1px) scale(1.01);
 }
+.naruto-contact .contact-form .send-btn:hover {
+  background: linear-gradient(135deg, rgb(255, 107, 53), rgba(255, 107, 53, 0.8));
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3), 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.naruto-contact .contact-form .send-btn:hover::before {
+  left: 100%;
+}
+.naruto-contact .contact-form .send-btn:hover .btn-icon {
+  transform: translateX(6px) rotate(5deg);
+}
+.naruto-contact .contact-form .send-btn:active {
+  transform: translateY(-1px) scale(1.005);
+}
 .naruto-contact .contact-form .send-btn .btn-text {
   margin-right: 12px;
 }
 .naruto-contact .contact-form .send-btn .btn-icon {
   font-size: 1.3rem;
-  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-.naruto-contact .contact-form .send-btn:hover .btn-icon {
-  transform: translateX(6px);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .naruto-contact .contact-form .send-btn:disabled {
   opacity: 0.6;
@@ -911,7 +937,7 @@ body .playground .click .clickII button:active {
 }
 .naruto-contact .contact-info .info-card {
   height: 100%;
-  perspective: 1000px;
+  perspective: 800px;
 }
 .naruto-contact .contact-info .info-card .card-inner {
   background: rgba(255, 255, 255, 0.06);
@@ -923,13 +949,14 @@ body .playground .click .clickII button:active {
   padding: 50px;
   height: 100%;
   position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  animation: floatingCard 6s ease-in-out infinite;
+  transition: all 0.4s ease;
 }
 .naruto-contact .contact-info .info-card .card-inner:hover {
-  transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) translateZ(20px);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25), 0 0 40px rgba(255, 107, 53, 0.2);
+  transform: perspective(1000px) rotateY(-5deg) translateZ(15px) scale(1.005);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15), 0 0 30px rgba(255, 107, 53, 0.12);
+}
+.naruto-contact .contact-info .info-card .card-inner:active {
+  transform: perspective(1000px) rotateY(-3deg) translateZ(10px) scale(1.002);
 }
 .naruto-contact .contact-info .info-card .card-inner h3 {
   font-family: "Reenie Beanie", cursive;
@@ -969,13 +996,14 @@ body .playground .click .clickII button:active {
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 24px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.3s ease;
   position: relative;
+  border-radius: 20px;
 }
 .naruto-contact .contact-info .contact-methods .contact-method:hover {
-  transform: translateX(8px) translateY(-2px);
+  transform: perspective(100px) rotateY(2deg) translateY(-3px) scale(1.005);
   background: rgba(255, 107, 53, 0.08);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15), 0 0 20px rgba(255, 107, 53, 0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12), 0 0 15px rgba(255, 107, 53, 0.08);
 }
 .naruto-contact .contact-info .contact-methods .contact-method:last-child {
   margin-bottom: 0;
@@ -993,10 +1021,12 @@ body .playground .click .clickII button:active {
   margin-right: 25px;
   font-size: 1.5rem;
   flex-shrink: 0;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
 }
 .naruto-contact .contact-info .contact-methods .contact-method .method-icon:hover {
-  transform: scale(1.1) rotate(5deg);
+  transform: perspective(600px) rotateY(-3deg) scale(1.05);
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.3), rgba(244, 162, 97, 0.25));
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.15);
 }
 .naruto-contact .contact-info .contact-methods .contact-method .method-icon.email::before {
   content: "✉️";
@@ -1100,31 +1130,23 @@ body .playground .click .clickII button:active {
 }
 
 /* Additional animations */
-@keyframes slideGradient {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
 /* Responsive design for professional layout */
 @media (max-width: 768px) {
   .naruto-contact .contact-hero {
-    padding: 60px 15px 40px;
+    padding: 30px 15px 20px;
   }
   .naruto-contact .contact-hero .hero-content {
-    padding: 40px 25px;
+    padding: 30px 20px;
   }
   .naruto-contact .contact-hero .hero-content h1 {
-    font-size: clamp(2.8rem, 12vw, 4.5rem);
+    font-size: clamp(2rem, 10vw, 3.5rem);
   }
   .naruto-contact .contact-hero .hero-content .subtitle {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   .naruto-contact .contact-container {
-    gap: 30px;
-    padding: 0 15px 80px;
+    gap: 20px;
+    padding: 0 15px 50px;
   }
   .naruto-contact .contact-form-wrapper {
     padding: 35px 25px;
