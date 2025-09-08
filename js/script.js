@@ -42,6 +42,6 @@ if (storedUser) {
 document.getElementById("remember-me").addEventListener("click", () => {
   let user = prompt("Enter your Name so that we can remember you ");
   localStorage.setItem("welcomeUser", user);
-  welcomeMessage.innerHTML = `Welcome Back, ${user}`;
-  welcomeMessage.style.color = "Green";
+  // welcomeMessage.innerHTML = `Welcome Back, ${user}`;
+  // welcomeMessage.style.color = "Green";
 });
