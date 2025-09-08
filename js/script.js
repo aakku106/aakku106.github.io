@@ -32,11 +32,16 @@ document.getElementById("close").addEventListener("click", function () {
   overlay.style.display = "none";
 });
 
+let welcomeMessage = document.getElementById("WelcomeBack");
+let storedUser = localStorage.getItem("welcomeUser");
+if (storedUser) {
+  welcomeMessage.innerHTML = `Welcome Back, ${storedUser}`;
+  welcomeMessage.style.color = "Green";
+}
+
 document.getElementById("remember-me").addEventListener("click", () => {
   let user = prompt("Enter your Name so that we can remember you ");
   localStorage.setItem("welcomeUser", user);
-  let welcomeMessage = document.getElementById("WelcomeBack");
   welcomeMessage.innerHTML = `Welcome Back, ${user}`;
   welcomeMessage.style.color = "Green";
-
 });
