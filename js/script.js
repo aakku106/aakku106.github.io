@@ -60,6 +60,45 @@ function sanitizeInput(input) {
   return sanitized;
 }
 
+// Detect if input contains malicious/suspicious patterns
+function isSusInput(input) {
+  if (!input || typeof input !== "string") {
+    return false;
+  }
+
+  // Check for common XSS/injection patterns
+  const susPatterns = [
+    /<script/i,
+    /<img/i,
+    /onerror/i,
+    /onload/i,
+    /onclick/i,
+    /javascript:/i,
+    /fetch\(/i,
+    /eval\(/i,
+    /document\./i,
+    /window\./i,
+    /cookie/i,
+    /btoa\(/i,
+    /atob\(/i,
+    /<iframe/i,
+    /<object/i,
+    /<embed/i,
+    /alert\(/i,
+    /prompt\(/i,
+    /confirm\(/i,
+    /\.innerHTML/i,
+    /http:\/\//i,
+    /https:\/\//i,
+    /<svg/i,
+    /xss/i,
+    /injection/i,
+  ];
+
+  // Check if any suspicious pattern matches
+  return susPatterns.some((pattern) => pattern.test(input));
+}
+
 // Validate input before storing
 function validateUserName(input) {
   if (!input || typeof input !== "string") {
@@ -83,6 +122,79 @@ document.getElementById("remember-me").addEventListener("click", () => {
 
   if (!user) {
     return; // User cancelled or entered nothing
+  }
+
+  // 🎭 EASTER EGG: Detect hacker friends trying to be sneaky
+  if (isSusInput(user)) {
+    // Gather their info to scare them
+    const userAgent = navigator.userAgent;
+    const platform = navigator.platform;
+    const language = navigator.language;
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const screenRes = `${window.screen.width}x${window.screen.height}`;
+    const currentTime = new Date().toLocaleString();
+
+    // Try to get their IP and location (using a free API)
+    fetch("https://ipapi.co/json/")
+      .then((response) => response.json())
+      .then((data) => {
+        const scaryMessage = `
+🚨 REVERSE HACK DETECTED! 🚨
+
+You tried to hack me, but I got YOU! 😂
+
+Your Information:
+━━━━━━━━━━━━━━━━━━━━━━
+📍 IP Address: ${data.ip || "Hidden"}
+🌍 Location: ${data.city || "Unknown"}, ${data.region || ""}, ${
+          data.country_name || "Unknown"
+        }
+🗺️ Coordinates: ${data.latitude || "??"}, ${data.longitude || "??"}
+🏢 ISP: ${data.org || "Unknown"}
+🌐 Timezone: ${timezone}
+⏰ Your Time: ${currentTime}
+💻 Device: ${platform}
+🖥️ Screen: ${screenRes}
+🌏 Language: ${language}
+🔍 Browser: ${userAgent.substring(0, 50)}...
+
+You are GAY! 🏳️‍🌈𐐘
+
+Nice try, hacker! But you've been CAUGHT! 😎
+        `.trim();
+
+        alert(scaryMessage);
+        console.log("🚨 HACKER DETECTED AND TRACKED! 🚨");
+        console.log("Full data collected:", data);
+        console.log("Input attempted:", user);
+      })
+      .catch(() => {
+        // Fallback if API fails
+        const fallbackMessage = `
+🚨 REVERSE HACK DETECTED! 🚨
+
+You tried to hack me, but I got YOU! 😂
+
+Your Information:
+━━━━━━━━━━━━━━━━━━━━━━
+🌐 Timezone: ${timezone}
+⏰ Your Time: ${currentTime}
+💻 Device: ${platform}
+🖥️ Screen: ${screenRes}
+🌏 Language: ${language}
+🔍 Browser: ${userAgent.substring(0, 50)}...
+
+You are GAY! 🏳️‍🌈𐐘
+
+Nice try, hacker! But you've been CAUGHT! 😎
+        `.trim();
+
+        alert(fallbackMessage);
+        console.log("🚨 Nice try, hacker! But you've been caught! 😂");
+        console.log("Input attempted:", user);
+      });
+
+    return;
   }
 
   // SECURITY FIX: Validate and sanitize before storing
