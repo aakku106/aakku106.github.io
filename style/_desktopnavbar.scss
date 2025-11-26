@@ -1,3 +1,7 @@
+@use "sass:color";
+@use "variables" as *;
+@use "mixins" as *;
+
 @media (max-width: 480px) {
   header {
     .desktop {
@@ -160,8 +164,8 @@ header {
         border-radius: 50%;
         &:hover {
           animation: discoGlow 1s infinite alternate;
-          box-shadow: 0px 0px 1vw 0.5vw invert($color: $primary-color);
-          background-color: invert($color: $primary-color) transparent !important;
+          box-shadow: 0px 0px 1vw 0.5vw color.invert($primary-color);
+          background-color: color.invert($primary-color) transparent !important;
           transition: all 0.26s ease-in-out, background-color 0.5s ease-in-out;
         }
       }

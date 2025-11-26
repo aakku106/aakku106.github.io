@@ -1,17 +1,17 @@
 /** @format */
 
-@import "variables";
-@import "mixins";
-@import "desktopnavbar";
-@import "mobileNavBar";
-@import "keyframes";
-@import "desktopAboutMeBody";
-@import "showDateAndTime";
-@import "desktopLandingPageBody";
-@import "desktopplaygrpunfMainPage";
-@import "contactMePage";
-@import "otherView";
-@import "loader";
+@use "variables" as *;
+@use "mixins" as *;
+@use "desktopnavbar";
+@use "mobileNavBar";
+@use "keyframes";
+@use "desktopAboutMeBody";
+@use "showDateAndTime";
+@use "desktopLandingPageBody";
+@use "desktopplaygrpunfMainPage";
+@use "contactMePage";
+@use "otherView";
+@use "loader";
 
 * {
   padding: 0;

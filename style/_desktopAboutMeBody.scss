@@ -1,5 +1,8 @@
 /** @format */
 
+@use "variables" as *;
+@use "mixins" as *;
+
 @media (max-width: 480px) {
   .AboutMeDesktopView {
     overflow-x: hidden !important;

@@ -1,5 +1,8 @@
 /** @format */
 
+@use "sass:color";
+@use "variables" as *;
+
 // Add smooth scrolling to the entire document
 html {
   scroll-behavior: smooth;
@@ -158,7 +161,7 @@ $body-font: -apple-system, BlinkMacSystemFont, "SF Pro Display",
     linear-gradient(
       135deg,
       $naruto-dark 0%,
-      lighten($naruto-dark, 5%) 50%,
+      color.adjust($naruto-dark, $lightness: 5%) 50%,
       $naruto-dark 100%
     );
 

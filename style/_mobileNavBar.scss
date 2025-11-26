@@ -1,3 +1,5 @@
+@use "variables" as *;
+
 .mobile {
   display: none;
   @media (max-width: 480px) {
