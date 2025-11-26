@@ -24,6 +24,7 @@ header {
   align-items: center;
   padding: 2vw 5vw;
   margin-top: 0vw !important;
+  top: 0 !important;
 }
 .desktop ul .content {
   display: flex;
@@ -489,7 +490,6 @@ body .AboutMeDesktopView .projects .project-item b {
   font-size: 3.2vw;
   display: block;
   margin-bottom: 1rem;
-  text-align: center;
 }
 html .AboutMeDesktopView .projects .project-item p,
 body .AboutMeDesktopView .projects .project-item p {
@@ -1405,9 +1405,6 @@ body {
 * {
   padding: 0;
   margin: 0;
-  border-radius: 12px;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
   border: none;
   transition: all 0.3s ease-in-out;
 }
