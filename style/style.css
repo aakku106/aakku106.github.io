@@ -366,6 +366,18 @@ header {
     font-size: 1.87rem !important;
     margin-right: 0.1rem !important;
   }
+  .AboutMeDesktopView .projects .project-item {
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
+    padding: 1rem !important;
+  }
+  .AboutMeDesktopView .projects .project-item b {
+    font-size: 2.2rem !important;
+  }
+  .AboutMeDesktopView .projects .project-item p {
+    font-size: 1.87rem !important;
+    padding-left: 0.5rem !important;
+  }
 }
 html,
 body {
@@ -457,6 +469,38 @@ body .AboutMeDesktopView .projects,
 body .AboutMeDesktopView .future-goals {
   margin-top: 4rem;
   padding: 1rem;
+}
+html .AboutMeDesktopView .projects .project-item,
+body .AboutMeDesktopView .projects .project-item {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.15));
+  -webkit-backdrop-filter: blur(15px);
+          backdrop-filter: blur(15px);
+  border-radius: 1.5rem;
+  box-shadow: 0 0 0.8vw 0.3vw rgba(0, 0, 0, 0.2);
+  transition: all 0.4s ease;
+}
+html .AboutMeDesktopView .projects .project-item:hover,
+body .AboutMeDesktopView .projects .project-item:hover {
+  box-shadow: 0 0 1.2vw 0.5vw rgba(139, 69, 19, 0.4);
+  transform: translateX(1rem);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.25));
+}
+html .AboutMeDesktopView .projects .project-item b,
+body .AboutMeDesktopView .projects .project-item b {
+  font-size: 3.2vw;
+  display: block;
+  margin-bottom: 1rem;
+}
+html .AboutMeDesktopView .projects .project-item p,
+body .AboutMeDesktopView .projects .project-item p {
+  font-size: 2.8vw;
+  line-height: 1.6;
+  text-align: justify;
+  margin: 0;
+  padding-left: 1rem;
 }
 
 p {
