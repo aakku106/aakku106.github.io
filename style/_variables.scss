@@ -1,4 +1,19 @@
+// Color Palette
 $primary-color: #c77d27;
 $secondary-color: #060310;
 $tertiary-color: #f1bf85;
-$quaternary-color: #4691CC;
+$quaternary-color: #4691cc;
+
+// Gradient Colors
+$gradient-primary-start: rgba(239, 92, 6, 0.05);
+$gradient-primary-end: rgba(228, 77, 188, 0.01);
+$gradient-hover-start: rgba(239, 91, 6, 0.057);
+$gradient-hover-end: rgba(228, 77, 188, 0.025);
+$gradient-section-start: rgba(246, 110, 31, 0.05);
+$gradient-section-end: rgba(140, 77, 228, 0.01);
+
+// Z-Index Management
+$z-mobile-nav: 106;
+$z-overlay: 10;
+$z-header: 110;
+$z-loader: 999999999999999;

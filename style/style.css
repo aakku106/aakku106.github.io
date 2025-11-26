@@ -494,8 +494,8 @@ body .AboutMeDesktopView .projects .project-item p {
   margin: 0;
   padding-left: 1rem;
 }
-
-.section {
+html .AboutMeDesktopView .section,
+body .AboutMeDesktopView .section {
   margin-top: 4rem;
   padding: 1rem;
   background: radial-gradient(rgba(246, 110, 31, 0.05), rgba(140, 77, 228, 0.01));
@@ -506,7 +506,8 @@ body .AboutMeDesktopView .projects .project-item p {
   text-align: center;
   transition: all 0.4s ease;
 }
-.section h3 {
+html .AboutMeDesktopView .section h3,
+body .AboutMeDesktopView .section h3 {
   text-decoration: underline;
   margin-bottom: 1rem;
   padding: 1rem;

@@ -1,5 +1,3 @@
-/** @format */
-
 @use "variables" as *;
 @use "mixins" as *;
 
@@ -133,8 +131,8 @@ body {
         padding: 1.5rem;
         background: linear-gradient(
           135deg,
-          rgba(239, 92, 6, 0.05),
-          rgba(228, 77, 188, 0.01)
+          $gradient-primary-start,
+          $gradient-primary-end
         );
         backdrop-filter: blur(10px);
         border-radius: 1.5rem;
@@ -146,8 +144,8 @@ body {
           transform: scale(1.001);
           background: linear-gradient(
             155deg,
-            rgba(239, 91, 6, 0.057),
-            rgba(228, 77, 188, 0.025)
+            $gradient-hover-start,
+            $gradient-hover-end
           );
         }
 
@@ -167,25 +165,25 @@ body {
         }
       }
     }
-  }
-}
 
-.section {
-  margin-top: 4rem;
-  padding: 1rem;
-  background: radial-gradient(
-    rgba(246, 110, 31, 0.05),
-    rgba(140, 77, 228, 0.01)
-  );
-  backdrop-filter: blur(10px);
-  border-radius: 1.5rem;
-  box-shadow: 0 0 0.8px 0.3px;
-  text-align: center;
-  transition: all 0.4s ease;
+    .section {
+      margin-top: 4rem;
+      padding: 1rem;
+      background: radial-gradient(
+        $gradient-section-start,
+        $gradient-section-end
+      );
+      backdrop-filter: blur(10px);
+      border-radius: 1.5rem;
+      box-shadow: 0 0 0.8px 0.3px;
+      text-align: center;
+      transition: all 0.4s ease;
 
-  & h3 {
-    text-decoration: underline;
-    margin-bottom: 1rem;
-    padding: 1rem;
+      & h3 {
+        text-decoration: underline;
+        margin-bottom: 1rem;
+        padding: 1rem;
+      }
+    }
   }
 }

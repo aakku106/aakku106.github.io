@@ -1,3 +1,4 @@
+// Navigation hover effect - scales and blurs non-hovered items
 .content:hover .navlist:not(:hover) {
   color: #826442 !important;
   transform: scaleX(0.7) scaleY(0.7) rotate(-6deg) !important;

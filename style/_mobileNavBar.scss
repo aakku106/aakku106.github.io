@@ -32,7 +32,7 @@
   }
 
   .lower {
-    z-index: 106;
+    z-index: $z-mobile-nav;
     bottom: 0;
     height: 27vw;
     width: 100vw;
@@ -56,7 +56,7 @@
     .close {
       display: none;
       transition: all 0.3s ease-in-out;
-      z-index: 106;
+      z-index: $z-mobile-nav;
     }
   }
 
@@ -70,29 +70,29 @@
     align-items: flex-start;
     justify-content: center;
     animation: slideIn 0.9s forwards;
-    z-index: 106;
+    z-index: $z-mobile-nav;
 
     .close {
       display: block;
       position: absolute;
       top: 2vw;
       right: 0vw !important;
-      z-index: 106;
+      z-index: $z-mobile-nav;
 
       img {
         height: 8vw;
-        z-index: 106;
+        z-index: $z-mobile-nav;
       }
     }
   }
   .lower.hide {
     height: 0;
     animation: slideOut 0.3s forwards;
-    z-index: 106;
+    z-index: $z-mobile-nav;
   }
   .lower {
     animation: all 0.9s forwards;
-    z-index: 106;
+    z-index: $z-mobile-nav;
   }
 }
 
@@ -106,17 +106,17 @@
   background: linear-gradient(rgba(34, 37, 208, 0.2), rgba(162, 208, 34, 0.2));
   backdrop-filter: blur(17px);
   transition: all 0.3s ease-in-out;
-  z-index: 10;
+  z-index: $z-overlay;
 }
 
 .overlay.show {
   display: block;
   animation: fadeIn 0.3s forwards;
-  z-index: 106;
+  z-index: $z-mobile-nav;
 }
 .overlay.hide {
   animation: fadeOut 0.3s forwards;
-  z-index: 106;
+  z-index: $z-mobile-nav;
 }
 .closeimg {
   height: 21vw;
@@ -124,8 +124,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 10690;
+  z-index: $z-mobile-nav;
   background-color: $primary-color;
   border-radius: 50%;
-  z-index: 106;
+  z-index: $z-mobile-nav;
 }
