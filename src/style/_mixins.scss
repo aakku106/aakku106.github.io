@@ -1,0 +1,38 @@
+@mixin button(
+  $button-bg-color,
+  $button-color,
+  $button-padding,
+  $button-border-radius,
+  $button-cursor
+) {
+  background-color: $button-bg-color;
+  border: 1px none $button-color;
+  color: $button-color;
+  padding: $button-padding;
+  border-radius: $button-border-radius;
+  cursor: $button-cursor;
+}
+
+@mixin nav(
+  $nav-bg-color,
+  $nav-color,
+  $nav-padding,
+  $nav-border-radius,
+  $nav-cursor
+) {
+  background-color: $nav-bg-color;
+  color: $nav-color;
+  padding: $nav-padding;
+  border-radius: $nav-border-radius;
+  cursor: $nav-cursor;
+}
+
+@mixin hover($hover-bg-color, $hover-color) {
+  background-color: $hover-bg-color;
+  color: $hover-color;
+}
+
+@mixin aboutMeBody($bg-color, $text-color) {
+  background-color: $bg-color;
+  color: $text-color;
+}

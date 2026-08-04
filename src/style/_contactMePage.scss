@@ -1,0 +1,744 @@
+@use "sass:color";
+@use "variables" as *;
+
+// Add smooth scrolling to the entire document
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; // Account for any fixed headers
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+// Improve scrolling specifically for contact page
+.naruto-contact {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; // Better scrolling on iOS
+}
+
+// Professional Naruto-inspired glassmorphism design
+$naruto-orange: #ff6b35;
+$naruto-blue: #4a90e2;
+$naruto-dark: #1a1a2e;
+$naruto-light: #eee2dc;
+$naruto-accent: #f4a261;
+$glass-overlay: rgba(26, 26, 46, 0.85);
+$glass-card: rgba(255, 255, 255, 0.08);
+$glass-border: rgba(255, 255, 255, 0.12);
+
+// Apple-inspired fonts
+$primary-font: "Reenie Beanie", cursive;
+$body-font: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+  "Helvetica Neue", sans-serif;
+
+// Professional glassmorphism mixins
+@mixin glass-morphism($opacity: 0.08, $blur: 25px) {
+  background: rgba(255, 255, 255, $opacity);
+  backdrop-filter: blur($blur) saturate(180%);
+  -webkit-backdrop-filter: blur($blur) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+@mixin apple-button {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 107, 53, 0.9),
+    rgba(255, 107, 53, 0.7)
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 107, 53, 0.3);
+  border-radius: 16px;
+  color: white;
+  font-weight: 600;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left 0.6s ease;
+  }
+
+  &:hover {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 107, 53, 1),
+      rgba(255, 107, 53, 0.8)
+    );
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(255, 107, 53, 0.3),
+      0 5px 20px rgba(0, 0, 0, 0.1);
+
+    &::before {
+      left: 100%;
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px) scale(1.01);
+  }
+}
+
+@mixin apple-input {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  color: $naruto-light;
+  font-family: $body-font;
+
+  &::placeholder {
+    color: rgba(238, 226, 220, 0.6);
+  }
+}
+
+// Smooth animations with Apple-like easing
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes narutoGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 107, 53, 0.5);
+  }
+}
+
+// Removed heavy rotation animations for better performance
+// Only keeping essential animations
+
+// Professional Naruto-themed contact page
+.naruto-contact {
+  font-family: $body-font;
+  width: 100%;
+  position: relative;
+  color: $naruto-light;
+  overflow-x: hidden;
+  padding-top: 0; // Remove any top padding
+
+  // Sophisticated background with Naruto elements
+  background: radial-gradient(
+      circle at 20% 80%,
+      rgba(255, 107, 53, 0.15) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(74, 144, 226, 0.15) 0%,
+      transparent 50%
+    ),
+    linear-gradient(
+      135deg,
+      $naruto-dark 0%,
+      color.adjust($naruto-dark, $lightness: 5%) 50%,
+      $naruto-dark 100%
+    );
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../pictures/contactPage/naru.jpg") center/cover no-repeat,
+      $glass-overlay;
+    background-blend-mode: overlay;
+    opacity: 0.4;
+    z-index: -1;
+    pointer-events: none; // Prevent interference with scrolling
+  }
+
+  // Hero section with reduced spacing
+  .contact-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 25vh; // Reduced from 45vh
+    padding: 40px 20px 30px; // Reduced from 80px top and 60px bottom
+    animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    .hero-content {
+      text-align: center;
+      @include glass-morphism(0.08, 30px);
+      padding: 40px 30px; // Reduced from 60px 40px
+      max-width: 700px;
+      position: relative;
+
+      // Only hover effects, no continuous animation
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: scale(1.005);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1),
+          0 0 25px rgba(255, 107, 53, 0.08);
+      } // Subtle Naruto-inspired glow
+      &::before {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(
+          45deg,
+          $naruto-orange,
+          $naruto-blue,
+          $naruto-accent,
+          $naruto-orange
+        );
+        border-radius: 26px;
+        z-index: -1;
+        opacity: 0.4;
+        filter: blur(6px);
+        animation: narutoGlow 4s ease-in-out infinite;
+      }
+
+      h1 {
+        font-family: $primary-font;
+        font-size: clamp(
+          2.5rem,
+          6vw,
+          4rem
+        ); // Reduced from clamp(3.5rem, 8vw, 6rem)
+        margin-bottom: 15px; // Reduced from 20px
+        font-weight: 400;
+        letter-spacing: -0.02em;
+
+        background: linear-gradient(
+          135deg,
+          $naruto-light 0%,
+          $naruto-accent 50%,
+          $naruto-orange 100%
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        span {
+          background: linear-gradient(
+            135deg,
+            $naruto-orange 0%,
+            $naruto-accent 100%
+          );
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      }
+
+      .subtitle {
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: rgba(238, 226, 220, 0.8);
+        letter-spacing: 0.3px;
+        line-height: 1.6;
+      }
+    }
+  }
+
+  // Grid layout with reduced spacing
+  .contact-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 30px; // Reduced from 40px
+    padding: 0 20px 60px; // Reduced bottom padding from 100px
+
+    @media (min-width: 992px) {
+      grid-template-columns: 1.2fr 1fr;
+      gap: 50px; // Reduced from 60px
+    }
+  }
+
+  // Contact form with clean styling for better UX
+  .contact-form-wrapper {
+    @include glass-morphism(0.06, 25px);
+    padding: 50px;
+    animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+    position: relative;
+    transition: all 0.3s ease;
+
+    // Subtle hover effect only - no distracting animations
+    &:hover {
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15),
+        0 0 25px rgba(255, 107, 53, 0.08);
+    }
+
+    // Remove the animated border - too distracting for form input
+    .form-header {
+      text-align: center;
+      margin-bottom: 50px;
+
+      h2 {
+        font-family: $primary-font;
+        font-size: 3rem;
+        margin: 0;
+        font-weight: 400;
+        background: linear-gradient(
+          135deg,
+          $naruto-light 0%,
+          $naruto-orange 100%
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(90deg, $naruto-orange, $naruto-accent);
+        margin: 25px auto 0;
+        border-radius: 2px;
+      }
+    }
+  }
+
+  .contact-form {
+    .form-group {
+      margin-bottom: 32px;
+      transition: all 0.2s ease;
+
+      // Remove distracting hover effects from form groups
+
+      label {
+        display: block;
+        margin-bottom: 12px;
+        font-weight: 600;
+        color: $naruto-light;
+        font-size: 1rem;
+        letter-spacing: 0.3px;
+        transition: all 0.2s ease;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 18px 24px;
+        @include apple-input;
+        font-size: 16px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+
+        // Simplified hover - no rotation
+        &:hover {
+          border-color: rgba(255, 107, 53, 0.3);
+        }
+
+        // Clean focus effect - minimal rotation
+        &:focus {
+          outline: none;
+          background: rgba(255, 255, 255, 0.08);
+          border-color: rgba(255, 107, 53, 0.6);
+          box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.1),
+            0 4px 15px rgba(255, 107, 53, 0.1);
+          transform: translateY(-1px);
+        }
+
+        &:-webkit-autofill {
+          -webkit-box-shadow: 0 0 0 30px rgba(255, 255, 255, 0.05) inset;
+          -webkit-text-fill-color: $naruto-light;
+        }
+      }
+
+      textarea {
+        min-height: 140px;
+        resize: vertical;
+        font-family: $body-font;
+      }
+    }
+
+    .send-btn {
+      @include apple-button;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 18px 32px;
+      margin-top: 40px;
+      letter-spacing: 0.3px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 107, 53, 1),
+          rgba(255, 107, 53, 0.8)
+        );
+        transform: translateY(-2px) scale(1.01);
+        box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3),
+          0 5px 15px rgba(0, 0, 0, 0.1);
+
+        &::before {
+          left: 100%;
+        }
+
+        .btn-icon {
+          transform: translateX(6px) rotate(5deg);
+        }
+      }
+
+      &:active {
+        transform: translateY(-1px) scale(1.005);
+      }
+
+      .btn-text {
+        margin-right: 12px;
+      }
+
+      .btn-icon {
+        font-size: 1.3rem;
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+
+        &:hover {
+          transform: none;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+  }
+
+  // Contact info with reduced animations for better performance
+  .contact-info {
+    animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s both;
+
+    .info-card {
+      height: 100%;
+      perspective: 800px;
+
+      .card-inner {
+        @include glass-morphism(0.06, 25px);
+        padding: 50px;
+        height: 100%;
+        position: relative;
+        transition: all 0.4s ease;
+
+        // Better perspective rotation - contact info rotates left
+        &:hover {
+          transform: perspective(1000px) rotateY(-5deg) translateZ(15px)
+            scale(1.005);
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15),
+            0 0 30px rgba(255, 107, 53, 0.12);
+        }
+
+        &:active {
+          transform: perspective(1000px) rotateY(-3deg) translateZ(10px)
+            scale(1.002);
+        }
+
+        h3 {
+          font-family: $primary-font;
+          font-size: 2.5rem;
+          margin-bottom: 40px;
+          text-align: center;
+          font-weight: 400;
+
+          background: linear-gradient(
+            135deg,
+            $naruto-orange 0%,
+            $naruto-accent 100%
+          );
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, $naruto-orange, $naruto-accent);
+            border-radius: 2px;
+          }
+        }
+      }
+    }
+
+    .contact-methods {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      .contact-method {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 30px;
+        padding: 25px;
+        @include glass-morphism(0.04, 15px);
+        transition: all 0.3s ease;
+        position: relative;
+        border-radius: 20px;
+
+        &:hover {
+          // Rotate right to balance contact info (which rotates left)
+          transform: perspective(100px) rotateY(2deg) translateY(-3px)
+            scale(1.005);
+          background: rgba(255, 107, 53, 0.08);
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12),
+            0 0 15px rgba(255, 107, 53, 0.08);
+        }
+
+        // Remove continuous animations - only hover effects
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        .method-icon {
+          width: 60px;
+          height: 60px;
+          border-radius: 20px;
+          background: linear-gradient(
+            135deg,
+            rgba(255, 107, 53, 0.2),
+            rgba(244, 162, 97, 0.15)
+          );
+          backdrop-filter: blur(15px);
+          -webkit-backdrop-filter: blur(15px);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-right: 25px;
+          font-size: 1.5rem;
+          flex-shrink: 0;
+          transition: all 0.3s ease;
+
+          &:hover {
+            // Rotate left to balance their container (which rotates right)
+            transform: perspective(600px) rotateY(-3deg) scale(1.05);
+            background: linear-gradient(
+              135deg,
+              rgba(255, 107, 53, 0.3),
+              rgba(244, 162, 97, 0.25)
+            );
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.15);
+          }
+
+          &.email::before {
+            content: "✉️";
+          }
+          &.location::before {
+            content: "📍";
+          }
+          &.social::before {
+            content: "🌐";
+          }
+        }
+
+        .method-details {
+          flex: 1;
+
+          h4 {
+            font-size: 1.2rem;
+            color: $naruto-light;
+            margin-bottom: 8px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+          }
+
+          p,
+          a {
+            font-size: 1rem;
+            color: rgba(238, 226, 220, 0.8);
+            margin: 0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            line-height: 1.5;
+          }
+
+          a:hover {
+            color: $naruto-orange;
+          }
+
+          .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 12px;
+
+            .social-link {
+              padding: 8px 16px;
+              @include glass-morphism(0.04, 10px);
+              font-size: 0.9rem;
+              font-weight: 500;
+              transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+              border-radius: 12px;
+
+              &:hover {
+                background: rgba(255, 107, 53, 0.1);
+                transform: translateY(-3px);
+                color: $naruto-orange;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Professional form messages with Naruto theme */
+.form-message {
+  padding: 24px 30px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  font-weight: 500;
+  font-size: 1rem;
+  animation: fadeInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  @include glass-morphism(0.08, 15px);
+  border-left: 4px solid;
+  letter-spacing: 0.3px;
+}
+
+.form-message.success {
+  border-left-color: #4caf50;
+  color: #4caf50;
+  background: rgba(76, 175, 80, 0.05);
+
+  &::before {
+    content: "🎉 ";
+    font-size: 1.3rem;
+    margin-right: 8px;
+  }
+}
+
+.form-message.error {
+  border-left-color: #ff5722;
+  color: #ff5722;
+  background: rgba(255, 87, 34, 0.05);
+
+  &::before {
+    content: "⚡ ";
+    font-size: 1.3rem;
+    margin-right: 8px;
+  }
+}
+
+.form-message.fade-out {
+  opacity: 0;
+  transform: translateY(-15px);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Additional animations */
+/* Responsive design for professional layout */
+@media (max-width: 768px) {
+  .naruto-contact {
+    .contact-hero {
+      padding: 30px 15px 20px; // Reduced mobile hero padding
+
+      .hero-content {
+        padding: 30px 20px; // Reduced mobile hero content padding
+
+        h1 {
+          font-size: clamp(2rem, 10vw, 3.5rem); // Reduced mobile font sizes
+        }
+
+        .subtitle {
+          font-size: 1rem; // Reduced from 1.1rem
+        }
+      }
+    }
+
+    .contact-container {
+      gap: 20px; // Reduced from 30px
+      padding: 0 15px 50px; // Reduced from 80px bottom
+    }
+
+    .contact-form-wrapper {
+      padding: 35px 25px;
+    }
+
+    .contact-info .info-card .card-inner {
+      padding: 35px 25px;
+    }
+
+    .contact-methods .contact-method {
+      padding: 20px;
+      flex-direction: column;
+      text-align: center;
+
+      .method-icon {
+        margin: 0 auto 20px;
+      }
+
+      .method-details {
+        .social-links {
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .naruto-contact {
+    .contact-container {
+      grid-template-columns: 1fr;
+      max-width: 900px;
+      gap: 50px;
+    }
+  }
+}
+
+/* Safari-specific optimizations */
+@supports (-webkit-backdrop-filter: blur(25px)) {
+  .naruto-contact {
+    .contact-form-wrapper,
+    .contact-info .info-card .card-inner {
+      backdrop-filter: blur(25px) saturate(180%);
+      -webkit-backdrop-filter: blur(25px) saturate(180%);
+    }
+  }
+}
+
+/* High-resolution display optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .naruto-contact {
+    .hero-content,
+    .contact-form-wrapper,
+    .contact-info .info-card .card-inner {
+      border-width: 0.5px;
+    }
+  }
+}

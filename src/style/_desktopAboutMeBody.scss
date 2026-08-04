@@ -1,0 +1,188 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+@media (max-width: 480px) {
+  .AboutMeDesktopView {
+    overflow-x: hidden !important;
+    // display: none;
+    .intro {
+      .introText {
+        height: max-content !important;
+        font-size: 2.1rem !important;
+        margin-right: 0.2rem !important;
+      }
+      .introImageHolder {
+        margin-top: 3rem !important;
+        width: 20rem !important;
+        height: 20rem !important;
+      }
+    }
+    .skills-experience,
+    .projects,
+    .future-goals {
+      padding: 0.5vw !important;
+      text-align: center !important;
+      font-size: 1.87rem !important;
+      margin-right: 0.1rem !important;
+    }
+
+    .projects {
+      .project-item {
+        margin-top: 2rem !important;
+        margin-bottom: 2rem !important;
+        padding: 1rem !important;
+
+        b {
+          font-size: 2.2rem !important;
+        }
+
+        p {
+          font-size: 1.87rem !important;
+          padding-left: 0.5rem !important;
+        }
+      }
+    }
+  }
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $primary-color;
+  color: $secondary-color;
+  min-height: 100vh;
+
+  .AboutMeDesktopView {
+    @include aboutMeBody($primary-color, $secondary-color);
+    padding-left: 1.4vw;
+    font-family: "Amatic SC", sans-serif;
+    background-color: transparent;
+    .intro {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: 5rem;
+      position: relative;
+      flex-wrap: wrap !important;
+      .introText {
+        z-index: 5;
+        width: 45rem;
+        height: max-content;
+        text-align: justify;
+        // margin-bottom: 2vw;
+        line-height: 1.5;
+        font-size: 3.4vw;
+        backdrop-filter: blur(20px) !important;
+        background: linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.078),
+          rgba(0, 0, 0, 0.229)
+        );
+
+        padding: 1.5rem !important;
+        border-radius: 2vw;
+        box-shadow: 0 0 1vw 0.5vw rgba(0, 0, 0, 0.349);
+        transition: all 0.9s cubic-bezier(0.8, 1.38, 0.03, 1);
+
+        &:hover {
+          box-shadow: 0vw 0vw 1.1vw 0.7vw $secondary-color;
+          padding: 2.2rem;
+          border-radius: 5vw;
+        }
+      }
+      .introImageHolder {
+        z-index: 5;
+        width: 30rem;
+        height: 30rem;
+        margin-bottom: 1.5rem;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: 0 0 1vw 0.5vw rgba(0, 0, 0, 0.349);
+        transition: all 0.6s cubic-bezier(0.87, -1.38, 0.03, 1);
+
+        &:hover {
+          border-radius: 40%;
+          z-index: 3;
+          width: 34rem;
+          height: 34rem;
+          box-shadow: 0vw 0vw 1.1vw 0.7vw $secondary-color;
+          transform: rotate(6deg);
+        }
+      }
+      .introImage {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(100%);
+
+        &:hover {
+          filter: none;
+          transform: translateX(1vw) scale(1.1) rotate(-9deg);
+        }
+      }
+    }
+
+    .projects {
+      .project-item {
+        margin-top: 2.5rem;
+        margin-bottom: 2.5rem;
+        padding: 1.5rem;
+        background: linear-gradient(
+          135deg,
+          $gradient-primary-start,
+          $gradient-primary-end
+        );
+        backdrop-filter: blur(10px);
+        border-radius: 1.5rem;
+        box-shadow: 0 0 0.8px 0.3px;
+        transition: all 0.4s ease;
+
+        &:hover {
+          box-shadow: 0 0 4px 0.5px;
+          transform: scale(1.001);
+          background: linear-gradient(
+            155deg,
+            $gradient-hover-start,
+            $gradient-hover-end
+          );
+        }
+
+        b {
+          font-size: 3.2vw;
+          display: block;
+          margin-bottom: 1rem;
+        }
+
+        p {
+          font-size: 2.8vw;
+          line-height: 1.6;
+          text-align: justify;
+          margin: 0;
+          padding-left: 1rem;
+        }
+      }
+    }
+
+    .section {
+      margin-top: 4rem;
+      padding: 1rem;
+      background: radial-gradient(
+        $gradient-section-start,
+        $gradient-section-end
+      );
+      backdrop-filter: blur(10px);
+      border-radius: 1.5rem;
+      box-shadow: 0 0 0.8px 0.3px;
+      text-align: center;
+      transition: all 0.4s ease;
+
+      & h3 {
+        text-decoration: underline;
+        margin-bottom: 1rem;
+        padding: 1rem;
+      }
+    }
+  }
+}
