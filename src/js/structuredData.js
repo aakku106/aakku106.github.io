@@ -71,7 +71,7 @@ class StructuredDataGenerator {
         "Back-End Development",
         "Python Programming",
       ],
-      email: "mailto:adarasha.gaihre@gmail.com",
+      email: "mailto:aakku@adarashagaihre.com.np",
       telephone: "+977-000-000-0000",
     };
   }
