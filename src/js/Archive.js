@@ -1,26 +1,47 @@
-setTimeout(() => {
+function initOthersMenu() {
   const showButton = document.getElementById("Others");
-  const OthersSectionActive = document.getElementById("OthersSectionActive");
-  const vaultDiv = document.getElementById("ValutSectionShow");
-  const CrossBtnVault = document.getElementById("CrossBtnVault");
+  const othersSection = document.getElementById("OthersSectionActive");
+  const vaultLink = document.getElementById("ValutSectionShow");
+  const closeButton = document.getElementById("CrossBtnVault");
 
-  OthersSectionActive.style.display = "none";
-  CrossBtnVault.style.display = "none";
-  vaultDiv.style.display = "none";
+  // The desktop nav is injected by NavBarLanding.js / NavBarPages.js.
+  if (!showButton || !othersSection || !vaultLink || !closeButton) {
+    return;
+  }
 
-  showButton.addEventListener("click", () => {
-    OthersSectionActive.style.display = "block";
-    vaultDiv.style.display = "block";
-    CrossBtnVault.style.display = "block";
+  othersSection.style.display = "none";
+
+  showButton.addEventListener("click", (event) => {
+    event.stopPropagation();
+    othersSection.style.display =
+      othersSection.style.display === "block" ? "none" : "block";
   });
 
-  vaultDiv.addEventListener("click", () => {
+  vaultLink.addEventListener("click", () => {
     window.location.href = "https://archive.adarashagaihre.com.np";
   });
 
-  CrossBtnVault.addEventListener("click", () => {
-    CrossBtnVault.style.display = "none";
-    vaultDiv.style.display = "none";
-    OthersSectionActive.style.display = "none";
+  closeButton.addEventListener("click", (event) => {
+    event.stopPropagation();
+    othersSection.style.display = "none";
   });
-}, 500);
+
+  document.addEventListener("click", (event) => {
+    if (othersSection.style.display !== "block") {
+      return;
+    }
+
+    if (
+      !othersSection.contains(event.target) &&
+      !showButton.contains(event.target)
+    ) {
+      othersSection.style.display = "none";
+    }
+  });
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initOthersMenu);
+} else {
+  initOthersMenu();
+}
