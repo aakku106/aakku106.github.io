@@ -364,7 +364,12 @@ header {
     width: 20rem !important;
     height: 20rem !important;
   }
-  .AboutMeDesktopView .skills-experience,
+  .AboutMeDesktopView .skills-experience {
+    padding: 1rem !important;
+    text-align: left !important;
+    font-size: 1.87rem !important;
+    margin-right: 0.1rem !important;
+  }
   .AboutMeDesktopView .projects,
   .AboutMeDesktopView .future-goals {
     padding: 0.5vw !important;
@@ -511,6 +516,37 @@ body .AboutMeDesktopView .section h3 {
   text-decoration: underline;
   margin-bottom: 1rem;
   padding: 1rem;
+}
+html .AboutMeDesktopView .section.skills-experience,
+body .AboutMeDesktopView .section.skills-experience {
+  text-align: left;
+}
+html .AboutMeDesktopView .section.skills-experience p,
+body .AboutMeDesktopView .section.skills-experience p {
+  max-width: 64rem;
+  margin: 0 auto 1.25rem;
+  text-align: left;
+  line-height: 1.5;
+}
+html .AboutMeDesktopView .section.skills-experience p:last-child,
+body .AboutMeDesktopView .section.skills-experience p:last-child {
+  margin-bottom: 0;
+}
+html .AboutMeDesktopView .section.skills-experience .skills-list,
+body .AboutMeDesktopView .section.skills-experience .skills-list {
+  max-width: 64rem;
+  margin: 1.5rem auto;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+html .AboutMeDesktopView .section.skills-experience .skills-list li,
+body .AboutMeDesktopView .section.skills-experience .skills-list li {
+  line-height: 1.4;
+}
+html .AboutMeDesktopView .section.skills-experience .skills-list li + li,
+body .AboutMeDesktopView .section.skills-experience .skills-list li + li {
+  margin-top: 0.5rem;
 }
 
 p {
