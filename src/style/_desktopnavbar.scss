@@ -163,6 +163,7 @@ header {
       }
       .Others {
         border-radius: 50%;
+        cursor: pointer;
         &:hover {
           animation: discoGlow 1s infinite alternate;
           box-shadow: 0px 0px 1vw 0.5vw color.invert($primary-color);
