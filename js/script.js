@@ -1,5 +1,3 @@
-/** @format */
-
 document.addEventListener("DOMContentLoaded", function () {
   const closeBtn = document.querySelector(".mobile #close");
   closeBtn.style.display = "none";

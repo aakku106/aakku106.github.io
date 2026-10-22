@@ -1,5 +1,3 @@
-/** @format */
-
 setTimeout(() => {
   const showButton = document.getElementById("Others");
   const OthersSectionActive = document.getElementById("OthersSectionActive");
