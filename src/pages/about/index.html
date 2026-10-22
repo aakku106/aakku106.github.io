@@ -151,8 +151,8 @@
         <p
           data-original-date="Updated on: March 15, 2025, 15:45"
           class="introText">
-          Hey there! I'm <b>Adarasha Gaihre</b> (Aakku), an IT student currently
-          pursuing my
+          <span id="introGreeting">Hey there!</span> I'm
+          <b>Adarasha Gaihre</b> (Aakku), an IT student currently pursuing my
           <b>BSc in Computer Science and Information Technology (BSc.CSIT)</b>
           in Nepal. I'm passionate about <b>coding</b>, anime (huge
           <b>Naruto</b> fan!), and working on creative projects. And also I
@@ -317,6 +317,25 @@
         var loader = document.getElementById("preLoader");
         loader.classList.add("fade-out");
       });
+    </script>
+    <script>
+      // Use the name saved by "Remember me" on the landing page, if present.
+      (function () {
+        const greeting = document.getElementById("introGreeting");
+        const storedUser = localStorage.getItem("welcomeUser");
+        if (!greeting || !storedUser) return;
+
+        // Match the same sanitization used before saving the name.
+        const name = storedUser
+          .trim()
+          .substring(0, 50)
+          .replace(/[<>\/\\&'"]/g, "")
+          .replace(/\s+/g, " ");
+
+        if (name) {
+          greeting.textContent = `Hi, ${name}!`;
+        }
+      })();
     </script>
   </body>
   <script src="../../js/Archive.js"></script>
