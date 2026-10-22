@@ -4,10 +4,9 @@
   "description": "Adarasha Gaihre - Portfolio Website",
   "main": "index.js",
   "scripts": {
-    "build:css": "cleancss -o style/style.min.css style/style.css",
-    "build:js": "terser js/Archive.js -o js/Archive.min.js -c -m && terser js/script.js -o js/script.min.js -c -m && terser js/structuredData.js -o js/structuredData.min.js -c -m && terser js/navBar.js/NavBarLanding.js -o js/navBar.js/NavBarLanding.min.js -c -m && terser js/navBar.js/NavBarPages.js -o js/navBar.js/NavBarPages.min.js -c -m",
-    "build:html": "html-minifier-terser --collapse-whitespace --remove-comments index.html -o index.min.html && html-minifier-terser --collapse-whitespace --remove-comments pages/about/index.html -o pages/about/index.min.html && html-minifier-terser --collapse-whitespace --remove-comments pages/contact/index.html -o pages/contact/index.min.html && html-minifier-terser --collapse-whitespace --remove-comments pages/portfolio/index.html -o pages/portfolio/index.min.html",
-    "build": "npm run build:css && npm run build:js && npm run build:html"
+    "compile:scss": "sass src/style/style.scss src/style/style.css",
+    "build": "node scripts/build.js",
+    "preview": "python3 -m http.server 8000"
   },
   "repository": {
     "type": "git",
@@ -23,6 +22,7 @@
   "devDependencies": {
     "clean-css-cli": "^5.6.3",
     "html-minifier-terser": "^7.2.0",
+    "sass": "^1.106.1",
     "terser": "^5.49.0"
   }
 }
