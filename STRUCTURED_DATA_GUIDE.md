@@ -101,14 +101,14 @@ If you need to override the automatic detection:
 
 ## ✅ Implementation Checklist
 
-### For Each Page:
+### For Each Page
 
 - [ ] Remove old hardcoded `<script type="application/ld+json">` blocks
 - [ ] Add `<script src="path/to/structuredData.js"></script>` before `</body>`
 - [ ] Test the page to ensure structured data is inserted
 - [ ] Validate with [Google's Rich Results Test](https://search.google.com/test/rich-results)
 
-### Files Updated:
+### Files Updated
 
 - [ ] `/index.html` ✅
 - [ ] `/pages/about/index.html` ✅
